@@ -4,14 +4,14 @@ import { Linkedin, Twitter, Facebook, ArrowRight, Mail, Phone, MapPin } from 'lu
 
 export const Footer = () => {
     return (
-        <footer className="bg-navy-900 border-t border-white/5 pt-32 pb-16 relative overflow-hidden">
-            <div className="container mx-auto px-6 max-w-[1280px] grid lg:grid-cols-4 md:grid-cols-2 gap-x-32 gap-y-24 relative z-10 pb-20 border-b border-white/10 mb-12">
+        <footer className="bg-navy-900 border-t border-white/5 pt-20 pb-12 relative overflow-hidden">
+            <div className="container mx-auto px-6 max-w-[1280px] grid lg:grid-cols-4 md:grid-cols-2 gap-x-32 gap-y-12 relative z-10 pb-16 border-b border-white/10 mb-10">
                 <div className="space-y-10 order-1 pr-12">
                     <Link to="/" className="text-3xl font-heading font-bold text-white tracking-tighter hover:text-gold-500 transition-colors">
                         MAAN<span className="text-gold-500 font-light">GROUP</span>
                     </Link>
-                    <p className="text-slate-400 text-lg leading-relaxed max-w-sm">
-                        Empowering organizations through a multi-disciplinary approach to strategy, development, and future-forward innovation. Established 2025.
+                    <p className="text-slate-400 text-sm leading-normal max-w-xs opacity-70">
+                        Empowering organizations through a multi-disciplinary approach to strategy, development, and future-forward innovation.
                     </p>
                     <div className="flex gap-6 items-center">
                         <a href="#" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 text-slate-400 flex items-center justify-center hover:bg-gold-500 hover:text-white hover:border-gold-500 transition-all duration-300">
@@ -26,9 +26,9 @@ export const Footer = () => {
                     </div>
                 </div>
 
-                <div className="order-2 lg:order-2 space-y-10">
+                <div className="order-2 lg:order-2 space-y-8">
                     <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-gold-500 border-b border-gold-500/20 pb-4 w-fit">Expertise</h3>
-                    <ul className="space-y-6">
+                    <ul className="space-y-4">
                         <li><Link to="/services" className="text-slate-400 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Strategy Consulting</Link></li>
                         <li><Link to="/services" className="text-slate-400 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Professional Training</Link></li>
                         <li><Link to="/services" className="text-slate-400 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Institutional Building</Link></li>
@@ -36,9 +36,9 @@ export const Footer = () => {
                     </ul>
                 </div>
 
-                <div className="order-3 lg:order-3 space-y-10">
+                <div className="order-3 lg:order-3 space-y-8">
                     <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-gold-500 border-b border-gold-500/20 pb-4 w-fit">Company</h3>
-                    <ul className="space-y-6">
+                    <ul className="space-y-4">
                         <li><Link to="/about" className="text-slate-400 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Our Identity/About</Link></li>
                         <li><Link to="/events" className="text-slate-400 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Events</Link></li>
                         <li><Link to="/contact" className="text-slate-400 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Connect/Contact</Link></li>

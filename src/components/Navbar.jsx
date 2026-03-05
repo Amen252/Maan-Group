@@ -21,7 +21,7 @@ export const Navbar = () => {
     ];
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-xl shadow-lg shadow-navy-900/5 py-3' : 'bg-white/80 backdrop-blur-md py-4'
+        <nav className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-xl shadow-lg shadow-navy-900/5 py-2' : 'bg-white/80 backdrop-blur-md py-3'
             } border-b border-slate-100/80`}>
             <div className="container mx-auto px-6 flex items-center justify-between max-w-[1280px]">
 
