@@ -8,10 +8,12 @@ import { About } from './pages/About'
 import { Contact } from './pages/Contact'
 import { Events } from './pages/Events'
 import { EventDetail } from './pages/EventDetail'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="app">
         <Navbar />
         <Routes>
