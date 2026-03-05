@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link, NavLink } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -55,8 +55,9 @@ export const Navbar = () => {
                             </NavLink>
                         ))}
                     </div>
-                    <Link to="/contact" className="btn btn-primary !px-10 !py-4 !text-xs !rounded-sm shadow-xl shadow-gold-500/10">
+                    <Link to="/contact" className="btn btn-primary !px-10 !py-4 !text-xs !rounded-sm shadow-xl rounded-md shadow-gold-500/10 flex items-center gap-2 group/btn">
                         Partner With Us
+                        <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform duration-300" />
                     </Link>
                 </div>
 
@@ -91,10 +92,11 @@ export const Navbar = () => {
                     <div className="p-6">
                         <Link
                             to="/contact"
-                            className="btn btn-primary w-full !justify-center"
+                            className="btn btn-primary w-full !justify-center flex items-center gap-2 group/mbtn"
                             onClick={() => setIsOpen(false)}
                         >
                             Partner With Us
+                            <ArrowRight size={16} className="group-hover/mbtn:translate-x-1 transition-transform duration-300" />
                         </Link>
                     </div>
                 </div>
