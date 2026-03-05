@@ -82,53 +82,55 @@ export const Contact = () => {
 
                                 <h2 className="text-3xl font-semibold text-navy-900 mb-10 tracking-tight text-center lg:text-left uppercase">Consultation Request</h2>
 
-                                <div className="space-y-8">
-                                    <div className="grid sm:grid-cols-2 gap-8">
-                                        <div className="space-y-4">
-                                            <label className="block text-xs font-semibold uppercase tracking-widest text-navy-900 ml-1">Full Name</label>
+                                <div className="space-y-6">
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="space-y-2">
+                                            <label className="block text-[0.65rem] font-bold uppercase tracking-widest text-navy-900/40 ml-1">Name</label>
                                             <input
                                                 type="text"
-                                                placeholder="Name"
+                                                placeholder="Full Name"
                                                 required
-                                                className="w-full px-6 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-gold-500 transition-all font-light"
+                                                className="w-full px-5 py-3.5 rounded-sm border border-slate-100 bg-slate-50/50 focus:bg-white focus:outline-none focus:border-gold-500 transition-all font-light text-sm"
                                                 value={formData.name}
                                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                             />
                                         </div>
-                                        <div className="space-y-4">
-                                            <label className="block text-xs font-semibold uppercase tracking-widest text-navy-900 ml-1">Email Address</label>
+                                        <div className="space-y-2">
+                                            <label className="block text-[0.65rem] font-bold uppercase tracking-widest text-navy-900/40 ml-1">Email</label>
                                             <input
                                                 type="email"
-                                                placeholder="email@example.com"
+                                                placeholder="email@work.com"
                                                 required
-                                                className="w-full px-6 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-gold-500 transition-all font-light"
+                                                className="w-full px-5 py-3.5 rounded-sm border border-slate-100 bg-slate-50/50 focus:bg-white focus:outline-none focus:border-gold-500 transition-all font-light text-sm"
                                                 value={formData.email}
                                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                             />
                                         </div>
                                     </div>
 
-                                    <div className="space-y-4">
-                                        <label className="block text-xs font-semibold uppercase tracking-widest text-navy-900 ml-1">Service Interest</label>
-                                        <select
-                                            className="w-full px-6 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-gold-500 transition-all font-light appearance-none cursor-pointer"
-                                            value={formData.service}
-                                            onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                                        >
-                                            <option>Consulting</option>
-                                            <option>Training</option>
-                                            <option>Capacity Building</option>
-                                            <option>Research & Development</option>
-                                        </select>
+                                    <div className="space-y-2">
+                                        <label className="block text-[0.65rem] font-bold uppercase tracking-widest text-navy-900/40 ml-1">Service Interest</label>
+                                        <div className="relative">
+                                            <select
+                                                className="w-full px-5 py-3.5 rounded-sm border border-slate-100 bg-slate-50/50 focus:bg-white focus:outline-none focus:border-gold-500 transition-all font-light text-sm appearance-none cursor-pointer"
+                                                value={formData.service}
+                                                onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                                            >
+                                                <option>Consulting</option>
+                                                <option>Training</option>
+                                                <option>Capacity Building</option>
+                                                <option>Research & Development</option>
+                                            </select>
+                                        </div>
                                     </div>
 
-                                    <div className="space-y-4">
-                                        <label className="block text-xs font-semibold uppercase tracking-widest text-navy-900 ml-1">Message</label>
+                                    <div className="space-y-2">
+                                        <label className="block text-[0.65rem] font-bold uppercase tracking-widest text-navy-900/40 ml-1">Your Message</label>
                                         <textarea
-                                            rows="5"
-                                            placeholder="Tell us about your goals..."
+                                            rows="4"
+                                            placeholder="Discuss your goals..."
                                             required
-                                            className="w-full px-6 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-gold-500 transition-all font-light resize-none"
+                                            className="w-full px-5 py-3.5 rounded-sm border border-slate-100 bg-slate-50/50 focus:bg-white focus:outline-none focus:border-gold-500 transition-all font-light text-sm resize-none"
                                             value={formData.message}
                                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                         ></textarea>
@@ -137,10 +139,10 @@ export const Contact = () => {
 
                                 <button
                                     type="submit"
-                                    className="mt-12 w-full btn btn-primary py-5 rounded-sm flex items-center justify-center gap-4 text-xs font-bold uppercase tracking-[0.2em] shadow-lg shadow-gold-500/20 group relative overflow-hidden"
+                                    className="mt-10 w-full btn btn-primary py-5 rounded-sm flex items-center justify-center gap-4 text-[0.7rem] font-bold uppercase tracking-[0.25em] group transition-all"
                                 >
                                     <span className="relative z-10 flex items-center gap-3">
-                                        Start Your Partnership <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform duration-300" />
+                                        Send Message <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform duration-300" />
                                     </span>
                                 </button>
                             </form>
