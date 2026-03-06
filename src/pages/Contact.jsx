@@ -6,7 +6,7 @@ export const Contact = () => {
     const [formData, setFormData] = React.useState({
         name: '',
         email: '',
-        service: 'Consulting',
+        service: 'Consulting Services',
         message: ''
     });
 
@@ -43,9 +43,9 @@ export const Contact = () => {
 
                             <div className="space-y-8">
                                 {[
-                                    { icon: Mail, title: "Email Us", text: "info@maangroup.com" },
-                                    { icon: Phone, title: "Support", text: "+1 (555) 342-9900" },
-                                    { icon: MapPin, title: "Location", text: "Global Advisory Center" }
+                                    { icon: Mail, title: "Email Us", text: "info@maangroup.so" },
+                                    { icon: Phone, title: "Support", text: "+252 61 7076666" },
+                                    { icon: MapPin, title: "Location", text: "Mogadishu, Somalia" }
                                 ].map((item, idx) => (
                                     <div key={idx} className="flex gap-6 group cursor-default">
                                         <div className="w-14 h-14 rounded-xl bg-navy-900 text-gold-500 flex items-center justify-center flex-shrink-0 group-hover:bg-gold-500 group-hover:text-white transition-all duration-300 shadow-lg">
@@ -116,8 +116,8 @@ export const Contact = () => {
                                                 value={formData.service}
                                                 onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                                             >
-                                                <option>Consulting</option>
-                                                <option>Training</option>
+                                                <option>Consulting Services</option>
+                                                <option>Training & Development</option>
                                                 <option>Capacity Building</option>
                                                 <option>Research & Development</option>
                                             </select>

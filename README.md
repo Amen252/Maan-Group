@@ -1,13 +1,13 @@
 # MaanGroup - Strategic Professional Solutions
 
-MaanGroup is a premier multi-disciplinary consultancy firm dedicated to empowering organizations and individuals through strategic innovation and practical insight. Founded in 2025, we specialize in bridging the gap between academic theory and real-world success.
+Maan Group is a leading consultancy and training firm in Somalia, dedicated to empowering minds and building the future through leadership development, organizational strategy, and professional excellence. Established in 2019, we specialize in providing practical, results-driven solutions rooted in localized insights.
 
 ## 🚀 Core Pillars
 
-*   **Consulting**: Expert strategic advisory to help organizations navigate complex challenges and achieve sustainable growth.
-*   **Training**: Customized professional development programs and workshops designed to bridge skills gaps.
-*   **Capacity Building**: Strengthening the foundations of institutions and communities through targeted initiatives.
-*   **Research & Development**: Utilizing data-driven insights and rigorous analysis to provide forward-thinking solutions.
+*   **Consulting Services**: Modernizing governance and developing agile leaders through strategic advisory.
+*   **Training & Development**: Unlocking human potential through tailored leadership and professional readiness programs.
+*   **Capacity Building**: Strengthening institutions and amplifying unheard voices to foster impactful change.
+*   **Research & Development**: Turning data and real-world stories into actionable practice and policy.
 
 ## ✨ Features
 
@@ -53,4 +53,4 @@ To run this project locally, follow these steps:
 
 ---
 
-© 2026 MaanGroup. All rights reserved.
+© 2025 Maan Group. All rights reserved.

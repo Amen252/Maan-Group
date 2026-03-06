@@ -20,7 +20,7 @@ Mahadnaq weyn ayaan u diraynaa ardayda **JUTSA** iyo dhammaan ka qaybgalayaasha 
 
 **Maan Group** way ka go’an tahay in ay taageerto dhalinyarada Soomaaliyeed, kobciso xirfadaha, isla markaana ay abuuto buundooyin u dhexeeya jaamacadaha iyo farsamooyinka suuqa shaqada. Waxaan u taagannahay dhisidda mustaqbal waara oo waxkabedela hab-fikirka iyo dhisidda mustaqbalka dhallinyarada Soomaaliyeed.
 
-**Empowering Minds. Building the Future.**`,
+**Empowering Minds. Building Future.**`,
         duration: "Full Day",
         organizer: {
             name: "Maan Group",

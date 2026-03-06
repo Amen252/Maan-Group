@@ -32,12 +32,12 @@ export const About = () => {
                         </span>
                         <h1 className="text-4xl lg:text-6xl font-bold text-navy-900 leading-[1.1]">
                             Empowering Minds. <br />
-                            <span className="text-gold-500">Building the Future.</span>
+                            <span className="text-gold-500">Building Future.</span>
                         </h1>
                         <p className="text-xl text-slate-600 leading-relaxed font-light">
-                            Maan Group is a multidisciplinary organization dedicated to fostering growth,
-                            innovation, and professional excellence through strategic advisory and
-                            educational initiatives.
+                            Established in 2019 in Mogadishu, Somalia, Maan Group is a leading consultancy
+                            and training firm dedicated to leadership development, organizational strategy,
+                            and professional excellence.
                         </p>
                     </motion.div>
                 </div>
@@ -50,50 +50,49 @@ export const About = () => {
                         <div className="space-y-6">
                             <h2 className="text-2xl font-bold text-navy-900 uppercase tracking-tight">Our Purpose</h2>
                             <p className="text-lg leading-relaxed">
-                                We believe that the biggest challenges require a combination of strategic
-                                foresight and human connection. Our mission is to bridge the gap between
-                                academic theory and practical professional success, especially for the
-                                Somali youth and emerging professionals.
+                                At Maan Group, we are dedicated to fostering professional excellence and
+                                institutional growth. We believe in providing innovative solutions that
+                                empower individuals and organizations to navigate complex challenges with
+                                confidence and strategic foresight.
                             </p>
                         </div>
 
                         <div className="grid md:grid-cols-2 gap-12">
-                            <div className="space-y-4">
-                                <h3 className="text-navy-900 font-bold uppercase text-sm tracking-widest">Our Mission</h3>
+                            <div className="space-y-6">
+                                <h3 className="text-navy-900 font-bold uppercase text-sm tracking-widest text-gold-500">Our Mission</h3>
                                 <p className="leading-relaxed">
-                                    To provide organizations and individuals with the tools and insights
-                                    necessary to navigate a rapidly changing global landscape with
-                                    integrity and professional excellence.
+                                    To educate, inspire, and empower professionals and entrepreneurs by providing
+                                    comprehensive training programs, strategic consulting services, and
+                                    transformational mentorship that drive success.
                                 </p>
                             </div>
-                            <div className="space-y-4">
-                                <h3 className="text-navy-900 font-bold uppercase text-sm tracking-widest">Our Vision</h3>
+                            <div className="space-y-6">
+                                <h3 className="text-navy-900 font-bold uppercase text-sm tracking-widest text-gold-500">Our Vision</h3>
                                 <p className="leading-relaxed">
-                                    To be the standard for institutional capacity building and
-                                    strategic development, recognized for our positive impact on the
-                                    communities we serve.
+                                    To be the leading consultancy and training firm in leadership development,
+                                    organizational strategy, and professional excellence, creating impact-driven
+                                    solutions for individuals and businesses.
                                 </p>
                             </div>
                         </div>
 
                         <div className="pt-12 border-t border-slate-100">
                             <h2 className="text-2xl font-bold text-navy-900 mb-12 text-center uppercase tracking-tight">Core Values</h2>
-                            <div className="grid sm:grid-cols-2 gap-8 text-center">
-                                <div className="p-8 bg-slate-50 rounded-3xl">
-                                    <h4 className="font-bold text-navy-900 mb-2">Excellence</h4>
-                                    <p className="text-sm">Highest standards in every project.</p>
+                            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                                <div className="p-6 bg-slate-50 rounded-2xl">
+                                    <h4 className="font-bold text-navy-900 mb-1 text-xs uppercase tracking-wider">Responsiveness</h4>
                                 </div>
-                                <div className="p-8 bg-slate-50 rounded-3xl">
-                                    <h4 className="font-bold text-navy-900 mb-2">Integrity</h4>
-                                    <p className="text-sm">Trust and transparency.</p>
+                                <div className="p-6 bg-slate-50 rounded-2xl">
+                                    <h4 className="font-bold text-navy-900 mb-1 text-xs uppercase tracking-wider">Quality</h4>
                                 </div>
-                                <div className="p-8 bg-slate-50 rounded-3xl">
-                                    <div className="font-bold text-navy-900 mb-2">Collaboration</div>
-                                    <p className="text-sm">Building success together.</p>
+                                <div className="p-6 bg-slate-50 rounded-2xl">
+                                    <h4 className="font-bold text-navy-900 mb-1 text-xs uppercase tracking-wider">Cooperation</h4>
                                 </div>
-                                <div className="p-8 bg-slate-50 rounded-3xl">
-                                    <div className="font-bold text-navy-900 mb-2">Impact</div>
-                                    <p className="text-sm">Driving real, lasting change.</p>
+                                <div className="p-6 bg-slate-50 rounded-2xl">
+                                    <h4 className="font-bold text-navy-900 mb-1 text-xs uppercase tracking-wider">Initiative</h4>
+                                </div>
+                                <div className="p-6 bg-slate-50 rounded-2xl col-span-2 md:col-span-1">
+                                    <h4 className="font-bold text-navy-900 mb-1 text-xs uppercase tracking-wider text-center">Continuous Improvement</h4>
                                 </div>
                             </div>
                         </div>

@@ -11,7 +11,7 @@ export const Footer = () => {
                         MAAN<span className="text-gold-500 font-light">GROUP</span>
                     </Link>
                     <p className="text-slate-400 text-sm leading-normal max-w-xs opacity-70">
-                        Empowering organizations through a multi-disciplinary approach to strategy, development, and future-forward innovation.
+                        Empowering minds and building the future through leadership development, organizational strategy, and professional excellence.
                     </p>
                     <div className="flex gap-6 items-center">
                         <a href="#" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 text-slate-400 flex items-center justify-center hover:bg-gold-500 hover:text-white hover:border-gold-500 transition-all duration-300">
@@ -29,9 +29,9 @@ export const Footer = () => {
                 <div className="order-2 lg:order-2 space-y-8">
                     <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-gold-500 border-b border-gold-500/20 pb-4 w-fit">Expertise</h3>
                     <ul className="space-y-4">
-                        <li><Link to="/services" className="text-slate-400 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Strategy Consulting</Link></li>
-                        <li><Link to="/services" className="text-slate-400 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Professional Training</Link></li>
-                        <li><Link to="/services" className="text-slate-400 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Institutional Building</Link></li>
+                        <li><Link to="/services" className="text-slate-400 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Consulting Services</Link></li>
+                        <li><Link to="/services" className="text-slate-400 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Training & Development</Link></li>
+                        <li><Link to="/services" className="text-slate-400 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Capacity Building</Link></li>
                         <li><Link to="/services" className="text-slate-400 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Research & Development</Link></li>
                     </ul>
                 </div>
@@ -62,18 +62,18 @@ export const Footer = () => {
                     <div className="pt-4 space-y-3">
                         <div className="flex items-center gap-3 text-slate-500 hover:text-slate-300 cursor-pointer transition-colors">
                             <Mail size={16} className="text-gold-500" />
-                            <span className="text-sm">strategic@maangroup.global</span>
+                            <span className="text-sm">info@maangroup.so</span>
                         </div>
                         <div className="flex items-center gap-3 text-slate-500 hover:text-slate-300 cursor-pointer transition-colors">
                             <Phone size={16} className="text-gold-500" />
-                            <span className="text-sm">+1 (555) 342-9900 EXT 102</span>
+                            <span className="text-sm">+252 61 7076666</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div className="container mx-auto px-6 max-w-[1280px] flex flex-col md:flex-row justify-between items-center text-[0.8rem] font-bold uppercase tracking-[0.15em] text-slate-600 gap-8">
-                <p>&copy; 2026 MaanGroup Professional Services. Engineered Globally.</p>
+                <p>&copy; 2025 Maan Group Professional Services. Empowering Minds. Building Future.</p>
                 <div className="flex gap-10">
                     <Link to="#" className="hover:text-gold-500 transition-colors">Digital Privacy</Link>
                     <Link to="#" className="hover:text-gold-500 transition-colors">Terms of Engagement</Link>

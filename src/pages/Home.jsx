@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowRight, ChevronRight, Shield, Rocket, Target,
-  Globe, BookOpen, Layers, Users, TrendingUp, Zap, CheckCircle
+  Globe, BookOpen, Layers, Users, TrendingUp, Zap, CheckCircle, Search, Quote
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -33,16 +33,14 @@ const ServiceCard = ({ icon: Icon, title, description, color }) => (
 
 export const Home = () => {
   const services = [
-    { icon: Target, title: 'Strategy Consulting', description: 'Data-driven insights and sustainable growth strategies for public and private sector clients.', color: '#C5A059' },
-    { icon: Users, title: 'Human Capacity Building', description: 'Bespoke professional training programs that bridge skills gaps and prepare workforces.', color: '#0A192F' },
-    { icon: Globe, title: 'Institutional Building', description: 'Robust organizational structures and governance frameworks built for the long run.', color: '#C5A059' },
-    { icon: Rocket, title: 'Technical Development', description: 'Accelerating digital transformation and technical infrastructure for modern enterprises.', color: '#0A192F' },
-    { icon: BookOpen, title: 'Research & Development', description: 'Rigorous academic and industrial research to prepare institutions for upcoming disruptions.', color: '#C5A059' },
-    { icon: Layers, title: 'Data & Analytics', description: 'Actionable intelligence and professional data modeling for informed decision-making.', color: '#0A192F' },
+    { icon: Globe, title: 'Consulting Services', description: 'Modernizing governance and developing agile leaders with localized insights and global expertise.', color: '#C5A059' },
+    { icon: Users, title: 'Training & Development', description: 'Unlocking human potential through tailored leadership and professional readiness programs.', color: '#0A192F' },
+    { icon: Target, title: 'Capacity Building', description: 'Strengthening institutions and amplifying unheard voices to foster impactful change.', color: '#C5A059' },
+    { icon: Search, title: 'Research & Development', description: 'Turning data and real-world stories into actionable practice and policy.', color: '#0A192F' },
   ];
 
   const stats = [
-    { value: '2025', label: 'Founded' },
+    { value: '2019', label: 'Founded' },
     { value: '50+', label: 'Consultants' },
     { value: '30+', label: 'Nations' },
     { value: '100%', label: 'Client Focus' },
@@ -68,19 +66,17 @@ export const Home = () => {
               {/* Badge */}
               <span className="inline-flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold-500 bg-gold-500/8 border border-gold-500/20 px-4 py-2 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-gold-500" />
-                Est. 2025 · Multi-Disciplinary Firm
+                Est. 2019 · Strategic Consulting & Training
               </span>
 
               {/* Headline — normal weight, no extrabold */}
               <h1 className="text-4xl lg:text-[3.6rem] font-bold text-navy-900 leading-[1.12] tracking-tight">
-                Empowering Organizations Through{' '}
-                <span className="text-gold-500">Innovation</span>{' '}
-                &{' '}
-                <span className="text-gold-500">Insight</span>
+                Empowering Minds. <br />
+                <span className="text-gold-500">Building Future.</span>
               </h1>
 
               <p className="text-base text-slate-500 leading-relaxed max-w-lg font-normal">
-                MaanGroup is a premier strategic partner helping public and private institutions navigate complexity through consulting, training, and capacity building — designed for sustainable, lasting impact.
+                Maan Group is a premier consultancy and training firm in Somalia, specialized in leadership development, organizational strategy, and professional excellence through localized, results-driven solutions.
               </p>
 
               {/* CTA */}
@@ -103,9 +99,10 @@ export const Home = () => {
               {/* Trust indicators */}
               <div className="flex flex-wrap gap-5 pt-4">
                 {[
-                  'Strategy Consulting',
-                  'Professional Training',
-                  'R&D Leadership',
+                  'Consulting Services',
+                  'Training & Development',
+                  'Capacity Building',
+                  'Research & Development',
                 ].map((tag) => (
                   <div key={tag} className="flex items-center gap-2 text-xs text-slate-500 font-medium">
                     <CheckCircle size={14} className="text-gold-500 flex-shrink-0" />
@@ -201,7 +198,7 @@ export const Home = () => {
                   </div>
                   <div className="h-px w-full bg-white/10 my-4" />
                   <div className="flex justify-between items-center">
-                    <div className="text-[0.65rem] font-black uppercase tracking-[0.3em] text-slate-100">Establish 2025</div>
+                    <div className="text-[0.65rem] font-black uppercase tracking-[0.3em] text-slate-100">Establish 2019</div>
                     <ArrowRight size={14} className="text-gold-500 animate-pulse" />
                   </div>
                 </motion.div>
@@ -248,6 +245,130 @@ export const Home = () => {
                 transition={{ delay: idx * 0.07, duration: 0.55 }}
               >
                 <ServiceCard {...s} />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ FOUNDER SECTION ═══════════ */}
+      <section className="py-28 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-6 max-w-[1280px]">
+          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+            {/* Founder Image Column */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative w-full lg:w-1/2"
+            >
+              <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
+                <img
+                  src="/Assets/Owner.jpeg"
+                  alt="Mohamed Salad - Founder"
+                  className="w-full h-auto object-cover object-top hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-gold-500/10 rounded-full blur-3xl -z-0" />
+              <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-navy-900/5 rounded-full blur-3xl -z-0" />
+
+              <div className="absolute bottom-8 right-8 z-20 bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-slate-100 max-w-[240px]">
+                <Quote size={32} className="text-gold-500 mb-4 opacity-50" />
+                <p className="text-sm font-medium text-navy-900 leading-relaxed italic">
+                  "Success is not just about intelligence; it's about the courage to transform and the discipline to evolve."
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Founder Content Column */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="w-full lg:w-1/2 space-y-8"
+            >
+              <div>
+                <span className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-gold-500 mb-3 block">
+                  Our Founder
+                </span>
+                <h2 className="text-4xl lg:text-5xl font-bold text-navy-900 leading-tight mb-4">
+                  Mohamed <span className="text-gold-500">Salad</span>
+                </h2>
+                <p className="text-sm font-bold uppercase tracking-widest text-slate-400">
+                  Founder & CEO · Motivational Speaker · Corporate Trainer
+                </p>
+              </div>
+
+              <div className="space-y-6 text-slate-600 leading-relaxed text-[1.05rem]">
+                <p>
+                  As a leading voice in corporate training and professional development, Mohamed Salad has dedicated his career to unlocking the human potential within Somalia's emerging institutions.
+                </p>
+                <p>
+                  His approach combines high-level strategic insight with a deep understanding of local cultural dynamics, ensuring that every workshop and consulting session delivers more than just theory—it delivers lasting, measurable change.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-8 pt-6">
+                <div>
+                  <div className="text-2xl font-bold text-navy-900 mb-1">Expert</div>
+                  <div className="text-xs uppercase tracking-widest text-gold-500 font-bold">Leadership Coaching</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-navy-900 mb-1">Global</div>
+                  <div className="text-xs uppercase tracking-widest text-gold-500 font-bold">Strategic Insight</div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ UNIQUE APPROACH SECTION ═══════════ */}
+      <section className="py-28 bg-slate-50 relative">
+        <div className="container mx-auto px-6 max-w-[1280px]">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <span className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-gold-500 mb-4 block">
+              Why Maan Group
+            </span>
+            <h2 className="text-3xl lg:text-4xl font-bold text-navy-900 mb-6">
+              A Unique Approach Rooted in <span className="text-gold-500">Reality</span>
+            </h2>
+            <p className="text-slate-500 text-[0.95rem] leading-relaxed">
+              We move beyond generic foreign theories to provide solutions that are culturally relevant, Relatable, and ready for immediate implementation.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Localized Insights',
+                desc: 'Every strategy is filtered through Somalia’s unique socio-economic landscape, ensuring it works in practice, not just on paper.',
+                icon: Globe
+              },
+              {
+                title: 'Practical Impact',
+                desc: 'We focus on results. Our training sessions are high-energy workshops where skills are built and tested in real-time.',
+                icon: Zap
+              },
+              {
+                title: 'Tailored Excellence',
+                desc: 'No "one-size-fits-all". We customize our consultancy frameworks to the specific maturity and goals of your institution.',
+                icon: Target
+              }
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                whileHover={{ y: -10 }}
+                className="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:border-gold-500/20 transition-all duration-300 group"
+              >
+                <div className="w-14 h-14 bg-navy-900 text-gold-500 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-gold-500 group-hover:text-white transition-all duration-300">
+                  <item.icon size={26} />
+                </div>
+                <h3 className="text-xl font-bold text-navy-900 mb-4">{item.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>

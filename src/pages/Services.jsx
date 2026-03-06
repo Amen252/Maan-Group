@@ -27,27 +27,27 @@ const ServiceCard = ({ icon: Icon, title, description, delay }) => (
 export const Services = () => {
     const services = [
         {
-            icon: Lightbulb,
-            title: "Consulting",
-            description: "Expert strategic advisory to help organizations navigate complex challenges, optimize operations, and achieve sustainable growth in a competitive landscape.",
+            icon: BarChart,
+            title: "Consulting Services",
+            description: "Modernizing public and private-sector governance, developing agile leaders, and building organizational resilience through localized insights and global expertise.",
             delay: 0.1
         },
         {
             icon: Users,
-            title: "Training",
-            description: "Customized professional development programs and workshops designed to bridge the skills gap and empower the next generation of leaders.",
+            title: "Training & Development",
+            description: "Unlocking human potential and igniting confidence through tailored leadership and professional readiness programs designed for the Somali context.",
             delay: 0.2
         },
         {
-            icon: BarChart,
+            icon: Lightbulb,
             title: "Capacity Building",
-            description: "Strengthening the foundations of institutions and communities through targeted initiatives that enhance long-term resilience and effectiveness.",
+            description: "Strengthening foundations of institutions and amplifying unheard voices to foster impactful, long-term change within communities.",
             delay: 0.3
         },
         {
             icon: Search,
             title: "Research & Development",
-            description: "Utilizing data-driven insights and rigorous analysis to provide forward-thinking solutions and strategic roadmaps for future success.",
+            description: "Turning data and real-world stories into actionable practice and policy to provide forward-thinking solutions and strategic roadmaps.",
             delay: 0.4
         }
     ];
@@ -66,12 +66,12 @@ export const Services = () => {
                             Our Expertise
                         </span>
                         <h1 className="text-4xl lg:text-6xl font-bold text-navy-900 leading-tight">
-                            Specialized <span className="text-gold-500 italic font-serif">Solutions</span> <br />
-                            for Growth.
+                            Impact-Driven <span className="text-gold-500 italic font-serif">Solutions</span> <br />
+                            for a Better Future.
                         </h1>
                         <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-light">
-                            We provide a comprehensive suite of professional services tailored to meet
-                            the unique needs of organizations and individuals in a changing world.
+                            We offer a comprehensive range of consultancy and training services designed to
+                            empower professionals and entrepreneurs in Somalia and beyond.
                         </p>
                     </motion.div>
                 </div>
