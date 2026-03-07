@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Send, Phone, Mail, MapPin, Linkedin, Twitter, Facebook, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 export const Contact = () => {
     const [formData, setFormData] = React.useState({
@@ -15,143 +15,134 @@ export const Contact = () => {
         alert('Thank you for contacting MaanGroup. We will reach out to you shortly.');
     };
 
+    const contactInfo = [
+        { icon: Mail, title: 'Email Us', text: 'info@maangroup.so', desc: 'Our friendly team is here to help.' },
+        { icon: Phone, title: 'Call Us', text: '+252 61 7076666', desc: 'Mon-Sat from 8am to 5pm.' },
+        { icon: MapPin, title: 'Visit Us', text: 'Mogadishu, Somalia', desc: 'Come say hello at our office.' }
+    ];
+
     return (
-        <main className="pt-20 bg-slate-50/30 min-h-screen font-body">
-            <section className="py-24 relative overflow-hidden">
-                <div className="container mx-auto px-6 max-w-[1280px]">
-                    <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-20 items-stretch">
+        <main className="min-h-screen bg-slate-50 font-body pt-32 pb-24 relative overflow-hidden">
+            {/* Background Accent */}
+            <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-gold-500/5 rounded-full blur-[100px] pointer-events-none" />
 
-                        {/* Left Column: Content */}
-                        <div className="flex flex-col justify-center space-y-12">
-                            <motion.div
-                                initial={{ x: -50, opacity: 0 }}
-                                whileInView={{ x: 0, opacity: 1 }}
-                                transition={{ duration: 0.8 }}
-                                viewport={{ once: true }}
-                                className="space-y-6"
-                            >
-                                <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-gold-500 mb-2 px-4 py-2 bg-gold-500/10 rounded-full border border-gold-500/20">
-                                    Connect With Us
-                                </span>
-                                <h1 className="text-5xl lg:text-7xl font-semibold text-navy-900 leading-[1.1] tracking-tight">
-                                    Partner With <span className="text-gold-500 italic font-serif">MaanGroup.</span>
-                                </h1>
-                                <p className="text-xl text-slate-600 max-w-lg leading-relaxed font-light">
-                                    Ready to grow your organization? Reach out to our team of experts for a practical consultation tailored to your needs.
-                                </p>
-                            </motion.div>
+            <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
+                <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-16 lg:gap-20 items-start">
 
-                            <div className="space-y-8">
-                                {[
-                                    { icon: Mail, title: "Email Us", text: "info@maangroup.so" },
-                                    { icon: Phone, title: "Support", text: "+252 61 7076666" },
-                                    { icon: MapPin, title: "Location", text: "Mogadishu, Somalia" }
-                                ].map((item, idx) => (
-                                    <div key={idx} className="flex gap-6 group cursor-default">
-                                        <div className="w-14 h-14 rounded-xl bg-navy-900 text-gold-500 flex items-center justify-center flex-shrink-0 group-hover:bg-gold-500 group-hover:text-white transition-all duration-300 shadow-lg">
-                                            <item.icon size={24} />
-                                        </div>
-                                        <div className="flex flex-col justify-center">
-                                            <h3 className="text-xs font-semibold uppercase tracking-widest text-gold-500 mb-1">{item.title}</h3>
-                                            <p className="text-lg font-medium text-navy-900">{item.text}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div className="pt-10 flex gap-6 text-navy-900/60 transition-opacity">
-                                <Linkedin size={24} className="hover:text-gold-500 cursor-pointer transition-colors" />
-                                <Twitter size={24} className="hover:text-gold-500 cursor-pointer transition-colors" />
-                                <Facebook size={24} className="hover:text-gold-500 cursor-pointer transition-colors" />
-                            </div>
+                    {/* Left Column: Info */}
+                    <div className="space-y-12 lg:sticky lg:top-36">
+                        {/* Header */}
+                        <div className="space-y-4">
+                            <span className="inline-block px-4 py-1.5 rounded-full bg-gold-500/10 text-gold-500 font-bold tracking-widest uppercase text-[0.65rem] mb-2">
+                                Contact Us
+                            </span>
+                            <h1 className="text-3xl lg:text-5xl font-bold text-navy-900 leading-[1.15]">We'd love to hear from you.</h1>
+                            <p className="text-base max-w-sm font-light leading-relaxed">
+                                Whether you have a question about our services or pricing, our expert team is ready to answer all your questions.
+                            </p>
                         </div>
 
-                        {/* Right Column: Form */}
-                        <motion.div
-                            initial={{ scale: 0.95, opacity: 0 }}
-                            whileInView={{ scale: 1, opacity: 1 }}
-                            transition={{ duration: 0.8 }}
-                            viewport={{ once: true }}
-                            className="lg:mt-0 mt-16"
-                        >
-                            <form
-                                className="bg-white p-12 lg:p-16 rounded-[3rem] shadow-2xl border border-slate-100 relative overflow-hidden group"
-                                onSubmit={handleSubmit}
-                            >
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/10 rounded-full blur-3xl group-hover:bg-gold-500/20 transition-all"></div>
-
-                                <h2 className="text-3xl font-semibold text-navy-900 mb-10 tracking-tight text-center lg:text-left uppercase">Consultation Request</h2>
-
-                                <div className="space-y-6">
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <div className="space-y-2">
-                                            <label className="block text-[0.65rem] font-bold uppercase tracking-widest text-navy-900/40 ml-1">Name</label>
-                                            <input
-                                                type="text"
-                                                placeholder="Full Name"
-                                                required
-                                                className="w-full px-5 py-3.5 rounded-sm border border-slate-100 bg-slate-50/50 focus:bg-white focus:outline-none focus:border-gold-500 transition-all font-light text-sm"
-                                                value={formData.name}
-                                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            />
-                                        </div>
-                                        <div className="space-y-2">
-                                            <label className="block text-[0.65rem] font-bold uppercase tracking-widest text-navy-900/40 ml-1">Email</label>
-                                            <input
-                                                type="email"
-                                                placeholder="email@work.com"
-                                                required
-                                                className="w-full px-5 py-3.5 rounded-sm border border-slate-100 bg-slate-50/50 focus:bg-white focus:outline-none focus:border-gold-500 transition-all font-light text-sm"
-                                                value={formData.email}
-                                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            />
-                                        </div>
+                        {/* Info Cards (Stacked) */}
+                        <div className="space-y-8">
+                            {contactInfo.map((info, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                                    className="flex items-start gap-5 group"
+                                >
+                                    <div className="w-12 h-12 bg-white text-navy-900 border border-slate-100 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-gold-500 group-hover:border-gold-500 group-hover:text-white group-hover:shadow-md transition-all duration-300">
+                                        <info.icon size={20} />
                                     </div>
-
-                                    <div className="space-y-2">
-                                        <label className="block text-[0.65rem] font-bold uppercase tracking-widest text-navy-900/40 ml-1">Service Interest</label>
-                                        <div className="relative">
-                                            <select
-                                                className="w-full px-5 py-3.5 rounded-sm border border-slate-100 bg-slate-50/50 focus:bg-white focus:outline-none focus:border-gold-500 transition-all font-light text-sm appearance-none cursor-pointer"
-                                                value={formData.service}
-                                                onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                                            >
-                                                <option>Consulting Services</option>
-                                                <option>Training & Development</option>
-                                                <option>Capacity Building</option>
-                                                <option>Research & Development</option>
-                                            </select>
-                                        </div>
+                                    <div className="pt-1">
+                                        <h3 className="text-navy-900 font-bold text-sm mb-1">{info.title}</h3>
+                                        <p className="text-slate-500 text-xs mb-1.5">{info.desc}</p>
+                                        <p className="text-navy-900 font-semibold text-sm">{info.text}</p>
                                     </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
 
-                                    <div className="space-y-2">
-                                        <label className="block text-[0.65rem] font-bold uppercase tracking-widest text-navy-900/40 ml-1">Your Message</label>
-                                        <textarea
-                                            rows="4"
-                                            placeholder="Discuss your goals..."
-                                            required
-                                            className="w-full px-5 py-3.5 rounded-sm border border-slate-100 bg-slate-50/50 focus:bg-white focus:outline-none focus:border-gold-500 transition-all font-light text-sm resize-none"
-                                            value={formData.message}
-                                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                        ></textarea>
+                    {/* Right Column: Form */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="bg-white p-8 md:p-12 rounded-[2rem] shadow-xl border border-slate-100"
+                    >
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div className="space-y-2">
+                                    <label className="text-sm font-bold text-navy-900 ml-1">Full Name</label>
+                                    <input
+                                        type="text"
+                                        required
+                                        placeholder="Enter your name"
+                                        className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition-all bg-slate-50/50"
+                                        value={formData.name}
+                                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-sm font-bold text-navy-900 ml-1">Email Address</label>
+                                    <input
+                                        type="email"
+                                        required
+                                        placeholder="Enter your email"
+                                        className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition-all bg-slate-50/50"
+                                        value={formData.email}
+                                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="text-sm font-bold text-navy-900 ml-1">Topic of Interest</label>
+                                <div className="relative">
+                                    <select
+                                        className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition-all bg-slate-50/50 appearance-none cursor-pointer"
+                                        value={formData.service}
+                                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                                    >
+                                        <option>Consulting Services</option>
+                                        <option>Training & Development</option>
+                                        <option>Capacity Building</option>
+                                        <option>Research & Development</option>
+                                    </select>
+                                    {/* Custom caret */}
+                                    <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
+                                        <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                                     </div>
                                 </div>
+                            </div>
 
-                                <button
-                                    type="submit"
-                                    className="mt-10 w-full btn btn-primary py-5 rounded-sm flex items-center justify-center gap-4 text-[0.7rem] font-bold uppercase tracking-[0.25em] group transition-all"
-                                >
-                                    <span className="relative z-10 flex items-center gap-3">
-                                        Send Message <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform duration-300" />
-                                    </span>
-                                </button>
-                            </form>
-                        </motion.div>
-                    </div>
+                            <div className="space-y-2">
+                                <label className="text-sm font-bold text-navy-900 ml-1">Your Message</label>
+                                <textarea
+                                    required
+                                    rows="6"
+                                    placeholder="How can we help you?"
+                                    className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition-all bg-slate-50/50 resize-y"
+                                    value={formData.message}
+                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                ></textarea>
+                            </div>
+
+                            <button
+                                type="submit"
+                                className="btn btn-primary w-full py-4 rounded-xl flex items-center justify-center gap-2 font-bold mt-4 group"
+                            >
+                                <Send size={18} className="group-hover:animate-pulse" />
+                                Send Message
+                            </button>
+                        </form>
+                    </motion.div>
                 </div>
-
-                <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-gold-500/5 rounded-full blur-[120px] -z-10"></div>
-            </section>
+            </div>
         </main>
     );
 };

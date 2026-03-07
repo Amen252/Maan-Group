@@ -103,10 +103,17 @@ export const EventDetail = () => {
                                     {event.description.split('\n').map((line, index) => {
                                         if (!line.trim()) return <div key={index} className="h-4" />;
 
-                                        // Handle Section Headers
-                                        if (line.trim().endsWith(':')) {
+                                        // Handle Section Headers (### or ending with :)
+                                        if (line.trim().startsWith('### ')) {
+                                            const content = line.trim().substring(4).trim();
                                             return (
-                                                <h3 key={index} className="text-xl pt-4 mb-2 font-medium">
+                                                <h3 key={index} className="text-2xl font-bold text-navy-900 pt-6 mt-6 border-t border-slate-100 mb-4 uppercase tracking-wider text-sm">
+                                                    {content}
+                                                </h3>
+                                            );
+                                        } else if (line.trim().endsWith(':')) {
+                                            return (
+                                                <h3 key={index} className="text-xl pt-4 mb-2 font-medium text-navy-900">
                                                     {line}
                                                 </h3>
                                             );
@@ -117,9 +124,9 @@ export const EventDetail = () => {
                                             const content = line.trim().substring(2).trim();
                                             return (
                                                 <div key={index} className="flex gap-4 items-start pl-2">
-                                                    <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2.5 flex-shrink-0" />
+                                                    <div className="w-1.5 h-1.5 rounded-full bg-gold-500 mt-2.5 flex-shrink-0" />
                                                     <p dangerouslySetInnerHTML={{
-                                                        __html: content.replace(/\*\*(.*?)\*\*/g, '<span>$1</span>')
+                                                        __html: content.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-navy-900">$1</strong>')
                                                     }} />
                                                 </div>
                                             );
@@ -128,7 +135,7 @@ export const EventDetail = () => {
                                         // Standard Paragraphs
                                         return (
                                             <p key={index} dangerouslySetInnerHTML={{
-                                                __html: line.replace(/\*\*(.*?)\*\*/g, '<span>$1</span>')
+                                                __html: line.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-navy-900">$1</strong>')
                                             }} />
                                         );
                                     })}

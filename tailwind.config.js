@@ -22,6 +22,7 @@ export default {
       fontFamily: {
         heading: ['"Poppins"', 'sans-serif'],
         body: ['"Poppins"', 'sans-serif'],
+        serif: ['"Poppins"', 'sans-serif'],
       },
     },
   },
