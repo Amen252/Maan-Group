@@ -10,10 +10,42 @@ export const Contact = () => {
         service: 'Consulting Services',
         message: ''
     });
+    const [isSubmitting, setIsSubmitting] = React.useState(false);
+    const [submitStatus, setSubmitStatus] = React.useState(null);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert('Thank you for contacting MaanGroup. We will reach out to you shortly.');
+        setIsSubmitting(true);
+        setSubmitStatus(null);
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    access_key: "e9263050-7845-42ab-9c67-92def4af6dcd",
+                    subject: "New Contact Form Submission - Maan Group",
+                    from_name: formData.name,
+                    ...formData
+                })
+            });
+
+            if (response.ok) {
+                setSubmitStatus('success');
+                setFormData({ name: '', email: '', service: 'Consulting Services', message: '' });
+                setTimeout(() => setSubmitStatus(null), 8000);
+            } else {
+                setSubmitStatus('error');
+            }
+        } catch (error) {
+            console.error("Form submission error:", error);
+            setSubmitStatus('error');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const contactInfo = [
@@ -139,11 +171,25 @@ export const Contact = () => {
 
                             <button
                                 type="submit"
-                                className="btn btn-primary w-full py-4 rounded-xl flex items-center justify-center gap-2 font-bold mt-4 group"
+                                disabled={isSubmitting}
+                                className={`btn btn-primary w-full py-4 rounded-xl flex items-center justify-center gap-2 font-bold mt-4 group transition-all duration-300 ${isSubmitting ? 'opacity-70 cursor-wait' : ''}`}
                             >
-                                <Send size={18} className="group-hover:animate-pulse" />
-                                Send Message
+                                <Send size={18} className={isSubmitting ? 'animate-bounce' : 'group-hover:animate-pulse'} />
+                                {isSubmitting ? 'Sending Message...' : 'Send Message'}
                             </button>
+
+                            {submitStatus === 'success' && (
+                                <div className="p-4 bg-green-50 text-green-700 rounded-xl text-sm font-medium border border-green-200 text-center shadow-sm">
+                                    Thank you! Your message has been sent successfully.
+                                    <div className="text-[0.65rem] font-bold uppercase tracking-widest mt-2 opacity-80">Check your email for activation if this is your first submission.</div>
+                                </div>
+                            )}
+
+                            {submitStatus === 'error' && (
+                                <div className="p-4 bg-red-50 text-red-700 rounded-xl text-sm font-medium border border-red-200 text-center shadow-sm">
+                                    Oops! Something went wrong. Please try again later.
+                                </div>
+                            )}
                         </form>
                     </motion.div>
                 </div>
