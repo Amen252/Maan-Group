@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import {
   ArrowRight, ChevronRight, Shield, Rocket, Target,
@@ -21,6 +22,7 @@ const ServiceCard = ({ id, image, title, subtitle, description, bullets, delay }
       <img
         src={image}
         alt={title}
+        loading="lazy"
         className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/30 to-transparent" />
@@ -67,6 +69,12 @@ export const Home = () => {
 
   return (
     <main className="font-body">
+      <Helmet>
+        <title>Maan Group | Strategic Consulting & Professional Training</title>
+        <meta name="description" content="Maan Group is a premier consultancy and training firm specializing in leadership development, organizational strategy, and professional excellence." />
+        <meta name="keywords" content="Maan Group, Strategy, Training, Leadership Development, Organizational Strategy, Somalia, Consultancy" />
+        <link rel="preload" as="image" href="/Assets/Hero.jpeg" />
+      </Helmet>
 
       {/* ═══════════ HERO ═══════════ */}
       <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-navy-900 pt-20">
@@ -77,7 +85,8 @@ export const Home = () => {
             animate={{ scale: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
             src="/Assets/Hero.jpeg"
-            alt="Maan Group Leadership"
+            alt="Maan Group Leadership Strategy and Training"
+            fetchpriority="high"
             className="w-full h-full object-cover object-top"
           />
           {/* Very Lightened luxury overlay so image pops */}
@@ -187,7 +196,8 @@ export const Home = () => {
               <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
                 <img
                   src="/Assets/Owner.jpeg"
-                  alt="Mohamed Salad - Founder"
+                  alt="Mohamed Salad - Founder & CEO of Maan Group"
+                  loading="lazy"
                   className="w-full h-auto object-cover object-top hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -333,7 +343,8 @@ export const Home = () => {
               <div className="rounded-3xl overflow-hidden shadow-2xl group aspect-[4/3]">
                 <img
                   src="/Assets/Hero.jpeg"
-                  alt="R&D Innovation"
+                  alt="R&D Innovation at Maan Group"
+                  loading="lazy"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-[1500ms]"
                 />
                 <div className="absolute inset-0 bg-navy-900/20" />
