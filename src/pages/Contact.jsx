@@ -26,7 +26,7 @@ export const Contact = () => {
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    access_key: "e9263050-7845-42ab-9c67-92def4af6dcd",
+                    access_key: "64ddca68-c134-404f-a503-c23b059de286",
                     subject: "New Contact Form Submission - Maan Group",
                     from_name: formData.name,
                     ...formData
