@@ -289,26 +289,26 @@ export const Home = () => {
               <motion.div
                 key={idx}
                 whileHover={{ y: -8 }}
-                className="group relative bg-white p-10 rounded-3xl shadow-sm border border-slate-100/80 hover:shadow-xl hover:shadow-navy-900/5 hover:border-gold-500/30 transition-all duration-300 overflow-hidden"
+                className="group relative bg-white p-10 lg:p-12 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-navy-900/5 hover:border-gold-500/30 transition-all duration-400 overflow-hidden flex flex-col"
               >
                 {/* Thin top border indicator on hover */}
-                <div className="absolute top-0 left-0 w-full h-1.5 bg-gold-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-gold-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-                {/* Clean Watermark Number */}
-                <div className="absolute right-4 -top-6 text-[8rem] font-bold text-slate-50 group-hover:text-slate-100/80 transition-colors duration-500 pointer-events-none select-none leading-none -z-0 tracking-tighter">
+                {/* Clean Watermark Number (matching screenshot style) */}
+                <div className="absolute top-6 right-8 text-[8rem] font-bold text-slate-50 group-hover:text-gold-500/[0.03] transition-colors duration-500 pointer-events-none select-none leading-none z-0 tracking-tighter">
                   0{idx + 1}
                 </div>
 
-                <div className="relative z-10 flex flex-col h-full">
-                  <div className="w-14 h-14 bg-slate-50 text-navy-900 rounded-2xl flex items-center justify-center mb-8 border border-slate-100 group-hover:bg-gold-500 group-hover:text-white group-hover:border-gold-500 transition-all duration-300 shadow-sm">
-                    <item.icon size={26} />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 bg-slate-50 text-navy-900 rounded-xl flex items-center justify-center mb-8 border border-slate-100 group-hover:bg-gold-500 group-hover:text-white group-hover:border-gold-500 transition-all duration-400 shadow-sm">
+                    <item.icon size={26} strokeWidth={1.5} />
                   </div>
 
-                  <h3 className="text-xl font-bold text-navy-900 mb-4 group-hover:text-gold-500 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-navy-900 mb-4 group-hover:text-gold-600 transition-colors duration-300">
                     {item.title}
                   </h3>
 
-                  <p className="text-slate-500 text-[0.95rem] leading-relaxed group-hover:text-slate-600 transition-colors duration-300">
+                  <p className="text-slate-500 text-sm leading-relaxed group-hover:text-slate-600 transition-colors duration-300 w-[85%]">
                     {item.desc}
                   </p>
                 </div>
