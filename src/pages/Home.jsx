@@ -129,16 +129,16 @@ export const Home = () => {
             </div>
 
             {/* Trust Indicators Row */}
-            <div className="flex flex-wrap items-center justify-center gap-8 pt-12 mt-12 border-t border-white/10">
+            <div className="w-full grid grid-cols-2 md:flex md:flex-wrap items-center justify-center gap-3 sm:gap-6 md:gap-8 pt-8 md:pt-12 mt-8 md:mt-12 border-t border-white/10">
               {[
                 { label: 'Consulting', icon: Globe },
                 { label: 'Training & Dev', icon: Users },
                 { label: 'Capacity Building', icon: Target },
                 { label: 'R&D', icon: Search },
               ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-xs uppercase tracking-widest text-slate-300 font-medium">
-                  <item.icon size={15} className="text-gold-500 opacity-80" />
-                  {item.label}
+                <div key={idx} className="flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.1em] sm:tracking-widest text-white font-medium bg-white/5 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none border border-white/10 md:border-transparent p-3 sm:p-4 md:p-0 rounded-xl md:rounded-none hover:bg-white/10 md:hover:bg-transparent transition-all">
+                  <item.icon size={16} className="text-white opacity-90 sm:mb-0" />
+                  <span className="text-center">{item.label}</span>
                 </div>
               ))}
             </div>
@@ -198,7 +198,8 @@ export const Home = () => {
               <div className="absolute bottom-8 right-8 z-20 bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-slate-100 max-w-[240px]">
                 <Quote size={32} className="text-gold-500 mb-4 opacity-50" />
                 <p className="text-sm font-medium text-navy-900 leading-relaxed italic">
-                  "Success is not just about intelligence; it's about the courage to transform and the discipline to evolve."
+                  "We are all here for a special reason. Stop being a prisoner of your past. Become the architect of your future."
+                  <br /><span className="text-xs font-bold not-italic text-gold-500 mt-2 block">— Mo’ Salad</span>
                 </p>
               </div>
             </motion.div>
@@ -225,21 +226,21 @@ export const Home = () => {
 
               <div className="space-y-6 text-slate-600 leading-relaxed text-[1.05rem]">
                 <p>
-                  As a leading voice in corporate training and professional development, Mohamed Salad has dedicated his career to unlocking the human potential within Somalia's emerging institutions.
+                  Mohamed Salad Ibrahim is a consultant, researcher, and academic leader specializing in institutional reform, youth empowerment, and human resource development.
                 </p>
                 <p>
-                  His approach combines high-level strategic insight with a deep understanding of local cultural dynamics, ensuring that every workshop and consulting session delivers more than just theory—it delivers lasting, measurable change.
+                  He serves as Head of Department and Faculty Research Coordinator at Jamhuriya University and is a PhD candidate (DBA) at INTI International University, Malaysia. As the founder of Maan Group, he leads innovative consultancy and training programs across Somalia and East Africa, bridging academia and practice with over nine years of experience.
                 </p>
               </div>
 
               <div className="grid grid-cols-2 gap-8 pt-6">
                 <div>
-                  <div className="text-2xl font-bold text-navy-900 mb-1">Expert</div>
-                  <div className="text-xs uppercase tracking-widest text-gold-500 font-bold">Leadership Coaching</div>
+                  <div className="text-2xl font-bold text-navy-900 mb-1">9+ Years</div>
+                  <div className="text-xs uppercase tracking-widest text-gold-500 font-bold">Industry Experience</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-navy-900 mb-1">Global</div>
-                  <div className="text-xs uppercase tracking-widest text-gold-500 font-bold">Strategic Insight</div>
+                  <div className="text-2xl font-bold text-navy-900 mb-1">Leader</div>
+                  <div className="text-xs uppercase tracking-widest text-gold-500 font-bold">Academic & Corporate</div>
                 </div>
               </div>
             </motion.div>
@@ -250,46 +251,67 @@ export const Home = () => {
       {/* ═══════════ UNIQUE APPROACH SECTION ═══════════ */}
       <section className="py-28 bg-slate-50 relative">
         <div className="container mx-auto px-6 max-w-[1280px]">
-          <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-20 text-balance">
             <span className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-gold-500 mb-4 block">
               Why Maan Group
             </span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-navy-900 mb-6">
-              A Unique Approach Rooted in <span className="text-gold-500">Reality</span>
+            <h2 className="text-3xl lg:text-4xl lg:text-5xl font-bold text-navy-900 mb-6 leading-tight">
+              Why Choose <span className="text-gold-500 font-serif italic">MAAN</span> Group?
             </h2>
-            <p className="text-slate-500 text-[0.95rem] leading-relaxed">
-              We move beyond generic foreign theories to provide solutions that are culturally relevant, Relatable, and ready for immediate implementation.
+            <p className="text-slate-500 text-base lg:text-lg leading-relaxed">
+              We move beyond generic theories to provide solutions that are culturally relevant, relatable, and ready for immediate implementation. Here is our unique approach to your success.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {[
               {
-                title: 'Localized Insights',
-                desc: 'Every strategy is filtered through Somalia’s unique socio-economic landscape, ensuring it works in practice, not just on paper.',
+                title: 'Innovative Training Methodologies',
+                desc: 'Engaging workshops integrating modern teaching techniques, behavioral psychology, and corporate strategy.',
+                icon: BookOpen
+              },
+              {
+                title: 'Global & Local Impact',
+                desc: 'Bridging international best practices with regional business dynamics, ensuring relevant solutions for businesses and professionals.',
                 icon: Globe
               },
               {
-                title: 'Practical Impact',
-                desc: 'We focus on results. Our training sessions are high-energy workshops where skills are built and tested in real-time.',
-                icon: Zap
+                title: 'Holistic Development',
+                desc: 'A balanced focus on individual growth, professional advancement, and business success.',
+                icon: Target
               },
               {
-                title: 'Tailored Excellence',
-                desc: 'No "one-size-fits-all". We customize our consultancy frameworks to the specific maturity and goals of your institution.',
-                icon: Target
+                title: 'Strategic Consulting Expertise',
+                desc: 'Tailored insights in organizational structure, market positioning, and leadership effectiveness.',
+                icon: Layers
               }
             ].map((item, idx) => (
               <motion.div
                 key={idx}
-                whileHover={{ y: -10 }}
-                className="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:border-gold-500/20 transition-all duration-300 group"
+                whileHover={{ y: -8 }}
+                className="group relative bg-white p-10 rounded-3xl shadow-sm border border-slate-100/80 hover:shadow-xl hover:shadow-navy-900/5 hover:border-gold-500/30 transition-all duration-300 overflow-hidden"
               >
-                <div className="w-14 h-14 bg-navy-900 text-gold-500 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-gold-500 group-hover:text-white transition-all duration-300">
-                  <item.icon size={26} />
+                {/* Thin top border indicator on hover */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-gold-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                {/* Clean Watermark Number */}
+                <div className="absolute right-4 -top-6 text-[8rem] font-bold text-slate-50 group-hover:text-slate-100/80 transition-colors duration-500 pointer-events-none select-none leading-none -z-0 tracking-tighter">
+                  0{idx + 1}
                 </div>
-                <h3 className="text-xl font-bold text-navy-900 mb-4">{item.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="w-14 h-14 bg-slate-50 text-navy-900 rounded-2xl flex items-center justify-center mb-8 border border-slate-100 group-hover:bg-gold-500 group-hover:text-white group-hover:border-gold-500 transition-all duration-300 shadow-sm">
+                    <item.icon size={26} />
+                  </div>
+
+                  <h3 className="text-xl font-bold text-navy-900 mb-4 group-hover:text-gold-500 transition-colors duration-300">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-slate-500 text-[0.95rem] leading-relaxed group-hover:text-slate-600 transition-colors duration-300">
+                    {item.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -370,6 +392,8 @@ export const Home = () => {
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom-right,_rgba(197,160,89,0.05)_0%,_transparent_60%)] pointer-events-none" />
       </section>
+
+
 
     </main>
   );

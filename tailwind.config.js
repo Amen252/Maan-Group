@@ -8,12 +8,12 @@ export default {
     extend: {
       colors: {
         navy: {
-          900: '#0A192F',
-          800: '#172A45',
+          900: '#062E79', // Requested primary blue
+          800: '#04225A', // Darker shade for hovers/accents
         },
         gold: {
-          500: '#C5A059',
-          400: '#DFBD7D',
+          500: '#F36D21', // Logo secondary orange
+          400: '#FF8A45', // Lighter orange
         },
         slate: {
           600: '#4B5563',

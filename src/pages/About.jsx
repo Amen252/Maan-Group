@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Target, Award, Users, CheckCircle, Rocket, ArrowRight } from 'lucide-react';
+import { Shield, Target, Award, Users, CheckCircle, Rocket, ArrowRight, Zap, Handshake, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ValueCard = ({ icon: Icon, title, description }) => (
@@ -76,24 +76,52 @@ export const About = () => {
                             </div>
                         </div>
 
-                        <div className="pt-12 border-t border-slate-100">
-                            <h2 className="text-2xl font-bold text-navy-900 mb-12 text-center uppercase tracking-tight">Core Values</h2>
-                            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
-                                <div className="p-6 bg-slate-50 rounded-2xl">
-                                    <h4 className="font-bold text-navy-900 mb-1 text-xs uppercase tracking-wider">Responsiveness</h4>
-                                </div>
-                                <div className="p-6 bg-slate-50 rounded-2xl">
-                                    <h4 className="font-bold text-navy-900 mb-1 text-xs uppercase tracking-wider">Quality</h4>
-                                </div>
-                                <div className="p-6 bg-slate-50 rounded-2xl">
-                                    <h4 className="font-bold text-navy-900 mb-1 text-xs uppercase tracking-wider">Cooperation</h4>
-                                </div>
-                                <div className="p-6 bg-slate-50 rounded-2xl">
-                                    <h4 className="font-bold text-navy-900 mb-1 text-xs uppercase tracking-wider">Initiative</h4>
-                                </div>
-                                <div className="p-6 bg-slate-50 rounded-2xl col-span-2 md:col-span-1">
-                                    <h4 className="font-bold text-navy-900 mb-1 text-xs uppercase tracking-wider text-center">Continuous Improvement</h4>
-                                </div>
+                        <div className="pt-20 border-t border-slate-100">
+                            <div className="text-center max-w-2xl mx-auto mb-16">
+                                <span className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-gold-500 mb-3 block">
+                                    Our Principles
+                                </span>
+                                <h2 className="text-3xl lg:text-4xl font-bold text-navy-900 leading-tight">
+                                    Core <span className="text-gold-500 font-serif italic">Values</span>
+                                </h2>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {[
+                                    { title: 'Responsiveness', icon: Zap, desc: 'Our goal is to reply to messages within minutes — not hours or days. Speed and clarity are non-negotiable.', num: '01' },
+                                    { title: 'Quality', icon: Award, desc: 'All of our programs have been extensively tested to ensure a predictable, impactful outcome every time.', num: '02' },
+                                    { title: 'Initiative', icon: Rocket, desc: 'Our qualified experts make autonomous decisions with proven judgment, initiative, and professional confidence.', num: '03' },
+                                    { title: 'Cooperation', icon: Handshake, desc: 'A team-oriented atmosphere where it is easy for clients to gain help quickly from a variety of qualified sources.', num: '04' }
+                                ].map((value, idx) => (
+                                    <motion.div
+                                        key={idx}
+                                        whileHover={{ y: -6 }}
+                                        className="group relative flex items-start gap-6 p-8 bg-white rounded-3xl border border-slate-100 hover:border-gold-500/20 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-400 overflow-hidden"
+                                    >
+                                        {/* Gold left border on hover */}
+                                        <div className="absolute left-0 top-0 h-0 w-1 group-hover:h-full bg-gold-500 transition-all duration-500 rounded-l-3xl" />
+
+                                        {/* Left: Number + Icon stacked */}
+                                        <div className="flex flex-col items-center gap-3 shrink-0">
+                                            <span className="text-4xl font-black text-slate-100 group-hover:text-gold-500/20 transition-colors duration-400 leading-none select-none">
+                                                {value.num}
+                                            </span>
+                                            <div className="w-12 h-12 rounded-2xl bg-navy-900 text-white flex items-center justify-center group-hover:bg-gold-500 transition-colors duration-400 shadow-md">
+                                                <value.icon className="w-5 h-5" strokeWidth={2} />
+                                            </div>
+                                        </div>
+
+                                        {/* Right: Content */}
+                                        <div className="flex-1 pt-1">
+                                            <h4 className="font-bold text-navy-900 text-lg mb-2 group-hover:text-gold-600 transition-colors duration-300">
+                                                {value.title}
+                                            </h4>
+                                            <p className="text-slate-400 text-sm leading-relaxed">
+                                                {value.desc}
+                                            </p>
+                                        </div>
+                                    </motion.div>
+                                ))}
                             </div>
                         </div>
                     </div>

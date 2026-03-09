@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
+import { FaWhatsapp, FaTiktok, FaFacebook, FaLinkedin } from 'react-icons/fa';
 
 export const Contact = () => {
     const [formData, setFormData] = React.useState({
@@ -16,9 +17,10 @@ export const Contact = () => {
     };
 
     const contactInfo = [
-        { icon: Mail, title: 'Email Us', text: 'info@maangroup.so', desc: 'Our friendly team is here to help.' },
-        { icon: Phone, title: 'Call Us', text: '+252 61 7076666', desc: 'Mon-Sat from 8am to 5pm.' },
-        { icon: MapPin, title: 'Visit Us', text: 'Mogadishu, Somalia', desc: 'Come say hello at our office.' }
+        { icon: FaWhatsapp, title: 'WhatsApp', text: '+252 61 7076666', desc: 'Chat with our team directly.', link: 'https://wa.me/252617076666' },
+        { icon: FaTiktok, title: 'TikTok', text: '@maangroup', desc: 'Follow our video updates.', link: 'https://www.tiktok.com/@maangroup' },
+        { icon: FaFacebook, title: 'Facebook', text: 'Maangroup', desc: 'Connect with our community.', link: 'https://www.facebook.com/share/1BrRsTgjCM/' },
+        { icon: FaLinkedin, title: 'LinkedIn', text: 'Coming Soon', desc: 'Professional network.', link: '#' }
     ];
 
     return (
@@ -34,24 +36,27 @@ export const Contact = () => {
                         {/* Header */}
                         <div className="space-y-4">
                             <span className="inline-block px-4 py-1.5 rounded-full bg-gold-500/10 text-gold-500 font-bold tracking-widest uppercase text-[0.65rem] mb-2">
-                                Contact Us
+                                Follow & Contact
                             </span>
-                            <h1 className="text-3xl lg:text-5xl font-bold text-navy-900 leading-[1.15]">We'd love to hear from you.</h1>
+                            <h1 className="text-3xl lg:text-5xl font-bold text-navy-900 leading-[1.15]">Connect with us.</h1>
                             <p className="text-base max-w-sm font-light leading-relaxed">
-                                Whether you have a question about our services or pricing, our expert team is ready to answer all your questions.
+                                Whether you have a question about our services or want to follow our journey, our team is always ready to connect.
                             </p>
                         </div>
 
                         {/* Info Cards (Stacked) */}
-                        <div className="space-y-8">
+                        <div className="space-y-12">
                             {contactInfo.map((info, i) => (
-                                <motion.div
+                                <motion.a
                                     key={i}
+                                    href={info.link}
+                                    target={info.link !== '#' ? "_blank" : "_self"}
+                                    rel="noreferrer"
                                     initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1, duration: 0.5 }}
-                                    className="flex items-start gap-5 group"
+                                    className={`flex items-start gap-6 group ${info.link === '#' ? 'cursor-default' : 'cursor-pointer'}`}
                                 >
                                     <div className="w-12 h-12 bg-white text-navy-900 border border-slate-100 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-gold-500 group-hover:border-gold-500 group-hover:text-white group-hover:shadow-md transition-all duration-300">
                                         <info.icon size={20} />
@@ -61,7 +66,7 @@ export const Contact = () => {
                                         <p className="text-slate-500 text-xs mb-1.5">{info.desc}</p>
                                         <p className="text-navy-900 font-semibold text-sm">{info.text}</p>
                                     </div>
-                                </motion.div>
+                                </motion.a>
                             ))}
                         </div>
                     </div>
