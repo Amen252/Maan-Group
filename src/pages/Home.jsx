@@ -86,7 +86,7 @@ export const Home = () => {
             transition={{ duration: 2, ease: "easeOut" }}
             src="/Assets/Hero.jpeg"
             alt="Maan Group Leadership Strategy and Training"
-            fetchpriority="high"
+            fetchPriority="high"
             className="w-full h-full object-cover object-top"
           />
           {/* Very Lightened luxury overlay so image pops */}
