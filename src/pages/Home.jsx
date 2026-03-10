@@ -371,7 +371,7 @@ export const Home = () => {
             >
               <div className="rounded-3xl overflow-hidden shadow-2xl group aspect-[4/3]">
                 <img
-                  src="/Assets/Hero.jpeg"
+                  src="/Assets/Hero1.jpeg"
                   alt="R&D Innovation at Maan Group"
                   loading="lazy"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-[1500ms]"

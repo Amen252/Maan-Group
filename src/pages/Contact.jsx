@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
 import { FaWhatsapp, FaTiktok, FaFacebook, FaLinkedin } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
     const [formData, setFormData] = React.useState({
@@ -18,16 +19,29 @@ export const Contact = () => {
         setIsSubmitting(true);
         setSubmitStatus(null);
 
-        try {
-            const response = await fetch("/api/send", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            });
+        // --- EMAILJS CONFIGURATION ---
+        // Replace with your IDs from EmailJS dashboard
+        const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_placeholder";
+        const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_placeholder";
+        const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "user_placeholder";
 
-            if (response.ok) {
+        const templateParams = {
+            from_name: formData.name,
+            from_email: formData.email,
+            service_type: formData.service,
+            message: formData.message,
+            to_name: "Maan Group Admin"
+        };
+
+        try {
+            const result = await emailjs.send(
+                SERVICE_ID,
+                TEMPLATE_ID,
+                templateParams,
+                PUBLIC_KEY
+            );
+
+            if (result.status === 200) {
                 setSubmitStatus('success');
                 setFormData({ name: '', email: '', service: 'Consulting Services', message: '' });
                 setTimeout(() => setSubmitStatus(null), 8000);
