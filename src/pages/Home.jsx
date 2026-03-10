@@ -283,12 +283,12 @@ export const Home = () => {
       </section>
 
       {/* ═══════════ UNIQUE APPROACH SECTION (TRANSPARENT / NO BG) ═══════════ */}
-      <section className="py-28 relative bg-white">
+      <section className="py-16 lg:py-28 relative bg-white">
         <div className="container mx-auto px-6 max-w-[1200px] relative z-20">
 
-          <div className="grid lg:grid-cols-12 gap-16 items-start">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
-            <div className="lg:col-span-4 sticky top-32">
+            <div className="lg:col-span-4 lg:sticky lg:top-32">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -299,16 +299,16 @@ export const Home = () => {
                 <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-navy-900">Why Maan Group</span>
               </motion.div>
 
-              <h2 className="text-4xl lg:text-5xl font-bold text-navy-900 mb-6 leading-[1.15] tracking-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-900 mb-6 leading-[1.15] tracking-tight">
                 Expertise that drives <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-gold-700 font-serif italic text-5xl lg:text-6xl">Transformation</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-gold-700 font-serif italic text-4xl sm:text-5xl lg:text-6xl">Transformation</span>
               </h2>
               <p className="text-slate-500 text-[0.95rem] leading-relaxed max-w-sm">
                 We move beyond generic theories to provide solutions that are culturally relevant, relatable, and ready for immediate implementation.
               </p>
             </div>
 
-            <div className="lg:col-span-8 grid sm:grid-cols-2 gap-x-12 gap-y-16 pl-0 lg:pl-10">
+            <div className="lg:col-span-8 grid sm:grid-cols-2 gap-x-12 gap-y-10 sm:gap-y-16 pl-0 lg:pl-10">
               {[
                 {
                   title: 'Innovative Training',
@@ -358,9 +358,9 @@ export const Home = () => {
       </section>
 
       {/* ═══════════ R&D FEATURE ═══════════ */}
-      <section className="py-28 bg-navy-900 relative overflow-hidden mb-40">
+      <section className="py-20 lg:py-28 bg-navy-900 relative overflow-hidden mb-20 lg:mb-40">
         <div className="container mx-auto px-6 max-w-[1280px]">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Image */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
