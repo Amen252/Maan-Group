@@ -19,18 +19,12 @@ export const Contact = () => {
         setSubmitStatus(null);
 
         try {
-            const response = await fetch("https://api.web3forms.com/submit", {
+            const response = await fetch("/api/send", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
-                    'Accept': 'application/json'
                 },
-                body: JSON.stringify({
-                    access_key: "64ddca68-c134-404f-a503-c23b059de286",
-                    subject: "New Contact Form Submission - Maan Group",
-                    from_name: formData.name,
-                    ...formData
-                })
+                body: JSON.stringify(formData)
             });
 
             if (response.ok) {
