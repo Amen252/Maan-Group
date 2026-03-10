@@ -182,75 +182,99 @@ export const Home = () => {
       </section>
 
       {/* ═══════════ FOUNDER SECTION ═══════════ */}
-      <section className="py-28 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-6 max-w-[1280px]">
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-            {/* Founder Image Column */}
+      <section className="py-28 lg:py-40 bg-navy-900 relative overflow-hidden z-10">
+        {/* Deep Background Typography */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12rem] md:text-[20rem] lg:text-[25rem] font-black text-white/[0.02] tracking-tighter whitespace-nowrap pointer-events-none select-none z-0">
+          VISIONARY
+        </div>
+
+        <div className="container mx-auto px-6 max-w-[1280px] relative z-20">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
+            {/* Founder Image Wrapper (Overlapping) */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative w-full lg:w-1/2"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full lg:w-5/12 lg:z-30"
             >
-              <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
+              <div className="relative rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10 group aspect-[4/5] bg-navy-800">
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/20 to-transparent opacity-90 z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-70" />
                 <img
                   src="/Assets/Owner.jpeg"
                   alt="Mohamed Salad - Founder & CEO of Maan Group"
                   loading="lazy"
-                  className="w-full h-auto object-cover object-top hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-[1.5s] ease-out grayscale-[20%] group-hover:grayscale-0"
                 />
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-gold-500/10 rounded-full blur-3xl -z-0" />
-              <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-navy-900/5 rounded-full blur-3xl -z-0" />
 
-              <div className="absolute bottom-8 right-8 z-20 bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-slate-100 max-w-[240px]">
-                <Quote size={32} className="text-gold-500 mb-4 opacity-50" />
-                <p className="text-sm font-medium text-navy-900 leading-relaxed italic">
-                  "We are all here for a special reason. Stop being a prisoner of your past. Become the architect of your future."
-                  <br /><span className="text-xs font-bold not-italic text-gold-500 mt-2 block">— Mo’ Salad</span>
-                </p>
+                {/* Overlay Name Tag */}
+                <div className="absolute bottom-0 left-0 w-full p-6 lg:p-8 z-20">
+                  <div className="bg-[#3b4e6d] rounded-xl px-7 py-5 relative overflow-hidden shadow-2xl">
+                    <div className="absolute top-0 left-0 w-1.5 h-full bg-gold-500" />
+                    <h3 className="text-2xl font-bold text-white mb-1.5 drop-shadow-md tracking-tight">Mohamed <span className="text-gold-500">Salad</span></h3>
+                    <p className="text-xs uppercase tracking-[0.2em] text-[#a0aab8] font-bold drop-shadow-md">Founder & CEO</p>
+                  </div>
+                </div>
               </div>
+
+              {/* Decorative Animated Accents */}
+              <div className="hidden lg:block absolute -top-12 -left-12 w-48 h-48 border border-gold-500/20 rounded-full animate-[spin_20s_linear_infinite] pointer-events-none" />
+              <div className="hidden lg:block absolute -top-12 -left-12 w-48 h-48 border border-white/5 rounded-full animate-[spin_15s_linear_infinite_reverse] scale-110 pointer-events-none" />
+              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-gold-500/20 rounded-full blur-[50px] pointer-events-none -z-10" />
             </motion.div>
 
-            {/* Founder Content Column */}
+            {/* Founder Content Panel (Right Side Glass Card) */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="w-full lg:w-1/2 space-y-8"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full lg:w-8/12 lg:-ml-12 z-20"
             >
-              <div>
-                <span className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-gold-500 mb-3 block">
-                  Our Founder
-                </span>
-                <h2 className="text-4xl lg:text-5xl font-bold text-navy-900 leading-tight mb-4">
-                  Mohamed <span className="text-gold-500">Salad</span>
-                </h2>
-                <p className="text-sm font-bold uppercase tracking-widest text-slate-400">
-                  Founder & CEO · Motivational Speaker · Corporate Trainer
-                </p>
-              </div>
+              <div className="bg-white/5 backdrop-blur-3xl rounded-[2.5rem] p-10 lg:p-16 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] relative overflow-hidden group">
+                {/* Glowing orb inside panel */}
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-500/10 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3 transition-all duration-1000 group-hover:bg-gold-500/20" />
 
-              <div className="space-y-6 text-slate-600 leading-relaxed text-[1.05rem]">
-                <p>
-                  Mohamed Salad Ibrahim is a consultant, researcher, and academic leader specializing in institutional reform, youth empowerment, and human resource development.
-                </p>
-                <p>
-                  He serves as Head of Department and Faculty Research Coordinator at Jamhuriya University and is a PhD candidate (DBA) at INTI International University, Malaysia. As the founder of Maan Group, he leads innovative consultancy and training programs across Somalia and East Africa, bridging academia and practice with over nine years of experience.
-                </p>
-              </div>
+                <div className="relative z-10 space-y-10">
+                  {/* Quote Section */}
+                  <div className="relative">
+                    <Quote size={56} strokeWidth={1} className="text-gold-500/20 absolute -top-6 -left-6 z-0" />
+                    <h2 className="text-2xl lg:text-4xl lg:leading-[1.3] font-bold text-white relative z-10 tracking-tight">
+                      "We are all here for a special reason. Stop being a prisoner of your past. <span className="text-gold-500 font-serif italic font-light drop-shadow-sm">Become the architect of your future.</span>"
+                    </h2>
+                  </div>
 
-              <div className="grid grid-cols-2 gap-8 pt-6">
-                <div>
-                  <div className="text-2xl font-bold text-navy-900 mb-1">9+ Years</div>
-                  <div className="text-xs uppercase tracking-widest text-gold-500 font-bold">Industry Experience</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-navy-900 mb-1">Leader</div>
-                  <div className="text-xs uppercase tracking-widest text-gold-500 font-bold">Academic & Corporate</div>
+                  <div className="w-24 h-[2px] bg-gradient-to-r from-gold-500 to-transparent" />
+
+                  {/* Bio Paragraphs */}
+                  <div className="space-y-6 text-slate-300 leading-relaxed font-light text-[0.95rem] lg:text-[1.05rem]">
+                    <p>
+                      Mohamed Salad Ibrahim is a visionary consultant, researcher, and academic leader specializing in institutional reform, youth empowerment, and human resource development.
+                    </p>
+                    <p>
+                      Currently serving as Head of Department and Faculty Research Coordinator at Jamhuriya University, and a PhD candidate (DBA) at INTI International University, Malaysia, he consistently bridges the gap between rigorous academia and actionable corporate strategy. Under his leadership, Maan Group has successfully transformed institutions across Somalia and East Africa.
+                    </p>
+                  </div>
+
+                  {/* Stats Grid */}
+                  <div className="grid grid-cols-2 gap-8 pt-8 border-t border-white/5">
+                    <div className="flex flex-col">
+                      <span className="text-4xl lg:text-5xl font-light text-white mb-2 tracking-tighter">
+                        9<span className="text-gold-500 font-bold text-2xl lg:text-3xl">+</span>
+                      </span>
+                      <span className="text-[9px] lg:text-[11px] uppercase tracking-[0.25em] text-slate-400 font-semibold">
+                        Years of<br />Impact
+                      </span>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-4xl lg:text-5xl font-light text-white mb-2 tracking-tighter">
+                        Top<span className="text-gold-500 font-bold text-2xl lg:text-3xl ml-1">Tier</span>
+                      </span>
+                      <span className="text-[9px] lg:text-[11px] uppercase tracking-[0.25em] text-slate-400 font-semibold">
+                        Academic &<br />Corporate
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
