@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Mail, Phone, MapPin } from 'lucide-react';
+import { ArrowRight, Mail, Phone, MapPin, Github } from 'lucide-react';
 import { FaWhatsapp, FaTiktok, FaFacebook, FaLinkedin } from 'react-icons/fa';
 
 export const Footer = () => {
@@ -65,8 +65,15 @@ export const Footer = () => {
                 </div>
             </div>
 
-            <div className="container mx-auto px-6 max-w-[1280px] flex justify-center items-center text-sm text-slate-400 text-center font-normal">
+            <div className="container mx-auto px-6 max-w-[1280px] flex flex-col items-center gap-2 text-sm text-slate-400 text-center font-normal">
                 <p>&copy; 2025 Maan Group Professional Services. Empowering Minds. Building Future.</p>
+                <p className="text-xs text-slate-500 flex items-center gap-2">
+                    Developed by
+                    <a href="https://github.com/Amen252" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-slate-300 hover:text-gold-500 transition-all duration-300 group">
+                        <Github size={14} className="group-hover:rotate-12 transition-transform" />
+                        <span className="font-bold tracking-tight">Amen252</span>
+                    </a>
+                </p>
             </div>
 
             {/* Background glow flourish */}
