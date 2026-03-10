@@ -282,72 +282,77 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* ═══════════ UNIQUE APPROACH SECTION ═══════════ */}
-      <section className="py-28 bg-slate-50 relative">
-        <div className="container mx-auto px-6 max-w-[1280px]">
-          <div className="text-center max-w-3xl mx-auto mb-20 text-balance">
-            <span className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-gold-500 mb-4 block">
-              Why Maan Group
-            </span>
-            <h2 className="text-3xl lg:text-4xl lg:text-5xl font-bold text-navy-900 mb-6 leading-tight">
-              Why Choose <span className="text-gold-500 font-serif italic">MAAN</span> Group?
-            </h2>
-            <p className="text-slate-500 text-base lg:text-lg leading-relaxed">
-              We move beyond generic theories to provide solutions that are culturally relevant, relatable, and ready for immediate implementation. Here is our unique approach to your success.
-            </p>
-          </div>
+      {/* ═══════════ UNIQUE APPROACH SECTION (TRANSPARENT / NO BG) ═══════════ */}
+      <section className="py-28 relative bg-white">
+        <div className="container mx-auto px-6 max-w-[1200px] relative z-20">
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {[
-              {
-                title: 'Innovative Training Methodologies',
-                desc: 'Engaging workshops integrating modern teaching techniques, behavioral psychology, and corporate strategy.',
-                icon: BookOpen
-              },
-              {
-                title: 'Global & Local Impact',
-                desc: 'Bridging international best practices with regional business dynamics, ensuring relevant solutions for businesses and professionals.',
-                icon: Globe
-              },
-              {
-                title: 'Holistic Development',
-                desc: 'A balanced focus on individual growth, professional advancement, and business success.',
-                icon: Target
-              },
-              {
-                title: 'Strategic Consulting Expertise',
-                desc: 'Tailored insights in organizational structure, market positioning, and leadership effectiveness.',
-                icon: Layers
-              }
-            ].map((item, idx) => (
+          <div className="grid lg:grid-cols-12 gap-16 items-start">
+
+            <div className="lg:col-span-4 sticky top-32">
               <motion.div
-                key={idx}
-                whileHover={{ y: -8 }}
-                className="group relative bg-white p-10 lg:p-12 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-navy-900/5 hover:border-gold-500/30 transition-all duration-400 overflow-hidden flex flex-col"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 shadow-sm mb-6 bg-slate-50"
               >
-                {/* Thin top border indicator on hover */}
-                <div className="absolute top-0 left-0 w-full h-1.5 bg-gold-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <span className="w-2 h-2 rounded-full bg-gold-500 animate-[pulse_2s_ease-in-out_infinite]" />
+                <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-navy-900">Why Maan Group</span>
+              </motion.div>
 
-                {/* Clean Watermark Number (matching screenshot style) */}
-                <div className="absolute top-6 right-8 text-[8rem] font-bold text-slate-50 group-hover:text-gold-500/[0.03] transition-colors duration-500 pointer-events-none select-none leading-none z-0 tracking-tighter">
-                  0{idx + 1}
-                </div>
+              <h2 className="text-4xl lg:text-5xl font-bold text-navy-900 mb-6 leading-[1.15] tracking-tight">
+                Expertise that drives <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-gold-700 font-serif italic text-5xl lg:text-6xl">Transformation</span>
+              </h2>
+              <p className="text-slate-500 text-[0.95rem] leading-relaxed max-w-sm">
+                We move beyond generic theories to provide solutions that are culturally relevant, relatable, and ready for immediate implementation.
+              </p>
+            </div>
 
-                <div className="relative z-10">
-                  <div className="w-14 h-14 bg-slate-50 text-navy-900 rounded-xl flex items-center justify-center mb-8 border border-slate-100 group-hover:bg-gold-500 group-hover:text-white group-hover:border-gold-500 transition-all duration-400 shadow-sm">
+            <div className="lg:col-span-8 grid sm:grid-cols-2 gap-x-12 gap-y-16 pl-0 lg:pl-10">
+              {[
+                {
+                  title: 'Innovative Training',
+                  desc: 'We integrate modern teaching techniques, behavioral psychology, and corporate strategy into highly engaging workshops.',
+                  icon: BookOpen
+                },
+                {
+                  title: 'Global & Local Synergy',
+                  desc: 'Bridging international best practices with regional business dynamics for relevant, actionable consulting solutions.',
+                  icon: Globe
+                },
+                {
+                  title: 'Holistic Development',
+                  desc: 'A perfectly balanced focus on individual growth, professional advancement, and long-term organizational success.',
+                  icon: Target
+                },
+                {
+                  title: 'Strategic Architecture',
+                  desc: 'Tailored insights specifically applied to organizational structure, market positioning, and top-tier leadership effectiveness.',
+                  icon: Layers
+                }
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  className="group relative"
+                >
+                  <div className="w-14 h-14 mb-6 rounded-2xl bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] text-navy-900 flex items-center justify-center group-hover:bg-gold-500 group-hover:text-white group-hover:-translate-y-2 group-hover:shadow-[0_8px_30px_rgba(212,175,55,0.2)] transition-all duration-500 ease-out border border-slate-100">
                     <item.icon size={26} strokeWidth={1.5} />
                   </div>
 
-                  <h3 className="text-xl font-bold text-navy-900 mb-4 group-hover:text-gold-600 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-navy-900 mb-3 group-hover:text-gold-600 transition-colors duration-300 tracking-tight">
                     {item.title}
                   </h3>
-
-                  <p className="text-slate-500 text-sm leading-relaxed group-hover:text-slate-600 transition-colors duration-300 w-[85%]">
+                  <p className="text-slate-500 leading-relaxed text-sm">
                     {item.desc}
                   </p>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
+
           </div>
         </div>
       </section>
