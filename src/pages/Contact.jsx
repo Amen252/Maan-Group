@@ -19,18 +19,16 @@ export const Contact = () => {
         setIsSubmitting(true);
         setSubmitStatus(null);
 
-        // --- EMAILJS CONFIGURATION ---
-        // Replace with your IDs from EmailJS dashboard
-        const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_placeholder";
-        const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_placeholder";
-        const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "user_placeholder";
+        const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "";
+        const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "";
+        const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "";
 
         const templateParams = {
-            from_name: formData.name,
-            from_email: formData.email,
-            service_type: formData.service,
+            name: formData.name,
+            email: formData.email,
+            topic: formData.service,
             message: formData.message,
-            to_name: "Maan Group Admin"
+            title: `Request for ${formData.service}`
         };
 
         try {
