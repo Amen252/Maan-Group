@@ -53,9 +53,9 @@ export const Footer = () => {
                 <div className="order-4 lg:order-4 space-y-8">
                     <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-gold-500 border-b border-gold-500/20 pb-4 w-fit">Get In Touch</h3>
                     <div className="pt-2 space-y-4">
-                        <a href="mailto:mohamedtech.dev@gmail.com" className="flex items-center gap-3 text-slate-200 hover:text-white cursor-pointer transition-colors w-fit">
+                        <a href="mailto:info@maangroup.so" className="flex items-center gap-3 text-slate-200 hover:text-white cursor-pointer transition-colors w-fit">
                             <Mail size={16} className="text-gold-500" />
-                            <span className="text-sm font-medium">info@maansogroup.so</span>
+                            <span className="text-sm font-medium">info@maangroup.so</span>
                         </a>
                         <a href="tel:+252617076666" className="flex items-center gap-3 text-slate-200 hover:text-white cursor-pointer transition-colors w-fit">
                             <Phone size={16} className="text-gold-500" />

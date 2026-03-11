@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Send } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Send, CheckCircle, X } from 'lucide-react';
 import { FaWhatsapp, FaTiktok, FaFacebook, FaLinkedin } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 
@@ -42,7 +42,7 @@ export const Contact = () => {
             if (result.status === 200) {
                 setSubmitStatus('success');
                 setFormData({ name: '', email: '', service: 'Consulting Services', message: '' });
-                setTimeout(() => setSubmitStatus(null), 8000);
+                setTimeout(() => setSubmitStatus(null), 5000);
             } else {
                 setSubmitStatus('error');
             }
@@ -115,8 +115,40 @@ export const Contact = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="bg-white p-8 md:p-12 rounded-[2rem] shadow-xl border border-slate-100"
+                        className="bg-white p-8 md:p-12 rounded-[2rem] shadow-xl border border-slate-100 relative"
                     >
+                        {/* Success Toast / Small Popup at the Top of Form */}
+                        <AnimatePresence>
+                            {submitStatus === 'success' && (
+                                <div className="absolute top-6 left-0 right-0 z-50 flex justify-center pointer-events-none px-6">
+                                    <motion.div
+                                        initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                                        exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                                        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                                        className="bg-white rounded-2xl p-4 max-w-sm w-full shadow-2xl shadow-navy-900/10 border border-slate-100 flex items-center gap-4 pointer-events-auto"
+                                    >
+                                        <div className="w-10 h-10 bg-green-50 text-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <CheckCircle size={20} />
+                                        </div>
+                                        <div className="flex-1">
+                                            <h3 className="text-sm font-bold text-navy-900 leading-tight">Success!</h3>
+                                            <p className="text-slate-500 text-[13px] mt-0.5 leading-snug">
+                                                Your message has been sent. We'll be in touch!
+                                            </p>
+                                        </div>
+                                        <button
+                                            type="button"
+                                            onClick={() => setSubmitStatus(null)}
+                                            className="text-slate-400 hover:text-slate-600 hover:bg-slate-50 rounded-full transition-colors p-1.5"
+                                        >
+                                            <X size={16} />
+                                        </button>
+                                    </motion.div>
+                                </div>
+                            )}
+                        </AnimatePresence>
+
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
@@ -184,13 +216,6 @@ export const Contact = () => {
                                 {isSubmitting ? 'Sending Message...' : 'Send Message'}
                             </button>
 
-                            {submitStatus === 'success' && (
-                                <div className="p-4 bg-green-50 text-green-700 rounded-xl text-sm font-medium border border-green-200 text-center shadow-sm">
-                                    Thank you! Your message has been sent successfully.
-                                    <div className="text-[0.65rem] font-bold uppercase tracking-widest mt-2 opacity-80">Check your email for activation if this is your first submission.</div>
-                                </div>
-                            )}
-
                             {submitStatus === 'error' && (
                                 <div className="p-4 bg-red-50 text-red-700 rounded-xl text-sm font-medium border border-red-200 text-center shadow-sm">
                                     Oops! Something went wrong. Please try again later.
@@ -200,6 +225,7 @@ export const Contact = () => {
                     </motion.div>
                 </div>
             </div>
+
         </main>
     );
 };
