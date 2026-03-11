@@ -1,5 +1,7 @@
 # MaanGroup - Strategic Professional Solutions
 
+**Live Website:** [https://maangroup.so/](https://maangroup.so/)
+
 Maan Group is a leading consultancy and training firm in Somalia, dedicated to empowering minds and building the future through leadership development, organizational strategy, and professional excellence. Established in 2019, we specialize in providing practical, results-driven solutions rooted in localized insights.
 
 ## 🚀 Core Pillars
@@ -56,13 +58,13 @@ To run this project locally, follow these steps:
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="public/Screenshoots/WhatsApp%20Image%202026-03-11%20at%2016.51.13.jpeg" width="48%" />
+  <img src="public/Screenshoots/screenshot1.jpeg" width="48%" />
   &nbsp;
-  <img src="public/Screenshoots/WhatsApp%20Image%202026-03-11%20at%2016.51.13%20(1).jpeg" width="48%" />
+  <img src="public/Screenshoots/screenshot2.jpeg" width="48%" />
   <br/><br/>
-  <img src="public/Screenshoots/WhatsApp%20Image%202026-03-11%20at%2016.51.13%20(2).jpeg" width="48%" />
+  <img src="public/Screenshoots/screenshot3.jpeg" width="48%" />
   &nbsp;
-  <img src="public/Screenshoots/WhatsApp%20Image%202026-03-11%20at%2016.51.14.jpeg" width="48%" />
+  <img src="public/Screenshoots/screenshot4.jpeg" width="48%" />
 </div>
 
 ---
