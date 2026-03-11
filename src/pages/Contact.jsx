@@ -217,7 +217,7 @@ export const Contact = () => {
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className="w-full py-5 bg-gold-500 text-white rounded-xl font-bold uppercase tracking-widest hover:bg-gold-600 hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 shadow-xl shadow-gold-500/20 group"
+                                        className="w-full py-4 sm:py-5 bg-gold-500 text-white rounded-xl font-bold uppercase text-[10px] sm:text-xs tracking-widest hover:bg-gold-600 hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 shadow-xl shadow-gold-500/20 group"
                                     >
                                         {isSubmitting ? (
                                             <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />

@@ -123,14 +123,14 @@ export const Home = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-5">
               <Link
                 to="/contact"
-                className="btn bg-gold-500 text-white hover:bg-gold-600 px-10 py-4.5 rounded-xl flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider group shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="btn bg-gold-500 text-white hover:bg-gold-600 px-8 py-3.5 sm:px-10 sm:py-4.5 rounded-xl flex items-center justify-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider group shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 Request a Consultation
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/services"
-                className="btn bg-white/10 border border-white/20 text-white hover:bg-white/20 px-10 py-4.5 rounded-xl text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all duration-300 hover:-translate-y-1"
+                className="btn bg-white/10 border border-white/20 text-white hover:bg-white/20 px-8 py-3.5 sm:px-10 sm:py-4.5 rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all duration-300 hover:-translate-y-1"
               >
                 Explore Our Services
               </Link>
