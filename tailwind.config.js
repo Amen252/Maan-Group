@@ -12,7 +12,8 @@ export default {
           800: '#04225A', // Darker shade for hovers/accents
         },
         gold: {
-          500: '#F36D21', // Logo secondary orange
+          500: '#F47321', // Primary Orange
+          600: '#D65D1A', // Darker Orange for Hover
           400: '#FF8A45', // Lighter orange
         },
         slate: {

@@ -8,7 +8,7 @@ export const Footer = () => {
         <footer className="bg-navy-900 border-t border-white/5 pt-20 pb-12 relative overflow-hidden">
             <div className="container mx-auto px-6 max-w-[1280px] grid lg:grid-cols-[2.5fr_1fr_1fr_1fr] md:grid-cols-2 gap-x-12 gap-y-12 relative z-10 pb-16 border-b border-white/10 mb-10">
                 <div className="space-y-10 order-1 lg:pr-12">
-                    <Link to="/" className="text-3xl font-heading font-bold text-white tracking-tighter hover:text-gold-500 transition-colors">
+                    <Link to="/" className="text-2xl font-heading font-semibold text-white tracking-tighter hover:text-gold-500 transition-colors">
                         MAAN<span className="text-gold-500 font-light">GROUP</span>
                     </Link>
                     <p className="text-slate-200 text-sm leading-normal max-w-sm opacity-80">
@@ -31,7 +31,7 @@ export const Footer = () => {
                 </div>
 
                 <div className="order-2 lg:order-2 space-y-8">
-                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-gold-500 border-b border-gold-500/20 pb-4 w-fit">Expertise</h3>
+                    <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-500 border-b border-gold-500/20 pb-4 w-fit">Expertise</h3>
                     <ul className="space-y-4">
                         <li><Link to="/services" className="text-slate-200 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Consulting Services</Link></li>
                         <li><Link to="/services" className="text-slate-200 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Training & Development</Link></li>
@@ -41,7 +41,7 @@ export const Footer = () => {
                 </div>
 
                 <div className="order-3 lg:order-3 space-y-8">
-                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-gold-500 border-b border-gold-500/20 pb-4 w-fit">Company</h3>
+                    <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-500 border-b border-gold-500/20 pb-4 w-fit">Company</h3>
                     <ul className="space-y-4">
                         <li><Link to="/about" className="text-slate-200 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Our Identity/About</Link></li>
                         <li><Link to="/events" className="text-slate-200 hover:text-white hover:translate-x-2 transition-all block text-base font-medium">Events</Link></li>
@@ -51,7 +51,7 @@ export const Footer = () => {
                 </div>
 
                 <div className="order-4 lg:order-4 space-y-8">
-                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-gold-500 border-b border-gold-500/20 pb-4 w-fit">Get In Touch</h3>
+                    <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-500 border-b border-gold-500/20 pb-4 w-fit">Get In Touch</h3>
                     <div className="pt-2 space-y-4">
                         <a href="mailto:info@maangroup.so" className="flex items-center gap-3 text-slate-200 hover:text-white cursor-pointer transition-colors w-fit">
                             <Mail size={16} className="text-gold-500" />

@@ -18,7 +18,7 @@ const ServiceCard = ({ id, image, title, subtitle, description, bullets, delay }
     className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
   >
     {/* Image Banner with Overlay Title */}
-    <div className="relative h-72 overflow-hidden flex-shrink-0">
+    <div className="relative h-48 md:h-72 overflow-hidden flex-shrink-0">
       <img
         src={image}
         alt={title}
@@ -26,21 +26,21 @@ const ServiceCard = ({ id, image, title, subtitle, description, bullets, delay }
         className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 p-5">
-        <h3 className="text-white font-bold text-xl leading-tight">{title}</h3>
-        <p className="text-gold-400 text-xs font-medium mt-0.5 tracking-wide">{subtitle}</p>
+      <div className="absolute bottom-0 left-0 p-4 md:p-5">
+        <h3 className="text-white font-semibold text-lg md:text-xl leading-tight">{title}</h3>
+        <p className="text-gold-400 text-[10px] md:text-xs font-medium mt-0.5 tracking-wide">{subtitle}</p>
       </div>
     </div>
 
     {/* Card Body */}
-    <div className="p-6 flex flex-col gap-5 flex-1">
-      <p className="text-slate-600 text-sm leading-relaxed">{description}</p>
+    <div className="p-4 md:p-6 flex flex-col gap-4 md:gap-5 flex-1">
+      <p className="text-slate-600 text-xs md:text-sm leading-relaxed">{description}</p>
 
       {/* Bullet Points — 2 columns */}
-      <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+      <div className="grid grid-cols-2 gap-x-3 gap-y-2">
         {bullets.map((b, i) => (
-          <div key={i} className="flex items-center gap-2 text-sm text-slate-600">
-            <CheckCircle size={14} className="text-gold-500 flex-shrink-0" />
+          <div key={i} className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-sm text-slate-600">
+            <CheckCircle size={12} className="text-gold-500 flex-shrink-0" />
             <span>{b}</span>
           </div>
         ))}
@@ -49,9 +49,9 @@ const ServiceCard = ({ id, image, title, subtitle, description, bullets, delay }
       {/* Learn More */}
       <Link
         to={`/services/${id}`}
-        className="mt-auto inline-flex items-center gap-2 text-xs font-semibold text-navy-900 border border-navy-900/20 px-4 py-2.5 rounded-md hover:bg-navy-900 hover:text-white hover:border-navy-900 transition-all duration-300 w-fit"
+        className="mt-auto inline-flex items-center gap-2 text-[10px] md:text-xs font-semibold text-navy-900 border border-navy-900/20 px-3 md:px-4 py-2 md:py-2.5 rounded-md hover:bg-navy-900 hover:text-white hover:border-navy-900 transition-all duration-300 w-fit"
       >
-        Learn More <ArrowRight size={13} />
+        Learn More <ArrowRight size={12} />
       </Link>
     </div>
   </motion.div>
@@ -77,7 +77,7 @@ export const Home = () => {
       </Helmet>
 
       {/* ═══════════ HERO ═══════════ */}
-      <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-navy-900 pt-20">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy-900 pt-20">
         {/* Full-bleed background image */}
         <div className="absolute inset-0 z-0">
           <motion.img
@@ -89,67 +89,51 @@ export const Home = () => {
             fetchPriority="high"
             className="w-full h-full object-cover object-top"
           />
-          {/* Very Lightened luxury overlay so image pops */}
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-900/30 via-transparent to-navy-900/50" />
-          <div className="absolute inset-0 bg-navy-900/10" />
+          {/* Lightened Overlays - More visibility for image */}
+          <div className="absolute inset-0 bg-navy-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-navy-950/10" />
         </div>
 
-        <div className="container mx-auto px-6 max-w-[1280px] relative z-10 flex flex-col items-center text-center pt-10">
+        <div className="container mx-auto px-6 max-w-[1280px] relative z-10 flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            className="max-w-4xl mx-auto space-y-8"
+            className="w-full max-w-5xl mx-auto space-y-8"
           >
-            {/* Badge */}
+            {/* Re-added Badge (Founded) */}
             <div className="flex justify-center">
-              <span className="inline-flex items-center gap-2 text-[0.65rem] font-black uppercase tracking-[0.3em] text-white bg-white/10 border border-white/20 backdrop-blur-md px-5 py-2.5 rounded-full shadow-2xl">
+              <span className="inline-flex items-center gap-2 text-[0.65rem] font-bold uppercase tracking-[0.3em] text-white bg-white/10 border border-white/20 backdrop-blur-md px-5 py-2.5 rounded-full shadow-2xl">
                 <span className="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" />
-                Est. 2019 · Strategic Consulting & Training
+                Est. 2019 · Strategic Excellence
               </span>
             </div>
 
-            {/* Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-[5rem] font-bold text-white leading-[1.05] tracking-tight drop-shadow-2xl">
-              Empowering Minds. <br />
-              <span className="text-gold-500 font-serif italic tracking-normal">Building Future.</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-[1.2] tracking-tight drop-shadow-2xl">
+              Empowering Minds.<br />
+              <span className="text-white font-serif italic drop-shadow-xl font-light">Building Future.</span>
             </h1>
 
-            {/* Description */}
-            <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            {/* Balanced Description */}
+            <p className="text-sm sm:text-base md:text-lg text-slate-100 leading-relaxed max-w-3xl mx-auto drop-shadow-md font-light">
               We are a premier consultancy and training firm specializing in leadership development, organizational strategy, and professional excellence through localized, results-driven solutions.
             </p>
 
-            {/* CTA */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-6">
+            {/* Balanced CTA Group */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-5">
               <Link
                 to="/contact"
-                className="btn bg-gold-500 text-white hover:bg-gold-400 px-10 py-4.5 rounded-xl flex items-center gap-2 text-sm font-semibold group shadow-[0_10px_40px_-10px_rgba(197,160,89,0.5)] transition-all duration-300 hover:-translate-y-1"
+                className="btn bg-gold-500 text-white hover:bg-gold-600 px-10 py-4.5 rounded-xl flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider group shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 Request a Consultation
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/services"
-                className="btn bg-white/5 border border-white/20 text-white hover:bg-white/15 px-10 py-4.5 rounded-xl text-sm font-semibold backdrop-blur-md transition-all duration-300 hover:-translate-y-1"
+                className="btn bg-white/10 border border-white/20 text-white hover:bg-white/20 px-10 py-4.5 rounded-xl text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all duration-300 hover:-translate-y-1"
               >
                 Explore Our Services
               </Link>
-            </div>
-
-            {/* Trust Indicators Row */}
-            <div className="w-full grid grid-cols-2 md:flex md:flex-wrap items-center justify-center gap-3 sm:gap-6 md:gap-8 pt-8 md:pt-12 mt-8 md:mt-12 border-t border-white/10">
-              {[
-                { label: 'Consulting', icon: Globe },
-                { label: 'Training & Dev', icon: Users },
-                { label: 'Capacity Building', icon: Target },
-                { label: 'R&D', icon: Search },
-              ].map((item, idx) => (
-                <div key={idx} className="flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.1em] sm:tracking-widest text-white font-medium bg-white/5 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none border border-white/10 md:border-transparent p-3 sm:p-4 md:p-0 rounded-xl md:rounded-none hover:bg-white/10 md:hover:bg-transparent transition-all">
-                  <item.icon size={16} className="text-white opacity-90 sm:mb-0" />
-                  <span className="text-center">{item.label}</span>
-                </div>
-              ))}
             </div>
           </motion.div>
         </div>
@@ -164,7 +148,7 @@ export const Home = () => {
               <span className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-gold-500 mb-3 block">
                 Our Services
               </span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-navy-900 leading-tight">
+              <h2 className="text-2xl lg:text-3xl font-semibold text-navy-900 leading-tight">
                 Five Core Pillars of Expertise
               </h2>
             </div>
@@ -211,8 +195,8 @@ export const Home = () => {
                 <div className="absolute bottom-0 left-0 w-full p-6 lg:p-8 z-20">
                   <div className="bg-[#3b4e6d] rounded-xl px-7 py-5 relative overflow-hidden shadow-2xl">
                     <div className="absolute top-0 left-0 w-1.5 h-full bg-gold-500" />
-                    <h3 className="text-2xl font-bold text-white mb-1.5 drop-shadow-md tracking-tight">Mohamed <span className="text-gold-500">Salad</span></h3>
-                    <p className="text-xs uppercase tracking-[0.2em] text-[#a0aab8] font-bold drop-shadow-md">Founder & CEO</p>
+                    <h3 className="text-xl font-semibold text-white mb-1.5 drop-shadow-md tracking-tight">Mohamed <span className="text-gold-500">Salad</span></h3>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-[#a0aab8] font-bold drop-shadow-md">Founder & CEO</p>
                   </div>
                 </div>
               </div>
@@ -239,7 +223,7 @@ export const Home = () => {
                   {/* Quote Section */}
                   <div className="relative">
                     <Quote size={56} strokeWidth={1} className="text-gold-500/20 absolute -top-6 -left-6 z-0" />
-                    <h2 className="text-2xl lg:text-4xl lg:leading-[1.3] font-bold text-white relative z-10 tracking-tight">
+                    <h2 className="text-xl lg:text-3xl lg:leading-[1.3] font-semibold text-white relative z-10 tracking-tight">
                       "We are all here for a special reason. Stop being a prisoner of your past. <span className="text-gold-500 font-serif italic font-light drop-shadow-sm">Become the architect of your future.</span>"
                     </h2>
                   </div>
@@ -299,9 +283,9 @@ export const Home = () => {
                 <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-navy-900">Why Maan Group</span>
               </motion.div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-900 mb-6 leading-[1.15] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-navy-900 mb-6 leading-[1.15] tracking-tight">
                 Expertise that drives <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-gold-700 font-serif italic text-4xl sm:text-5xl lg:text-6xl">Transformation</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-gold-700 font-serif italic text-3xl sm:text-4xl lg:text-5xl">Transformation</span>
               </h2>
               <p className="text-slate-500 text-[0.95rem] leading-relaxed max-w-sm">
                 We move beyond generic theories to provide solutions that are culturally relevant, relatable, and ready for immediate implementation.
@@ -343,7 +327,7 @@ export const Home = () => {
                     <item.icon size={26} strokeWidth={1.5} />
                   </div>
 
-                  <h3 className="text-xl font-bold text-navy-900 mb-3 group-hover:text-gold-600 transition-colors duration-300 tracking-tight">
+                  <h3 className="text-lg font-semibold text-navy-900 mb-3 group-hover:text-gold-600 transition-colors duration-300 tracking-tight">
                     {item.title}
                   </h3>
                   <p className="text-slate-500 leading-relaxed text-sm">
@@ -395,7 +379,7 @@ export const Home = () => {
               <span className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-gold-400 block">
                 Research & Innovation
               </span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
+              <h2 className="text-2xl lg:text-3xl font-semibold text-white leading-tight">
                 Preparing You for the Disruptions of Tomorrow
               </h2>
               <p className="text-slate-400 text-[0.95rem] leading-relaxed font-normal">
@@ -432,8 +416,6 @@ export const Home = () => {
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom-right,_rgba(197,160,89,0.05)_0%,_transparent_60%)] pointer-events-none" />
       </section>
-
-
 
     </main>
   );

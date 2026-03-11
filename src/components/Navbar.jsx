@@ -53,7 +53,7 @@ export const Navbar = () => {
                             alt="MaanGroup Logo"
                             className="h-12 w-auto object-contain rounded group-hover:scale-105 transition-transform duration-300"
                         />
-                        <span className="font-heading font-bold text-navy-900 text-xl tracking-tighter uppercase whitespace-nowrap transition-colors duration-300">
+                        <span className="font-heading font-semibold text-navy-900 text-xl tracking-tighter uppercase whitespace-nowrap transition-colors duration-300">
                             Maan<span className="text-gold-500">Group</span>
                         </span>
                     </Link>
@@ -146,7 +146,7 @@ export const Navbar = () => {
                             <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100">
                                 <Link to="/" onClick={closeDrawer} className="flex items-center gap-2">
                                     <img src="/Assets/logo.jpeg" alt="Logo" className="h-9 w-auto object-contain rounded" />
-                                    <span className="font-heading font-bold text-navy-900 text-lg tracking-tighter uppercase">
+                                    <span className="font-heading font-semibold text-navy-900 text-lg tracking-tighter uppercase">
                                         Maan<span className="text-gold-500">Group</span>
                                     </span>
                                 </Link>
