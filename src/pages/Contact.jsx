@@ -17,15 +17,10 @@ export const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-        const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-        const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-        if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-            console.error('EmailJS credentials missing. Check your .env file.');
-            setSubmitStatus('error');
-            return;
-        }
+        // Use environment variables or hardcoded fallbacks for live site reliability
+        const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_m1paz2p";
+        const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_5ergxt9";
+        const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "Hhk7exogWwSNjYybL";
 
         setIsSubmitting(true);
         setSubmitStatus(null);
