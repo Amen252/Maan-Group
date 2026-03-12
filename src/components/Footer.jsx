@@ -15,7 +15,7 @@ export const Footer = () => {
                         Empowering minds and building the future through leadership development, organizational strategy, and professional excellence.
                     </p>
                     <div className="flex flex-wrap gap-5 items-center">
-                        <a href="https://wa.me/252617076666" target="_blank" rel="noreferrer" className="w-12 h-12 flex-shrink-0 rounded-xl bg-white/5 border border-white/10 text-slate-200 flex items-center justify-center hover:bg-gold-500 hover:text-white hover:border-gold-500 transition-all duration-300" title="WhatsApp">
+                        <a href="https://wa.me/252618257815" target="_blank" rel="noreferrer" className="w-12 h-12 flex-shrink-0 rounded-xl bg-white/5 border border-white/10 text-slate-200 flex items-center justify-center hover:bg-gold-500 hover:text-white hover:border-gold-500 transition-all duration-300" title="WhatsApp">
                             <FaWhatsapp size={22} />
                         </a>
                         <a href="https://www.tiktok.com/@maangroup" target="_blank" rel="noreferrer" className="w-12 h-12 flex-shrink-0 rounded-xl bg-white/5 border border-white/10 text-slate-200 flex items-center justify-center hover:bg-gold-500 hover:text-white hover:border-gold-500 transition-all duration-300" title="TikTok">
@@ -57,9 +57,9 @@ export const Footer = () => {
                             <Mail size={16} className="text-gold-500" />
                             <span className="text-sm font-medium">info@maangroup.so</span>
                         </a>
-                        <a href="tel:+252617076666" className="flex items-center gap-3 text-slate-200 hover:text-white cursor-pointer transition-colors w-fit">
+                        <a href="tel:+252618257815" className="flex items-center gap-3 text-slate-200 hover:text-white cursor-pointer transition-colors w-fit">
                             <Phone size={16} className="text-gold-500" />
-                            <span className="text-sm font-medium">+252 61 7076666</span>
+                            <span className="text-sm font-medium">+252 61 8257815</span>
                         </a>
                     </div>
                 </div>

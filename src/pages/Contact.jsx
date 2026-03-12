@@ -92,7 +92,7 @@ export const Contact = () => {
                                 </a>
 
                                 <a
-                                    href="https://wa.me/252617076666"
+                                    href="https://wa.me/252618257815"
                                     target="_blank"
                                     rel="noreferrer"
                                     className="flex items-center gap-4 group relative z-10"
@@ -103,7 +103,7 @@ export const Contact = () => {
                                     </div>
                                     <div>
                                         <p className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">WhatsApp</p>
-                                        <p className="text-sm font-medium text-navy-900 group-hover:text-gold-500 transition-colors">+252 61 7076666</p>
+                                        <p className="text-sm font-medium text-navy-900 group-hover:text-gold-500 transition-colors">+252 61 8257815</p>
                                     </div>
                                 </a>
 
