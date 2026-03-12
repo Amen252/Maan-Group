@@ -18,9 +18,9 @@ export const Contact = () => {
         e.preventDefault();
 
         // Use environment variables or hardcoded fallbacks for live site reliability
-        const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_m1paz2p";
-        const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_5ergxt9";
-        const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "Hhk7exogWwSNjYybL";
+        const SERVICE_ID = import.meta.env.VITE_SERVICE_ID || "service_m1paz2p";
+        const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID || "template_5ergxt9";
+        const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY || "Hhk7exogWwSNjYybL";
 
         setIsSubmitting(true);
         setSubmitStatus(null);
