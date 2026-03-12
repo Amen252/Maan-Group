@@ -93,19 +93,33 @@ export const About = () => {
             <section className="py-16 bg-slate-50">
                 <div className="container mx-auto px-6 max-w-[1280px]">
                     <div className="grid md:grid-cols-2 gap-6">
-                        <div className="bg-navy-900 p-8 rounded-2xl text-white space-y-4 shadow-md">
-                            <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center text-gold-500">
-                                <Target size={18} />
+                        <div className="bg-navy-900 p-8 rounded-2xl text-white space-y-6 shadow-md">
+                            <div className="flex items-center gap-4">
+                                <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center text-gold-500">
+                                    <Target size={18} />
+                                </div>
+                                <h3 className="text-gold-500 font-bold uppercase text-[10px] tracking-widest">Our Mission</h3>
                             </div>
-                            <h3 className="text-gold-500 font-bold uppercase text-[10px] tracking-widest">Our Mission</h3>
-                            <p className="text-lg font-light leading-snug">To educate and empower professionals through transformational mentorship and strategic consulting.</p>
+                            <div className="space-y-4 text-base font-light leading-relaxed">
+                                <p className="relative pl-4 border-l border-gold-500/30">
+                                    To provide innovative consultancy, training and development services to leaders and organizations in Somalia, rising regionally and internationally with culturally responsive approaches that maintain growth.
+                                </p>
+                                <p className="relative pl-4 border-l border-gold-500/30">
+                                    To maintain integrity, inclusiveness, and excellence, utilizing institutional reform and youth empowerment to serve as a trusted change agent while nurturing a supportive atmosphere for employees.
+                                </p>
+                            </div>
                         </div>
-                        <div className="bg-white p-8 rounded-2xl border border-slate-200 space-y-4 shadow-sm">
-                            <div className="w-8 h-8 bg-navy-900 text-white rounded-lg flex items-center justify-center">
-                                <Shield size={18} />
+
+                        <div className="bg-white p-8 rounded-2xl border border-slate-200 space-y-6 shadow-sm">
+                            <div className="flex items-center gap-4">
+                                <div className="w-8 h-8 bg-navy-900 text-white rounded-lg flex items-center justify-center">
+                                    <Shield size={18} />
+                                </div>
+                                <h3 className="text-gold-600 font-bold uppercase text-[10px] tracking-widest">Our Vision</h3>
                             </div>
-                            <h3 className="text-gold-600 font-bold uppercase text-[10px] tracking-widest">Our Vision</h3>
-                            <p className="text-lg text-navy-900 font-light leading-snug">To be the leading architectural firm of leadership across East Africa, creating impact-driven solutions.</p>
+                            <p className="text-base text-navy-900 font-light leading-relaxed">
+                                To become the <span className="text-gold-600 font-semibold font-serif italic">leading consultancy and training partner</span> in Somalia, achieving sustainable impact and excellence by empowering transformation and inspiring progress for leaders, organizations, and professionals through innovative, culturally responsive solutions.
+                            </p>
                         </div>
                     </div>
                 </div>
