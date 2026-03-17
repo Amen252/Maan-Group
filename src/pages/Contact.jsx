@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle, X, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { FaWhatsapp, FaTiktok, FaFacebook, FaLinkedin } from 'react-icons/fa';
@@ -58,6 +59,11 @@ export const Contact = () => {
 
     return (
         <main className="min-h-screen bg-slate-50 font-body pt-32 pb-24">
+            <Helmet>
+                <title>Contact Us | Maan Group Strategic Partners</title>
+                <meta name="description" content="Get in touch with Maan Group for strategic consulting, professional training, and institutional development. we're here to help you grow." />
+                <meta property="og:title" content="Contact Maan Group | Partner With Us" />
+            </Helmet>
             <div className="container mx-auto px-6 max-w-6xl">
 
                 {/* Simplified Header */}

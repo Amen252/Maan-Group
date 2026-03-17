@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Shield, Target, Award, Users, CheckCircle, Rocket, ArrowRight, Zap, Handshake, TrendingUp, Quote, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -36,11 +37,17 @@ const ValueCard = ({ value, idx }) => (
 export const About = () => {
     return (
         <main className="font-body overflow-x-hidden">
+            <Helmet>
+                <title>About Maan Group | Mission, Vision & Values</title>
+                <meta name="description" content="Discover Maan Group's journey, mission, and core values. We are dedicated to architecting strategic excellence through institutional reform and professional growth." />
+                <meta property="og:title" content="About Maan Group | Strategic Excellence" />
+                <meta property="og:description" content="Transforming leadership landscapes through innovative, culturally responsive solutions." />
+            </Helmet>
             {/* ── HERO SECTION ── */}
             <section className="relative min-h-[50vh] flex items-center bg-navy-900 pt-32 pb-16 overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/Assets/Hero.jpeg"
+                        src="/assets/Hero.jpeg"
                         alt="About Maan Group"
                         className="w-full h-full object-cover opacity-20 grayscale-[20%]"
                     />
@@ -83,7 +90,7 @@ export const About = () => {
                             </div>
                         </div>
                         <div className="relative">
-                            <img src="/Assets/about.jpeg" alt="Vision" className="w-full rounded-2xl shadow-lg aspect-[16/9] object-cover" />
+                            <img src="/assets/about.jpeg" alt="Vision" className="w-full rounded-2xl shadow-lg aspect-[16/9] object-cover" />
                         </div>
                     </div>
                 </div>

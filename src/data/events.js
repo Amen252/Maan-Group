@@ -25,11 +25,11 @@ Mahadnaq weyn ayaan u diraynaa ardayda **JUTSA** iyo dhammaan ka qaybgalayaasha 
         organizer: {
             name: "Maan Group",
             role: "Strategic Advisor",
-            logo: "/Assets/logo.jpeg",
+            logo: "/assets/logo.png",
             bio: "Empowering minds through education and professional exposure. Maan Group is dedicated to building sustainable bridges for youth success."
         },
         images: [
-            "/Assets/Events/PS1.jpeg"
+            "/assets/Events/PS1.jpeg"
         ],
         hashtags: [
             "#MaanGroup",
@@ -65,16 +65,16 @@ Waxaa madasha si weyn u daadihinayay Maareeyaha Guud ee Maan Group. Ka-qaybgalay
 
 ### The Impact & Future
 🚀 **Safarkii bilowday wuu miro dhalay, isbeddel dhab ahna waa la dareemayaa.**
-Dhalinyaradii ka soo qeyb gashay seminar-kan maanta waa kuwo ka diyaarsan dhanka fikirka, kartida iyo hiigsiga. Waxay wataan aragti aad uga weyn tii ay lahaayeen shalay. Maan Group waxay sii wadi doontaa dar-dar gelinta iyo dhismaha garaadka ganacsi ee jiilalka soo kacaya!`,
+Dhalinyaradii ka soo qey bashay seminar-kan maanta waa kuwo ka diyaarsan dhanka fikirka, ka tida iyo hiigsiga. Waxay wataan aragti aad uga weyn tii ay lahaayeen shalay. Maan Group waxay sii wadi doontaa dar-dar gelinta iyo dhismaha garaadka ganacsi ee jiilalka soo kacaya!`,
         duration: "2 Days",
         organizer: {
             name: "Maan Group & SEN Somali Youth",
             role: "Organizers",
-            logo: "/Assets/logo.jpeg",
+            logo: "/assets/logo.png",
             bio: "Empowering minds through education and professional exposure. Maan Group is dedicated to building sustainable bridges for youth success."
         },
         images: [
-            "/Assets/Hero1.jpeg"
+            "/assets/Events/Empowering somali youth.jpeg"
         ],
         hashtags: [
             "#MaanGroup",
@@ -85,5 +85,129 @@ Dhalinyaradii ka soo qeyb gashay seminar-kan maanta waa kuwo ka diyaarsan dhanka
             "#Innovation",
             "#SomaliYouth"
         ]
+    },
+    {
+        id: 3,
+        title: "Effective Communication Skills Training",
+        status: "Past Event",
+        date: "Aug 9 - Aug 10, 2025",
+        location: "Mogadishu, Somalia",
+        category: "Professional Development",
+        excerpt: "A comprehensive 2-day training program focused on enhancing verbal, non-verbal, and written communication for professional excellence.",
+        description: `### Training Overview
+Our intensive 2-day workshop on **Effective Communication Skills** was designed to equip professionals with the tools needed for clear, confident, and empathetic communication in the modern workplace.
+
+### Key Learning Modules:
+* **Verbal & Non-Verbal Mastery:** Understanding the power of body language and tone of voice.
+* **Active Listening:** Techniques for better understanding and conflict resolution.
+* **Professional Writing:** Crafting impactful emails and reports.
+* **Public Speaking:** Overcoming anxiety and delivering persuasive presentations.
+
+### Why This Matters
+Communication is the backbone of any successful organization. By mastering these skills, our participants are now better prepared to lead teams and represent their institutions with clarity.`,
+        duration: "2 Days",
+        organizer: {
+            name: "Maan Group",
+            role: "Organizers",
+            logo: "/assets/logo.png",
+            bio: "Empowering minds through education and professional exposure."
+        },
+        images: [
+            "/assets/Events/Communication skills.jpeg"
+        ],
+        hashtags: ["#MaanGroup", "#EffectiveCommunication", "#ProfessionalSkills", "#Somalia"]
+    },
+    {
+        id: 4,
+        title: "Time Management and Productivity Seminar",
+        status: "Past Event",
+        date: "Sept 4, 2025",
+        location: "Almas University",
+        category: "Productivity",
+        excerpt: "A joint initiative by Maan Group and Almas University to help students and professionals optimize their time and achieve peak performance.",
+        description: `### Seminar Overview
+Maan Group, in collaboration with **Almas University**, successfully hosted a seminar dedicated to **Time Management and Productivity**. This session focused on practical frameworks to eliminate procrastination and boost output.
+
+### Featured Topics:
+* **The Eisenhower Matrix:** Learning to prioritize tasks based on urgency and importance.
+* **Goal Setting (SMART):** Creating actionable plans for academic and professional success.
+* **Focus Mastery:** Techniques to reduce distractions in a digital age.
+* **Batching & Scheduling:** How to design a high-performance daily routine.
+
+### Collaboration Impact
+By partnering with academic institutions like Almas University, Maan Group continues to bridge the gap between education and the professional world.`,
+        duration: "1 Day",
+        organizer: {
+            name: "Maan Group & Almas University",
+            role: "Partners",
+            logo: "/assets/logo.png",
+            bio: "Empowering minds through education and professional exposure."
+        },
+        images: [
+            "/assets/Events/Time Management.jpeg"
+        ],
+        hashtags: ["#MaanGroup", "#AlmasUniversity", "#TimeManagement", "#Productivity"]
+    },
+    {
+        id: 5,
+        title: "Leading Together Seminar",
+        status: "Past Event",
+        date: "Nov 30 - Dec 7, 2025",
+        location: "Mogadishu, Somalia",
+        category: "Leadership",
+        excerpt: "An intensive leadership program focused on collaborative governance and shared expertise for sustainable growth.",
+        description: `### Leadership Focus
+The **Leading Together** seminar brought together aspiring and established leaders for a deep dive into collaborative leadership styles.
+
+### Highlights:
+* **Shared Vision Casting:** How to align diverse teams toward a single objective.
+* **Empowering Others:** Moving from management to mentorship.
+* **Conflict Transformation:** Navigating team dynamics with emotional intelligence.
+* **Sustainable Leadership:** Building legacy-driven organizations.
+
+### The Vision
+We believe that leadership is not a solo journey. By leading together, we build stronger communities and more resilient institutions.`,
+        duration: "8 Days",
+        organizer: {
+            name: "Maan Group",
+            role: "Strategic Advisor",
+            logo: "/assets/logo.png",
+            bio: "Empowering minds through education and professional exposure."
+        },
+        images: [
+            "/assets/Events/leading togethe.jpeg"
+        ],
+        hashtags: ["#MaanGroup", "#LeadingTogether", "#LeadershipDevelopment", "#Somalia"]
+    },
+    {
+        id: 6,
+        title: "Harnessing Innovation for Business Growth",
+        status: "Past Event",
+        date: "Feb 17, 2026",
+        location: "Dishub Center",
+        category: "Innovation",
+        excerpt: "A specialized session held for Dishub to explore modern innovation strategies and digital transformation.",
+        description: `### Event Summary
+Maan Group conducted a specialized session titled **“Harnessing Innovation”** specifically for the team at **Dishub**. This workshop explored how small shifts in mindset and technology can lead to major institutional breakthroughs.
+
+### Focus Areas:
+* **Design Thinking:** A human-centered approach to problem-solving.
+* **Digital Adoption:** Implementing tools that streamline operations.
+* **Innovation Culture:** How to encourage 'intrapreneurship' within a team.
+* **Future Trends:** Preparing for the next wave of industry disruption.
+
+### Empowering Dishub
+Our goal was to provide the Dishub team with actionable innovation frameworks that they can apply immediately to their daily operations.`,
+        duration: "1 Day",
+        organizer: {
+            name: "Maan Group",
+            role: "Consulting Partner",
+            logo: "/assets/logo.png",
+            bio: "Empowering minds through education and professional exposure."
+        },
+        images: [
+            "/assets/Events/Harnesing.jpeg"
+        ],
+        hashtags: ["#MaanGroup", "#Innovation", "#Dishub", "#DigitalTransformation"]
     }
 ];

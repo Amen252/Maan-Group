@@ -4,7 +4,7 @@ export const servicesData = [
     {
         id: 'consulting',
         icon: Globe,
-        image: '/Assets/consulting.png',
+        image: '/assets/consulting.png',
         title: 'Consulting Services',
         subtitle: 'Strategic advisory for leaders & institutions',
         description: 'Modernizing public and private-sector governance, developing agile leaders, and building organizational resilience through localized insights and global expertise.',
@@ -15,7 +15,7 @@ export const servicesData = [
     {
         id: 'training',
         icon: Users,
-        image: '/Assets/activity.jpeg',
+        image: '/assets/activity.jpeg',
         title: 'Training & Development',
         subtitle: 'Unlocking human potential',
         description: "Tailored workshops and professional readiness programs that ignite confidence and unlock the human potential within Somalia's emerging workforce.",
@@ -26,7 +26,7 @@ export const servicesData = [
     {
         id: 'capacity-building',
         icon: Target,
-        image: '/Assets/capacity_building.png',
+        image: '/assets/capacity_building.jpeg',
         title: 'Capacity Building',
         subtitle: 'Strengthening institutions for impact',
         description: 'Amplifying unheard voices and strengthening institutional foundations to foster long-term, impactful change within communities and organizations.',
@@ -37,7 +37,7 @@ export const servicesData = [
     {
         id: 'research',
         icon: Search,
-        image: '/Assets/research.jpeg',
+        image: '/assets/research.jpeg',
         title: 'Research & Development',
         subtitle: 'Data-driven practice and policy',
         description: 'Turning real-world data and stories into actionable practice and policy, providing forward-thinking roadmaps for future institutional success.',

@@ -49,9 +49,9 @@ export const Navbar = () => {
                     {/* Logo */}
                     <Link to="/" className="flex items-center gap-3 group">
                         <img
-                            src="/Assets/logo.jpeg"
+                            src="/assets/logo.png"
                             alt="MaanGroup Logo"
-                            className="h-12 w-auto object-contain rounded group-hover:scale-105 transition-transform duration-300"
+                            className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                         />
                         <span className="font-heading font-semibold text-navy-900 text-xl tracking-tighter uppercase whitespace-nowrap transition-colors duration-300">
                             Maan<span className="text-gold-500">Group</span>
@@ -145,7 +145,7 @@ export const Navbar = () => {
                             {/* Drawer Header */}
                             <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100">
                                 <Link to="/" onClick={closeDrawer} className="flex items-center gap-2">
-                                    <img src="/Assets/logo.jpeg" alt="Logo" className="h-9 w-auto object-contain rounded" />
+                                    <img src="/assets/logo.png" alt="Logo" className="h-12 w-auto object-contain" />
                                     <span className="font-heading font-semibold text-navy-900 text-lg tracking-tighter uppercase">
                                         Maan<span className="text-gold-500">Group</span>
                                     </span>

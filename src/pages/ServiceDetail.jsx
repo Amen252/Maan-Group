@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
@@ -29,6 +30,13 @@ export const ServiceDetail = () => {
 
     return (
         <main className="font-body pt-24 pb-20">
+            <Helmet>
+                <title>{service.title} | Maan Group Strategic Services</title>
+                <meta name="description" content={service.description} />
+                <meta property="og:title" content={`${service.title} | Maan Group`} />
+                <meta property="og:description" content={service.description} />
+                <meta property="og:image" content={service.image} />
+            </Helmet>
             <div className="container mx-auto px-6 max-w-[1000px]">
                 {/* Back Link */}
                 <Link to="/services" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-gold-500 transition-colors mb-10">

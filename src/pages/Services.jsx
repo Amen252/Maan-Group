@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Lightbulb, Users, BarChart, Search, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -54,6 +55,11 @@ export const Services = () => {
 
     return (
         <main className="pt-20 bg-white min-h-screen">
+            <Helmet>
+                <title>Services | Our Expertise in Strategy & Development</title>
+                <meta name="description" content="Explore our core services: Consulting, Training, Capacity Building, and R&D. Helping your business grow through strategic excellence." />
+                <meta property="og:title" content="Our Strategic Services | Maan Group" />
+            </Helmet>
             {/* Simple Hero */}
             <section className="py-24 border-b border-slate-50">
                 <div className="container mx-auto px-6 max-w-[1000px] text-center">

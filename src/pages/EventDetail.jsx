@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, ArrowLeft, Share2, Tag, ChevronRight, Clock } from 'lucide-react';
@@ -28,6 +29,13 @@ export const EventDetail = () => {
 
     return (
         <main className="min-h-screen bg-white pt-24 pb-20">
+            <Helmet>
+                <title>{event.title} | Maan Group Events</title>
+                <meta name="description" content={event.excerpt} />
+                <meta property="og:title" content={`${event.title} | Maan Group`} />
+                <meta property="og:description" content={event.excerpt} />
+                <meta property="og:image" content={event.images[0]} />
+            </Helmet>
             {/* Header Area */}
             <section className="bg-slate-50 py-12 lg:py-16">
                 <div className="container mx-auto px-6 max-w-[1200px]">
@@ -178,8 +186,8 @@ export const EventDetail = () => {
                             <div className="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 sticky top-32">
                                 <h4 className="text-navy-900 font-bold mb-6 text-sm uppercase tracking-widest">Organized by</h4>
                                 <div className="flex items-center gap-4 mb-8">
-                                    <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center p-2 shadow-sm border border-slate-200">
-                                        <img src="/Assets/logo.jpeg" alt="Logo" className="w-full h-full object-contain" />
+                                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center p-2.5 shadow-md border border-slate-200/60 transition-transform hover:scale-105 duration-300">
+                                        <img src="/assets/logo.png" alt="Logo" className="w-full h-full object-contain" />
                                     </div>
                                     <div>
                                         <div className="text-navy-900 font-black text-sm uppercase">MaanGroup</div>

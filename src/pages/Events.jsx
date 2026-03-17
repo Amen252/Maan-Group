@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, ArrowRight, ChevronRight } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -6,11 +7,29 @@ import { eventsData } from '../data/events';
 
 export const Events = () => {
     const navigate = useNavigate();
+    const [currentPage, setCurrentPage] = React.useState(1);
+    const eventsPerPage = 4;
 
     const events = eventsData;
+    
+    // Pagination Logic
+    const indexOfLastEvent = currentPage * eventsPerPage;
+    const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
+    const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
+    const totalPages = Math.ceil(events.length / eventsPerPage);
+
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     return (
         <main className="pt-24 min-h-screen bg-slate-50/50">
+            <Helmet>
+                <title>Events & Insights | Maan Group</title>
+                <meta name="description" content="Stay updated with Maan Group's latest seminars, workshops, and community initiatives in Somalia and East Africa." />
+                <meta property="og:title" content="Latest Events & Insights | Maan Group" />
+            </Helmet>
             {/* Hero Section */}
             <section className="py-20 bg-white border-b border-slate-100 relative overflow-hidden">
                 <div className="container mx-auto px-6 max-w-[1280px] relative z-10 text-center">
@@ -33,62 +52,86 @@ export const Events = () => {
             </section>
 
             {/* Events Grid */}
-            <section className="py-24">
+            <section className="py-12">
                 <div className="container mx-auto px-6 max-w-[1280px]">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {events.map((event) => (
+                    <div className="grid sm:grid-cols-2 gap-6">
+                        {currentEvents.map((event) => (
                             <motion.div
                                 key={event.id}
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 24 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
+                                transition={{ duration: 0.55 }}
                                 onClick={() => navigate(`/events/${event.id}`)}
-                                className="bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer group border border-slate-100 flex flex-col h-full"
+                                className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm transition-all duration-300 flex flex-col group cursor-pointer"
                             >
-                                {/* Image fits precisely in an aspect-video container */}
-                                <div className="aspect-[16/10] w-full overflow-hidden relative">
+                                {/* Image Banner with Overlay Title */}
+                                <div className="relative h-48 md:h-72 overflow-hidden flex-shrink-0">
                                     <img
                                         src={event.images[0]}
                                         alt={event.title}
-                                        className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-1000"
+                                        loading="lazy"
+                                        className="w-full h-full object-cover object-center"
                                     />
-                                    <div className="absolute top-5 left-5">
-                                        <span className="px-5 py-2 bg-navy-900/90 backdrop-blur-md text-white text-[0.6rem] font-black uppercase tracking-[0.2em] rounded-full">
-                                            {event.category}
-                                        </span>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/30 to-transparent" />
+                                    <div className="absolute bottom-0 left-0 p-4 md:p-5">
+                                        <h3 className="text-white font-semibold text-lg md:text-xl leading-tight">{event.title}</h3>
+                                        <p className="text-gold-400 text-[10px] md:text-xs font-medium mt-0.5 tracking-wide">{event.category}</p>
                                     </div>
                                 </div>
 
-                                <div className="p-8 flex flex-col flex-grow">
-                                    <div className="flex items-center gap-4 text-[0.65rem] text-slate-400 font-bold uppercase tracking-[0.15em] mb-4">
-                                        <span className="flex items-center gap-2">
-                                            <Calendar size={12} className="text-gold-500" />
-                                            {event.date}
-                                        </span>
-                                        <span className="flex items-center gap-2">
-                                            <MapPin size={12} className="text-gold-500" />
-                                            {event.location}
-                                        </span>
+                                {/* Card Body */}
+                                <div className="p-4 md:p-6 flex flex-col gap-4 md:gap-5 flex-1">
+                                    <p className="text-slate-600 text-xs md:text-sm leading-relaxed line-clamp-2">{event.excerpt}</p>
+
+                                    <div className="flex items-center gap-2 text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-wider">
+                                        <Calendar size={12} className="text-gold-500" />
+                                        {event.date}
                                     </div>
 
-                                    <h3 className="text-lg font-bold text-navy-900 mb-3 group-hover:text-gold-500 transition-colors leading-snug line-clamp-2">
-                                        {event.title}
-                                    </h3>
-
-                                    <p className="text-slate-500 text-xs leading-relaxed line-clamp-2 mb-6">
-                                        {event.excerpt}
-                                    </p>
-
-                                    <div className="mt-auto pt-6 border-t border-slate-50 flex items-center justify-between">
-                                        <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-navy-900 group-hover:text-gold-500 transition-colors flex items-center gap-2">
-                                            Read Story <ChevronRight size={14} />
-                                        </span>
-                                        <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[0.6rem] font-black text-navy-900 border-2 border-white shadow-sm">MG</div>
+                                    {/* Learn More */}
+                                    <div
+                                        className="mt-auto inline-flex items-center gap-2 text-[10px] md:text-xs font-semibold text-navy-900 border border-navy-900/20 px-3 md:px-4 py-2 md:py-2.5 rounded-md transition-all duration-300 w-fit"
+                                    >
+                                        Read More <ArrowRight size={12} />
                                     </div>
                                 </div>
                             </motion.div>
                         ))}
                     </div>
+
+                    {/* Pagination */}
+                    {totalPages > 1 && (
+                        <div className="mt-20 flex justify-center items-center gap-3">
+                            <button
+                                onClick={() => currentPage > 1 && paginate(currentPage - 1)}
+                                disabled={currentPage === 1}
+                                className={`px-4 py-2 rounded-lg border text-sm font-bold transition-all duration-300 ${currentPage === 1 ? 'border-slate-100 text-slate-300 cursor-not-allowed' : 'border-navy-900/10 text-navy-900 hover:bg-navy-900 hover:text-white'}`}
+                            >
+                                Previous
+                            </button>
+                            
+                            <div className="flex gap-2">
+                                {[...Array(totalPages)].map((_, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => paginate(i + 1)}
+                                        className={`w-10 h-10 rounded-lg text-sm font-bold transition-all duration-300 ${currentPage === i + 1 ? 'bg-gold-500 text-white shadow-lg shadow-gold-500/20' : 'bg-white border border-slate-100 text-slate-600 hover:border-gold-500 hover:text-gold-500'}`}
+                                    >
+                                        {i + 1}
+                                    </button>
+                                ))}
+                            </div>
+
+                            <button
+                                onClick={() => currentPage < totalPages && paginate(currentPage + 1)}
+                                disabled={currentPage === totalPages}
+                                className={`px-4 py-2 rounded-lg border text-sm font-bold transition-all duration-300 ${currentPage === totalPages ? 'border-slate-100 text-slate-300 cursor-not-allowed' : 'border-navy-900/10 text-navy-900 hover:bg-navy-900 hover:text-white'}`}
+                            >
+                                Next
+                            </button>
+                        </div>
+                    )}
                 </div>
             </section>
 
