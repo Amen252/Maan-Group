@@ -1,21 +1,22 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, NavLink } from 'react-router-dom';
-import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 export const Navbar = () => {
-    const [isOpen, setIsOpen] = React.useState(false);
-    const [scrolled, setScrolled] = React.useState(false);
-    const [openDropdown, setOpenDropdown] = React.useState(null);
+    const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const [openDropdown, setOpenDropdown] = useState(null);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 50);
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
     // Lock body scroll when drawer is open
-    React.useEffect(() => {
+    useEffect(() => {
         document.body.style.overflow = isOpen ? 'hidden' : '';
         return () => { document.body.style.overflow = ''; };
     }, [isOpen]);
@@ -49,7 +50,7 @@ export const Navbar = () => {
                     {/* Logo */}
                     <Link to="/" className="flex items-center gap-3 group">
                         <img
-                            src="/assets/logo.png"
+                            src={logo}
                             alt="MaanGroup Logo"
                             className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                         />
@@ -101,19 +102,24 @@ export const Navbar = () => {
                                 </div>
                             ))}
                         </div>
-                        <Link to="/contact" className="btn btn-primary !px-10 !py-4 !text-xs !rounded-sm shadow-xl rounded-md shadow-gold-500/10 flex items-center gap-2 group/btn">
-                            Partner With Us
-                            <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform duration-300" />
+
+                        {/* CTA */}
+                        <Link
+                            to="/contact"
+                            className="bg-orange-600 text-white px-8 py-3 rounded-md font-bold text-sm tracking-widest hover:bg-orange-700 transition-all duration-300 shadow-xl shadow-orange-600/20 active:scale-95 flex items-center gap-2 group"
+                        >
+                            PARTNER WITH US
+                            <ChevronRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
                         </Link>
                     </div>
 
-                    {/* Mobile Hamburger */}
+                    {/* Mobile Menu Toggle */}
                     <button
-                        className="lg:hidden focus:outline-none p-1 transition-colors text-navy-900 hover:text-gold-500"
+                        className="lg:hidden p-2 text-navy-900 hover:bg-slate-100 rounded-xl transition-colors"
                         onClick={() => setIsOpen(true)}
                         aria-label="Open menu"
                     >
-                        <Menu size={26} />
+                        <Menu size={28} />
                     </button>
                 </div>
             </nav>
@@ -139,98 +145,85 @@ export const Navbar = () => {
                             initial={{ x: '100%' }}
                             animate={{ x: 0 }}
                             exit={{ x: '100%' }}
-                            transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
-                            className="fixed top-0 right-0 h-full w-[65vw] max-w-[420px] z-[1200] bg-white shadow-2xl flex flex-col lg:hidden overflow-y-auto"
+                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                            className="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white z-[1200] lg:hidden flex flex-col shadow-[-20px_0_60px_-15px_rgba(0,0,0,0.3)]"
                         >
-                            {/* Drawer Header */}
-                            <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100">
+                            <div className="p-6 flex items-center justify-between border-b border-slate-100 bg-slate-50/50">
                                 <Link to="/" onClick={closeDrawer} className="flex items-center gap-2">
-                                    <img src="/assets/logo.png" alt="Logo" className="h-12 w-auto object-contain" />
-                                    <span className="font-heading font-semibold text-navy-900 text-lg tracking-tighter uppercase">
-                                        Maan<span className="text-gold-500">Group</span>
-                                    </span>
+                                    <img src={logo} alt="Logo" className="h-10 w-auto" />
+                                    <span className="font-heading font-extrabold text-navy-900 text-lg tracking-tight uppercase">Maan<span className="text-gold-500">Group</span></span>
                                 </Link>
-                                <button onClick={closeDrawer} className="p-1.5 text-slate-400 hover:text-navy-900 transition-colors">
-                                    <X size={22} />
+                                <button
+                                    className="p-2 text-navy-900 hover:bg-slate-200 rounded-lg transition-colors"
+                                    onClick={closeDrawer}
+                                    aria-label="Close menu"
+                                >
+                                    <X size={24} />
                                 </button>
                             </div>
 
-                            {/* Nav Links */}
-                            <div className="flex flex-col flex-1 pt-4 px-4">
-                                {navLinks.map((link, idx) => (
-                                    <div key={link.name}>
-                                        <div className="flex items-center">
-                                            <NavLink
-                                                to={link.path}
-                                                onClick={() => !link.sublinks && closeDrawer()}
-                                                className={({ isActive }) =>
-                                                    `flex-1 flex items-center justify-between px-4 py-4 rounded-xl text-[0.95rem] font-semibold transition-all duration-200
-                                                ${isActive && !link.sublinks
-                                                        ? 'text-gold-500 bg-gold-500/5'
-                                                        : 'text-navy-900 hover:bg-slate-50 hover:text-gold-500'
-                                                    }`
-                                                }
-                                            >
-                                                {link.name}
-                                            </NavLink>
-                                            {link.sublinks && (
-                                                <button
-                                                    onClick={() => setOpenDropdown(openDropdown === idx ? null : idx)}
-                                                    className="p-3 text-slate-400 hover:text-navy-900 transition-colors"
+                            <div className="flex-1 overflow-y-auto px-6 py-8">
+                                <div className="flex flex-col gap-2">
+                                    {navLinks.map((link) => (
+                                        <div key={link.name} className="flex flex-col">
+                                            {link.sublinks ? (
+                                                <>
+                                                    <button
+                                                        onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
+                                                        className={`flex items-center justify-between py-4 px-4 rounded-xl text-lg font-bold transition-colors ${openDropdown === link.name ? 'bg-navy-900 text-white shadow-xl shadow-navy-900/20' : 'text-navy-900 active:bg-slate-50'}`}
+                                                    >
+                                                        {link.name}
+                                                        <ChevronDown size={20} className={`opacity-50 transition-transform duration-300 ${openDropdown === link.name ? 'rotate-180 text-white' : ''}`} />
+                                                    </button>
+                                                    <AnimatePresence>
+                                                        {openDropdown === link.name && (
+                                                            <motion.div
+                                                                initial={{ height: 0, opacity: 0 }}
+                                                                animate={{ height: 'auto', opacity: 1 }}
+                                                                exit={{ height: 0, opacity: 0 }}
+                                                                className="overflow-hidden bg-slate-50/80 rounded-xl mt-2 mx-2"
+                                                            >
+                                                                <div className="p-4 flex flex-col gap-1">
+                                                                    {link.sublinks.map((sublink) => (
+                                                                        <Link
+                                                                            key={sublink.name}
+                                                                            to={sublink.path}
+                                                                            onClick={closeDrawer}
+                                                                            className="py-4 px-4 text-[0.95rem] font-medium text-slate-600 active:text-gold-500 flex items-center gap-3"
+                                                                        >
+                                                                            <div className="w-1.5 h-1.5 rounded-full bg-slate-300" />
+                                                                            {sublink.name}
+                                                                        </Link>
+                                                                    ))}
+                                                                </div>
+                                                            </motion.div>
+                                                        )}
+                                                    </AnimatePresence>
+                                                </>
+                                            ) : (
+                                                <Link
+                                                    to={link.path}
+                                                    onClick={closeDrawer}
+                                                    className="py-4 px-4 rounded-xl text-lg font-bold text-navy-900 active:bg-slate-50 active:text-gold-500"
                                                 >
-                                                    <ChevronDown
-                                                        size={18}
-                                                        className={`transition-transform duration-300 ${openDropdown === idx ? 'rotate-180' : ''}`}
-                                                    />
-                                                </button>
+                                                    {link.name}
+                                                </Link>
                                             )}
                                         </div>
-
-                                        {/* Mobile Sublinks */}
-                                        <AnimatePresence>
-                                            {link.sublinks && openDropdown === idx && (
-                                                <motion.div
-                                                    initial={{ height: 0, opacity: 0 }}
-                                                    animate={{ height: 'auto', opacity: 1 }}
-                                                    exit={{ height: 0, opacity: 0 }}
-                                                    transition={{ duration: 0.25, ease: 'easeInOut' }}
-                                                    className="overflow-hidden ml-4 mb-2"
-                                                >
-                                                    <div className="border-l-2 border-gold-500/30 pl-4 flex flex-col gap-1 py-2">
-                                                        {link.sublinks.map((sublink) => (
-                                                            <NavLink
-                                                                key={sublink.name}
-                                                                to={sublink.path}
-                                                                onClick={closeDrawer}
-                                                                className={({ isActive }) =>
-                                                                    `px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200
-                                                                ${isActive
-                                                                        ? 'text-gold-500 bg-gold-500/5'
-                                                                        : 'text-slate-500 hover:text-gold-500 hover:bg-slate-50'
-                                                                    }`
-                                                                }
-                                                            >
-                                                                {sublink.name}
-                                                            </NavLink>
-                                                        ))}
-                                                    </div>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
 
-                            {/* CTA at bottom of drawer */}
-                            <div className="p-6 border-t border-slate-100 mt-auto">
+                            <div className="p-8 border-t border-slate-100 bg-slate-50/50">
                                 <Link
                                     to="/contact"
                                     onClick={closeDrawer}
-                                    className="btn btn-primary w-full !justify-center flex items-center gap-2 group/mbtn whitespace-nowrap !text-sm"
+                                    className="w-full bg-navy-900 text-white py-4 rounded-xl font-bold text-base tracking-widest shadow-2xl shadow-navy-900/20 active:scale-[0.98] transition-all flex items-center justify-center gap-3 group"
                                 >
-                                    Partner With Us
-                                    <ArrowRight size={15} className="group-hover/mbtn:translate-x-1 transition-transform duration-300 shrink-0" />
+                                    GET IN TOUCH
+                                    <ChevronRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
                                 </Link>
+                                <p className="text-center text-slate-400 text-xs mt-6 font-medium">Empowering Minds. Building Future.</p>
                             </div>
                         </motion.div>
                     </>
@@ -239,4 +232,3 @@ export const Navbar = () => {
         </>
     );
 };
-
