@@ -187,7 +187,7 @@ export const EventDetail = () => {
                                 <h4 className="text-navy-900 font-bold mb-6 text-sm uppercase tracking-widest">Organized by</h4>
                                 <div className="flex items-center gap-4 mb-8">
                                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center p-2.5 shadow-md border border-slate-200/60 transition-transform hover:scale-105 duration-300">
-                                        <img src="/Assets/logo.png" alt="Logo" className="w-full h-full object-contain" />
+                                        <img src="/assets/logo.png" alt="Logo" className="w-full h-full object-contain" />
                                     </div>
                                     <div>
                                         <div className="text-navy-900 font-black text-sm uppercase">MaanGroup</div>

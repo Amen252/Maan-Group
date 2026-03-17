@@ -25,11 +25,11 @@ Mahadnaq weyn ayaan u diraynaa ardayda **JUTSA** iyo dhammaan ka qaybgalayaasha 
         organizer: {
             name: "Maan Group",
             role: "Strategic Advisor",
-            logo: "/Assets/logo.png",
+            logo: "/assets/logo.png",
             bio: "Empowering minds through education and professional exposure. Maan Group is dedicated to building sustainable bridges for youth success."
         },
         images: [
-            "/Assets/Events/PS1.jpeg"
+            "/assets/Events/PS1.jpeg"
         ],
         hashtags: [
             "#MaanGroup",
@@ -70,11 +70,11 @@ Dhalinyaradii ka soo qey bashay seminar-kan maanta waa kuwo ka diyaarsan dhanka 
         organizer: {
             name: "Maan Group & SEN Somali Youth",
             role: "Organizers",
-            logo: "/Assets/logo.png",
+            logo: "/assets/logo.png",
             bio: "Empowering minds through education and professional exposure. Maan Group is dedicated to building sustainable bridges for youth success."
         },
         images: [
-            "/Assets/Events/Empowering somali youth.jpeg"
+            "/assets/Events/Empowering somali youth.jpeg"
         ],
         hashtags: [
             "#MaanGroup",
@@ -109,11 +109,11 @@ Communication is the backbone of any successful organization. By mastering these
         organizer: {
             name: "Maan Group",
             role: "Organizers",
-            logo: "/Assets/logo.png",
+            logo: "/assets/logo.png",
             bio: "Empowering minds through education and professional exposure."
         },
         images: [
-            "/Assets/Events/Communication skills.jpeg"
+            "/assets/Events/Communication skills.jpeg"
         ],
         hashtags: ["#MaanGroup", "#EffectiveCommunication", "#ProfessionalSkills", "#Somalia"]
     },
@@ -140,11 +140,11 @@ By partnering with academic institutions like Almas University, Maan Group conti
         organizer: {
             name: "Maan Group & Almas University",
             role: "Partners",
-            logo: "/Assets/logo.png",
+            logo: "/assets/logo.png",
             bio: "Empowering minds through education and professional exposure."
         },
         images: [
-            "/Assets/Events/Time Management.jpeg"
+            "/assets/Events/Time Management.jpeg"
         ],
         hashtags: ["#MaanGroup", "#AlmasUniversity", "#TimeManagement", "#Productivity"]
     },
@@ -171,11 +171,11 @@ We believe that leadership is not a solo journey. By leading together, we build 
         organizer: {
             name: "Maan Group",
             role: "Strategic Advisor",
-            logo: "/Assets/logo.png",
+            logo: "/assets/logo.png",
             bio: "Empowering minds through education and professional exposure."
         },
         images: [
-            "/Assets/Events/leading togethe.jpeg"
+            "/assets/Events/leading togethe.jpeg"
         ],
         hashtags: ["#MaanGroup", "#LeadingTogether", "#LeadershipDevelopment", "#Somalia"]
     },
@@ -202,11 +202,11 @@ Our goal was to provide the Dishub team with actionable innovation frameworks th
         organizer: {
             name: "Maan Group",
             role: "Consulting Partner",
-            logo: "/Assets/logo.png",
+            logo: "/assets/logo.png",
             bio: "Empowering minds through education and professional exposure."
         },
         images: [
-            "/Assets/Events/Harnesing.jpeg"
+            "/assets/Events/Harnesing.jpeg"
         ],
         hashtags: ["#MaanGroup", "#Innovation", "#Dishub", "#DigitalTransformation"]
     }

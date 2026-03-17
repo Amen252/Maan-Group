@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
-import logo from '../Assets/logo.png';
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -50,7 +49,7 @@ export const Navbar = () => {
                     {/* Logo */}
                     <Link to="/" className="flex items-center gap-3 group">
                         <img
-                            src={logo}
+                            src="/assets/logo.png"
                             alt="MaanGroup Logo"
                             className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                         />
@@ -150,7 +149,7 @@ export const Navbar = () => {
                         >
                             <div className="p-6 flex items-center justify-between border-b border-slate-100 bg-slate-50/50">
                                 <Link to="/" onClick={closeDrawer} className="flex items-center gap-2">
-                                    <img src={logo} alt="Logo" className="h-10 w-auto" />
+                                    <img src="/assets/logo.png" alt="Logo" className="h-10 w-auto" />
                                     <span className="font-heading font-extrabold text-navy-900 text-lg tracking-tight uppercase">Maan<span className="text-gold-500">Group</span></span>
                                 </Link>
                                 <button

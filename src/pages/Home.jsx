@@ -78,15 +78,15 @@ export const Home = () => {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Maan Group | Strategic Consulting & Professional Excellence" />
         <meta property="og:description" content="Empowering Minds. Building Future. Premier consultancy specializing in leadership and organizational strategy." />
-        <meta property="og:image" content="/Assets/logo.png" />
+        <meta property="og:image" content="/assets/logo.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="Maan Group | Strategic Consulting & Professional Excellence" />
         <meta property="twitter:description" content="Empowering Minds. Building Future. Premier consultancy specializing in leadership and organizational strategy." />
-        <meta property="twitter:image" content="/Assets/logo.png" />
+        <meta property="twitter:image" content="/assets/logo.png" />
 
-        <link rel="preload" as="image" href="/Assets/Hero.jpeg" />
+        <link rel="preload" as="image" href="/assets/Hero.jpeg" />
       </Helmet>
 
       {/* ═══════════ HERO ═══════════ */}
@@ -97,7 +97,7 @@ export const Home = () => {
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
-            src="/Assets/Hero.jpeg"
+            src="/assets/Hero.jpeg"
             alt="Maan Group Leadership Strategy and Training"
             fetchPriority="high"
             className="w-full h-full object-cover object-top"
@@ -198,7 +198,7 @@ export const Home = () => {
               <div className="relative rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10 group aspect-[4/5] bg-navy-800">
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/20 to-transparent opacity-90 z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-70" />
                 <img
-                  src="/Assets/Owner.jpeg"
+                  src="/assets/Owner.jpeg"
                   alt="Mohamed Salad - Founder & CEO of Maan Group"
                   loading="lazy"
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-[1.5s] ease-out grayscale-[20%] group-hover:grayscale-0"
@@ -368,7 +368,7 @@ export const Home = () => {
             >
               <div className="rounded-3xl overflow-hidden shadow-2xl group aspect-[4/3]">
                 <img
-                  src="/Assets/Hero1.jpeg"
+                  src="/assets/Hero1.jpeg"
                   alt="R&D Innovation at Maan Group"
                   loading="lazy"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-[1500ms]"

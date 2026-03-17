@@ -47,7 +47,7 @@ export const About = () => {
             <section className="relative min-h-[50vh] flex items-center bg-navy-900 pt-32 pb-16 overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/Assets/Hero.jpeg"
+                        src="/assets/Hero.jpeg"
                         alt="About Maan Group"
                         className="w-full h-full object-cover opacity-20 grayscale-[20%]"
                     />
@@ -90,7 +90,7 @@ export const About = () => {
                             </div>
                         </div>
                         <div className="relative">
-                            <img src="/Assets/about.jpeg" alt="Vision" className="w-full rounded-2xl shadow-lg aspect-[16/9] object-cover" />
+                            <img src="/assets/about.jpeg" alt="Vision" className="w-full rounded-2xl shadow-lg aspect-[16/9] object-cover" />
                         </div>
                     </div>
                 </div>
