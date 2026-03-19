@@ -89,8 +89,14 @@ export const About = () => {
                                 <p>Our journey began with a vision to transform the leadership landscape of Somalia through actionable strategies that honor regional dynamics.</p>
                             </div>
                         </div>
-                        <div className="relative">
-                            <img src="/assets/about.jpeg" alt="Vision" className="w-full rounded-2xl shadow-lg aspect-[16/9] object-cover" />
+                        <div className="relative flex justify-center lg:justify-end">
+                            <div className="w-full max-w-[320px] aspect-square flex items-center justify-center p-4">
+                                <img 
+                                    src="/assets/logo.png" 
+                                    alt="Maan Group Logo" 
+                                    className="w-full h-auto object-contain transition-transform duration-700 hover:scale-105" 
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -139,7 +145,7 @@ export const About = () => {
                         <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500 block">Principles</span>
                         <h2 className="text-2xl font-bold text-navy-900 mt-1">Core <span className="text-gold-500 font-serif italic">Values</span></h2>
                     </div>
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="grid md:grid-cols-2 gap-6 lg:gap-10 max-w-4xl mx-auto">
                         {[
                             { title: 'Responsiveness', icon: Zap, desc: 'Rapid, clear communication addressed with precision.', num: '01' },
                             { title: 'Quality', icon: Award, desc: 'Precision-engineered programs ensuring outcomes.', num: '02' },
