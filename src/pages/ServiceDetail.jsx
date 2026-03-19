@@ -82,9 +82,43 @@ export const ServiceDetail = () => {
                         className="md:col-span-2 space-y-6"
                     >
                         <h2 className="text-2xl font-bold text-navy-900 mb-4">Overview</h2>
-                        <p className="text-slate-600 leading-relaxed text-lg">
+                        <p className="text-slate-600 leading-relaxed text-lg mb-10">
                             {service.fullDescription}
                         </p>
+
+                        {service.externalLink && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.7 }}
+                                className="p-8 rounded-[2rem] bg-gradient-to-br from-slate-50 to-white border border-slate-100 shadow-xl shadow-slate-200/40 relative overflow-hidden group"
+                            >
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700" />
+                                
+                                <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                                    <div className="space-y-2">
+                                        <div className="flex items-center gap-2 text-gold-500 mb-1">
+                                            <div className="w-8 h-px bg-gold-400" />
+                                            <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Featured Research</span>
+                                        </div>
+                                        <h3 className="text-xl font-bold text-navy-900 tracking-tight">Academic Publications</h3>
+                                        <p className="text-slate-500 text-sm max-w-sm">
+                                            Explore our documented studies and scholarly contributions to policy development on Google Scholar.
+                                        </p>
+                                    </div>
+                                    
+                                    <a 
+                                        href={service.externalLink} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-3 px-6 py-3 bg-navy-900 text-white rounded-xl font-bold text-sm hover:bg-gold-500 hover:shadow-lg shadow-navy-900/10 transition-all duration-300 group/btn whitespace-nowrap"
+                                    >
+                                        View Scholar Profile
+                                        <ExternalLink size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                                    </a>
+                                </div>
+                            </motion.div>
+                        )}
                     </motion.div>
 
                     {/* Sidebar / Key offerings */}
@@ -103,26 +137,6 @@ export const ServiceDetail = () => {
                                 </li>
                             ))}
                         </ul>
-
-                        {service.externalLink && (
-                            <div className="mt-8 pt-8 border-t border-slate-200">
-                                <h4 className="text-xs font-bold text-navy-900 mb-4 uppercase tracking-widest opacity-60">Research & Publications</h4>
-                                <a 
-                                    href={service.externalLink} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="flex items-center justify-between p-4 rounded-xl bg-white border border-slate-200 hover:border-gold-500 hover:shadow-xl transition-all duration-300 group shadow-sm"
-                                >
-                                    <div className="flex flex-col">
-                                        <span className="text-[10px] font-bold text-gold-500 uppercase tracking-tighter">Owner's Portfolio</span>
-                                        <span className="text-sm font-semibold text-navy-900 group-hover:text-gold-500 transition-colors">Google Scholar</span>
-                                    </div>
-                                    <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-gold-500 group-hover:text-white transition-all">
-                                        <ExternalLink size={16} />
-                                    </div>
-                                </a>
-                            </div>
-                        )}
 
                         <div className="mt-8 pt-8 border-t border-slate-200">
                             <p className="text-sm text-slate-500 mb-4 text-center italic">Ready to discuss how we can help?</p>
