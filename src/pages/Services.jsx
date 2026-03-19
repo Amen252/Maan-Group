@@ -18,7 +18,7 @@ const ServiceModule = ({ id, icon: Icon, title, description, delay }) => (
             </div>
             
             <div className="space-y-3">
-                <h3 className="text-xl font-semibold text-navy-900 leading-tight">
+                <h3 className="text-lg md:text-xl font-medium text-navy-900 leading-tight">
                     {title}
                 </h3>
                 <p className="text-slate-500 text-sm leading-relaxed font-light">
@@ -88,7 +88,7 @@ export const Services = () => {
                         <span className="text-gold-500 text-[10px] font-bold uppercase tracking-[0.3em]">
                             Our Specialized Focus
                         </span>
-                        <h1 className="text-4xl md:text-5xl font-medium text-navy-900 leading-[1.2] tracking-tight">
+                        <h1 className="text-3xl md:text-5xl font-medium text-navy-900 leading-[1.2] tracking-tight">
                             Strategic modules <br /> for <span className="text-gold-500 italic font-serif">transformation.</span>
                         </h1>
                         <p className="text-slate-500 text-lg font-light leading-relaxed">
@@ -113,7 +113,7 @@ export const Services = () => {
             {/* ═══════════ REFINED CTA ═══════════ */}
             <section className="py-24 border-t border-slate-50 text-center">
                 <div className="container mx-auto px-6 max-w-[1240px] space-y-8">
-                    <h2 className="text-3xl font-medium text-navy-900">Start your journey today</h2>
+                    <h2 className="text-2xl md:text-3xl font-medium text-navy-900">Start your journey today</h2>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <Link to="/contact" className="px-10 py-4 bg-navy-900 text-white font-medium rounded-2xl hover:bg-gold-500 shadow-xl shadow-navy-900/10 transition-all duration-300">
                             Partner with Us

@@ -23,7 +23,7 @@ const ValueCard = ({ value, idx }) => (
             </div>
 
             <div className="space-y-1">
-                <h4 className="font-bold text-navy-900 text-base tracking-tight group-hover:text-gold-600 transition-colors">
+                <h4 className="font-semibold text-navy-900 text-sm md:text-base tracking-tight group-hover:text-gold-600 transition-colors">
                     {value.title}
                 </h4>
                 <p className="text-slate-500 text-xs leading-relaxed font-light">
@@ -66,10 +66,10 @@ export const About = () => {
                         <motion.h1
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-3xl md:text-5xl font-semibold text-white leading-tight tracking-tight"
+                            className="text-2xl md:text-5xl font-medium text-white leading-tight tracking-tight"
                         >
                             Architecting <br />
-                            <span className="text-gold-500 font-serif italic">Strategic Excellence</span>
+                            <span className="text-gold-500 font-serif italic font-normal">Strategic Excellence</span>
                         </motion.h1>
                     </div>
                 </div>
@@ -143,7 +143,7 @@ export const About = () => {
                 <div className="container mx-auto px-6 max-w-[1280px]">
                     <div className="text-center mb-10">
                         <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500 block">Principles</span>
-                        <h2 className="text-2xl font-bold text-navy-900 mt-1">Core <span className="text-gold-500 font-serif italic">Values</span></h2>
+                        <h2 className="text-xl md:text-2xl font-semibold text-navy-900 mt-1">Core <span className="text-gold-500 font-serif italic font-normal">Values</span></h2>
                     </div>
                     <div className="grid md:grid-cols-2 gap-6 lg:gap-10 max-w-4xl mx-auto">
                         {[

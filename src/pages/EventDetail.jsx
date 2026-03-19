@@ -69,16 +69,16 @@ export const EventDetail = () => {
                         animate={{ opacity: 1, y: 0 }}
                         className="space-y-6"
                     >
-                        <div className="flex flex-wrap gap-3">
-                            <span className="px-4 py-1 bg-gold-500/10 text-gold-500 text-[0.65rem] font-black uppercase tracking-widest rounded-full">
+                        <div className="flex flex-wrap gap-2 md:gap-3">
+                            <span className="px-3 md:px-4 py-1 bg-gold-500/10 text-gold-500 text-[0.6rem] md:text-[0.65rem] font-bold uppercase tracking-widest rounded-full">
                                 {event.category}
                             </span>
-                            <span className="px-4 py-1 bg-navy-900 text-white text-[0.65rem] font-black uppercase tracking-widest rounded-full">
+                            <span className="px-3 md:px-4 py-1 bg-navy-900 text-white text-[0.6rem] md:text-[0.65rem] font-bold uppercase tracking-widest rounded-full">
                                 {event.status}
                             </span>
                         </div>
 
-                        <h1 className="text-3xl lg:text-5xl font-bold text-navy-900 leading-[1.15]">
+                        <h1 className="text-2xl md:text-5xl font-medium text-navy-900 leading-[1.2]">
                             {event.title}
                         </h1>
 
