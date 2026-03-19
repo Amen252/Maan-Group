@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, CheckCircle } from 'lucide-react';
+import { ArrowLeft, CheckCircle, ExternalLink } from 'lucide-react';
 import { servicesData } from '../data/services';
 
 export const ServiceDetail = () => {
@@ -104,9 +104,29 @@ export const ServiceDetail = () => {
                             ))}
                         </ul>
 
-                        <div className="mt-10 pt-8 border-t border-slate-200">
-                            <p className="text-sm text-slate-500 mb-4 text-center">Ready to discuss how we can help?</p>
-                            <Link to="/contact" className="btn btn-primary w-full justify-center py-3 rounded-lg shadow-lg shadow-gold-500/20">
+                        {service.externalLink && (
+                            <div className="mt-8 pt-8 border-t border-slate-200">
+                                <h4 className="text-xs font-bold text-navy-900 mb-4 uppercase tracking-widest opacity-60">Research & Publications</h4>
+                                <a 
+                                    href={service.externalLink} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-between p-4 rounded-xl bg-white border border-slate-200 hover:border-gold-500 hover:shadow-xl transition-all duration-300 group shadow-sm"
+                                >
+                                    <div className="flex flex-col">
+                                        <span className="text-[10px] font-bold text-gold-500 uppercase tracking-tighter">Owner's Portfolio</span>
+                                        <span className="text-sm font-semibold text-navy-900 group-hover:text-gold-500 transition-colors">Google Scholar</span>
+                                    </div>
+                                    <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-gold-500 group-hover:text-white transition-all">
+                                        <ExternalLink size={16} />
+                                    </div>
+                                </a>
+                            </div>
+                        )}
+
+                        <div className="mt-8 pt-8 border-t border-slate-200">
+                            <p className="text-sm text-slate-500 mb-4 text-center italic">Ready to discuss how we can help?</p>
+                            <Link to="/contact" className="btn btn-primary w-full justify-center py-3 rounded-lg shadow-lg shadow-gold-500/20 group uppercase text-xs tracking-widest font-bold">
                                 Contact Us
                             </Link>
                         </div>

@@ -43,6 +43,7 @@ export const servicesData = [
         description: 'Turning real-world data and stories into actionable practice and policy, providing forward-thinking roadmaps for future institutional success.',
         bullets: ['Policy Research', 'Market Analysis', 'Impact Evaluation', 'Strategic Roadmaps'],
         fullDescription: 'Our Research & Development division translates raw data and rigorous field studies into actionable practice and comprehensive policy. By conducting in-depth market analyses and impact evaluations, we formulate forward-thinking roadmaps that guide policy makers and institutional leaders toward sustained success and innovation.',
+        externalLink: 'https://share.google/jIyOFiuoSGVfysut9',
         delay: 0.21
     },
 ];
