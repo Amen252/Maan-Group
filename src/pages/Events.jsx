@@ -38,11 +38,11 @@ export const Events = () => {
                         animate={{ opacity: 1, y: 0 }}
                         className="max-w-3xl mx-auto"
                     >
-                        <span className="text-gold-500 font-bold uppercase tracking-[0.3em] text-[0.7rem] block mb-4">
+                        <span className="text-gold-500 font-semibold uppercase tracking-[0.3em] text-[0.7rem] block mb-4">
                             Our Journey
                         </span>
-                        <h1 className="text-4xl lg:text-5xl font-bold text-navy-900 mb-6 leading-tight">
-                            Latest <span className="text-gold-500 font-serif italic">Events</span> & Insights
+                        <h1 className="text-4xl lg:text-5xl font-medium text-navy-900 mb-6 leading-tight">
+                            Latest <span className="text-gold-500 font-serif italic font-normal">Events</span> & Insights
                         </h1>
                         <p className="text-slate-600 text-lg leading-relaxed">
                             Explore our recent seminars, workshops, and community initiatives designed to empower and inspire.
@@ -84,7 +84,7 @@ export const Events = () => {
                                 <div className="p-4 md:p-6 flex flex-col gap-4 md:gap-5 flex-1">
                                     <p className="text-slate-600 text-xs md:text-sm leading-relaxed line-clamp-2">{event.excerpt}</p>
 
-                                    <div className="flex items-center gap-2 text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-wider">
+                                    <div className="flex items-center gap-2 text-[10px] md:text-xs text-slate-400 font-semibold uppercase tracking-wider">
                                         <Calendar size={12} className="text-gold-500" />
                                         {event.date}
                                     </div>
@@ -106,7 +106,7 @@ export const Events = () => {
                             <button
                                 onClick={() => currentPage > 1 && paginate(currentPage - 1)}
                                 disabled={currentPage === 1}
-                                className={`px-4 py-2 rounded-lg border text-sm font-bold transition-all duration-300 ${currentPage === 1 ? 'border-slate-100 text-slate-300 cursor-not-allowed' : 'border-navy-900/10 text-navy-900 hover:bg-navy-900 hover:text-white'}`}
+                                className={`px-4 py-2 rounded-lg border text-sm font-semibold transition-all duration-300 ${currentPage === 1 ? 'border-slate-100 text-slate-300 cursor-not-allowed' : 'border-navy-900/10 text-navy-900 hover:bg-navy-900 hover:text-white'}`}
                             >
                                 Previous
                             </button>

@@ -116,7 +116,7 @@ export const Home = () => {
           >
             {/* Re-added Badge (Founded) */}
             <div className="flex justify-center">
-              <span className="inline-flex items-center gap-2 text-[0.65rem] font-bold uppercase tracking-[0.3em] text-white bg-white/10 border border-white/20 backdrop-blur-md px-5 py-2.5 rounded-full shadow-2xl">
+              <span className="inline-flex items-center gap-2 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-white bg-white/10 border border-white/20 backdrop-blur-md px-5 py-2.5 rounded-full shadow-2xl">
                 <span className="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" />
                 Est. 2019 · Strategic Excellence
               </span>
@@ -136,14 +136,14 @@ export const Home = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-5">
               <Link
                 to="/contact"
-                className="btn bg-gold-500 text-white hover:bg-gold-600 px-8 py-3.5 sm:px-10 sm:py-4.5 rounded-xl flex items-center justify-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider group shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="btn bg-gold-500 text-white hover:bg-gold-600 px-8 py-3.5 sm:px-10 sm:py-4.5 rounded-xl flex items-center justify-center gap-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wider group shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 Request a Consultation
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/services"
-                className="btn bg-white/10 border border-white/20 text-white hover:bg-white/20 px-8 py-3.5 sm:px-10 sm:py-4.5 rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all duration-300 hover:-translate-y-1"
+                className="btn bg-white/10 border border-white/20 text-white hover:bg-white/20 px-8 py-3.5 sm:px-10 sm:py-4.5 rounded-xl text-[10px] sm:text-xs font-semibold uppercase tracking-wider backdrop-blur-md transition-all duration-300 hover:-translate-y-1"
               >
                 Explore Our Services
               </Link>
@@ -209,7 +209,7 @@ export const Home = () => {
                   <div className="bg-[#3b4e6d] rounded-xl px-7 py-5 relative overflow-hidden shadow-2xl">
                     <div className="absolute top-0 left-0 w-1.5 h-full bg-gold-500" />
                     <h3 className="text-xl font-semibold text-white mb-1.5 drop-shadow-md tracking-tight">Mohamed <span className="text-gold-500">Salad</span></h3>
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-[#a0aab8] font-bold drop-shadow-md">Founder & CEO</p>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-[#a0aab8] font-semibold drop-shadow-md">Founder & CEO</p>
                   </div>
                 </div>
               </div>
@@ -257,7 +257,7 @@ export const Home = () => {
                   <div className="grid grid-cols-2 gap-8 pt-8 border-t border-white/5">
                     <div className="flex flex-col">
                       <span className="text-4xl lg:text-5xl font-light text-white mb-2 tracking-tighter">
-                        9<span className="text-gold-500 font-bold text-2xl lg:text-3xl">+</span>
+                        9<span className="text-gold-500 font-semibold text-2xl lg:text-3xl">+</span>
                       </span>
                       <span className="text-[9px] lg:text-[11px] uppercase tracking-[0.25em] text-slate-400 font-semibold">
                         Years of<br />Impact
@@ -265,7 +265,7 @@ export const Home = () => {
                     </div>
                     <div className="flex flex-col">
                       <span className="text-4xl lg:text-5xl font-light text-white mb-2 tracking-tighter">
-                        Top<span className="text-gold-500 font-bold text-2xl lg:text-3xl ml-1">Tier</span>
+                        Top<span className="text-gold-500 font-semibold text-2xl lg:text-3xl ml-1">Tier</span>
                       </span>
                       <span className="text-[9px] lg:text-[11px] uppercase tracking-[0.25em] text-slate-400 font-semibold">
                         Academic &<br />Corporate
@@ -293,7 +293,7 @@ export const Home = () => {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 shadow-sm mb-6 bg-slate-50"
               >
                 <span className="w-2 h-2 rounded-full bg-gold-500 animate-[pulse_2s_ease-in-out_infinite]" />
-                <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-navy-900">Why Maan Group</span>
+                <span className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-navy-900">Why Maan Group</span>
               </motion.div>
 
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-navy-900 mb-6 leading-[1.15] tracking-tight">
@@ -376,7 +376,7 @@ export const Home = () => {
                 <div className="absolute inset-0 bg-navy-900/20" />
               </div>
               <div className="absolute -bottom-5 -right-5 bg-gold-500 rounded-xl px-6 py-4 shadow-lg shadow-gold-500/20">
-                <div className="text-xl font-bold text-white">R&D</div>
+                <div className="text-xl font-semibold text-white">R&D</div>
                 <div className="text-[0.6rem] text-white/70 uppercase tracking-widest font-medium">Future-Ready</div>
               </div>
             </motion.div>
@@ -389,10 +389,10 @@ export const Home = () => {
               transition={{ duration: 0.9 }}
               className="space-y-7 order-1 lg:order-2"
             >
-              <span className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-gold-400 block">
+              <span className="text-[0.65rem] font-medium uppercase tracking-[0.25em] text-gold-400 block">
                 Research & Innovation
               </span>
-              <h2 className="text-2xl lg:text-3xl font-semibold text-white leading-tight">
+              <h2 className="text-2xl lg:text-3xl font-medium text-white leading-tight">
                 Preparing You for the Disruptions of Tomorrow
               </h2>
               <p className="text-slate-400 text-[0.95rem] leading-relaxed font-normal">

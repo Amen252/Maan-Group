@@ -85,7 +85,7 @@ export const Services = () => {
                         transition={{ duration: 0.8 }}
                         className="max-w-xl space-y-4"
                     >
-                        <span className="text-gold-500 text-[10px] font-bold uppercase tracking-[0.3em]">
+                        <span className="text-gold-500 text-[10px] font-semibold uppercase tracking-[0.3em]">
                             Our Specialized Focus
                         </span>
                         <h1 className="text-3xl md:text-5xl font-medium text-navy-900 leading-[1.2] tracking-tight">

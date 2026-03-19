@@ -105,7 +105,7 @@ export const Navbar = () => {
                         {/* CTA */}
                         <Link
                             to="/contact"
-                            className="bg-orange-600 text-white px-8 py-3 rounded-md font-bold text-sm tracking-widest hover:bg-orange-700 transition-all duration-300 shadow-xl shadow-orange-600/20 active:scale-95 flex items-center gap-2 group"
+                            className="bg-gold-500 text-white px-8 py-3 rounded-md font-semibold text-sm tracking-widest hover:bg-gold-600 transition-all duration-300 shadow-xl shadow-gold-500/20 active:scale-95 flex items-center gap-2 group"
                         >
                             PARTNER WITH US
                             <ChevronRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -150,7 +150,7 @@ export const Navbar = () => {
                             <div className="p-6 flex items-center justify-between border-b border-slate-100 bg-slate-50/50">
                                 <Link to="/" onClick={closeDrawer} className="flex items-center gap-2">
                                     <img src="/assets/logo.png" alt="Logo" className="h-10 w-auto" />
-                                    <span className="font-heading font-extrabold text-navy-900 text-lg tracking-tight uppercase">Maan<span className="text-gold-500">Group</span></span>
+                                    <span className="font-heading font-semibold text-navy-900 text-lg tracking-tight uppercase">Maan<span className="text-gold-500">Group</span></span>
                                 </Link>
                                 <button
                                     className="p-2 text-navy-900 hover:bg-slate-200 rounded-lg transition-colors"
@@ -203,7 +203,7 @@ export const Navbar = () => {
                                                 <Link
                                                     to={link.path}
                                                     onClick={closeDrawer}
-                                                    className="py-4 px-4 rounded-xl text-lg font-bold text-navy-900 active:bg-slate-50 active:text-gold-500"
+                                                    className="py-4 px-4 rounded-xl text-lg font-semibold text-navy-900 active:bg-slate-50 active:text-gold-500"
                                                 >
                                                     {link.name}
                                                 </Link>
@@ -217,7 +217,7 @@ export const Navbar = () => {
                                 <Link
                                     to="/contact"
                                     onClick={closeDrawer}
-                                    className="w-full bg-navy-900 text-white py-4 rounded-xl font-bold text-base tracking-widest shadow-2xl shadow-navy-900/20 active:scale-[0.98] transition-all flex items-center justify-center gap-3 group"
+                                    className="w-full bg-navy-900 text-white py-4 rounded-xl font-semibold text-base tracking-widest shadow-2xl shadow-navy-900/20 active:scale-[0.98] transition-all flex items-center justify-center gap-3 group"
                                 >
                                     GET IN TOUCH
                                     <ChevronRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />

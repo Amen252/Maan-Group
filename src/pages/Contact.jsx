@@ -68,7 +68,7 @@ export const Contact = () => {
 
                 {/* Simplified Header */}
                 <div className="text-center mb-16">
-                    <h1 className="text-3xl md:text-5xl font-bold text-navy-900 mb-4">Contact Us</h1>
+                    <h1 className="text-3xl md:text-5xl font-medium text-navy-900 mb-4">Contact Us</h1>
                     <div className="w-16 h-1 bg-gold-500 mx-auto rounded-full" />
                     <p className="text-slate-500 mt-6 max-w-lg mx-auto font-light">
                         Have a question or looking to start a project? Reach out to us and we'll get back to you shortly.
@@ -165,7 +165,7 @@ export const Contact = () => {
                             <form onSubmit={handleSubmit} className="space-y-6 flex-1 flex flex-col">
                                 <div className="grid md:grid-cols-2 gap-8">
                                     <div className="space-y-2">
-                                        <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest ml-1">Full Name</label>
+                                        <label className="text-[10px] uppercase font-semibold text-slate-400 tracking-widest ml-1">Full Name</label>
                                         <input
                                             type="text"
                                             required
@@ -176,7 +176,7 @@ export const Contact = () => {
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest ml-1">Email Address</label>
+                                        <label className="text-[10px] uppercase font-semibold text-slate-400 tracking-widest ml-1">Email Address</label>
                                         <input
                                             type="email"
                                             required
@@ -223,7 +223,7 @@ export const Contact = () => {
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className="w-full py-4 sm:py-5 bg-gold-500 text-white rounded-xl font-bold uppercase text-[10px] sm:text-xs tracking-widest hover:bg-gold-600 hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 shadow-xl shadow-gold-500/20 group"
+                                        className="w-full py-4 sm:py-5 bg-gold-500 text-white rounded-xl font-semibold uppercase text-[10px] sm:text-xs tracking-widest hover:bg-gold-600 hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 shadow-xl shadow-gold-500/20 group"
                                     >
                                         {isSubmitting ? (
                                             <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />

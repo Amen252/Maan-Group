@@ -13,7 +13,7 @@ const ValueCard = ({ value, idx }) => (
         whileHover={{ y: -3 }}
         className="group relative bg-white p-6 rounded-2xl border border-slate-100 hover:border-gold-500/30 hover:shadow-lg transition-all duration-300 overflow-hidden"
     >
-        <span className="absolute -right-2 -bottom-4 text-6xl font-black text-slate-50 group-hover:text-gold-500/5 transition-colors duration-500 select-none pointer-events-none">
+        <span className="absolute -right-2 -bottom-4 text-6xl font-semibold text-slate-50 group-hover:text-gold-500/5 transition-colors duration-500 select-none pointer-events-none">
             {value.num}
         </span>
 
@@ -59,7 +59,7 @@ export const About = () => {
                         <motion.span
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500"
+                            className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold-500"
                         >
                             Our Identity
                         </motion.span>
@@ -81,7 +81,7 @@ export const About = () => {
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div className="space-y-6">
                             <div className="space-y-2">
-                                <h2 className="text-2xl font-bold text-navy-900">Purpose & Journey</h2>
+                                <h2 className="text-2xl font-semibold text-navy-900">Purpose & Journey</h2>
                                 <div className="w-10 h-1 bg-gold-500 rounded-full" />
                             </div>
                             <div className="space-y-4 text-slate-600 text-[0.95rem] font-light leading-relaxed">
@@ -111,7 +111,7 @@ export const About = () => {
                                 <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center text-gold-500">
                                     <Shield size={18} />
                                 </div>
-                                <h3 className="text-gold-500 font-bold uppercase text-[10px] tracking-widest">Our Vision</h3>
+                                <h3 className="text-gold-500 font-semibold uppercase text-[10px] tracking-widest">Our Vision</h3>
                             </div>
                             <p className="text-base text-white/90 font-light leading-relaxed">
                                 To become the <span className="text-gold-500 font-semibold font-serif italic">leading consultancy and training partner</span> in Somalia, achieving sustainable impact and excellence by empowering transformation and inspiring progress for leaders, organizations, and professionals through innovative, culturally responsive solutions.
@@ -123,7 +123,7 @@ export const About = () => {
                                 <div className="w-8 h-8 bg-navy-900 text-white rounded-lg flex items-center justify-center">
                                     <Target size={18} />
                                 </div>
-                                <h3 className="text-gold-600 font-bold uppercase text-[10px] tracking-widest">Our Mission</h3>
+                                <h3 className="text-gold-600 font-semibold uppercase text-[10px] tracking-widest">Our Mission</h3>
                             </div>
                             <div className="space-y-4 text-base text-slate-700 font-light leading-relaxed">
                                 <p className="relative pl-4 border-l border-gold-500/30">
@@ -162,8 +162,8 @@ export const About = () => {
             <section className="py-24 bg-white text-center border-t border-slate-50">
                 <div className="container mx-auto px-6 max-w-2xl space-y-8">
                     <div className="space-y-4">
-                        <h2 className="text-3xl md:text-4xl font-bold text-navy-900 tracking-tight">
-                            Ready to build your <span className="text-gold-500 italic">future?</span>
+                        <h2 className="text-3xl md:text-4xl font-semibold text-navy-900 tracking-tight">
+                            Ready to build your <span className="text-gold-500 italic font-normal">future?</span>
                         </h2>
                         <p className="text-slate-500 text-lg font-light font-body">
                             Join the hundreds of leaders transformed by Maan Group.
@@ -171,7 +171,7 @@ export const About = () => {
                     </div>
 
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-4">
-                        <Link to="/contact" className="px-10 py-4 bg-gold-500 text-white font-bold rounded-xl uppercase tracking-widest text-[10px] hover:bg-gold-600 hover:-translate-y-1 transition-all shadow-lg shadow-gold-500/20">
+                        <Link to="/contact" className="px-10 py-4 bg-gold-500 text-white font-semibold rounded-xl uppercase tracking-widest text-[10px] hover:bg-gold-600 hover:-translate-y-1 transition-all shadow-lg shadow-gold-500/20">
                             Consult With Us
                         </Link>
                         <Link to="/services" className="text-navy-900 font-bold uppercase tracking-widest text-[10px] hover:text-gold-600 transition-colors flex items-center gap-2 group">

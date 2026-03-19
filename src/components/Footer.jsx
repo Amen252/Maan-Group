@@ -71,7 +71,7 @@ export const Footer = () => {
                     Developed by
                     <a href="https://github.com/Amen252" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-slate-300 hover:text-gold-500 transition-all duration-300 group">
                         <Github size={14} className="group-hover:rotate-12 transition-transform" />
-                        <span className="font-bold tracking-tight">Amen252</span>
+                        <span className="font-medium tracking-tight">Amen252</span>
                     </a>
                 </p>
             </div>

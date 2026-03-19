@@ -19,7 +19,7 @@ export const ServiceDetail = () => {
         return (
             <div className="min-h-screen flex items-center justify-center bg-slate-50">
                 <div className="text-center">
-                    <h2 className="text-2xl font-bold text-navy-900 mb-4">Service Not Found</h2>
+                    <h2 className="text-2xl font-semibold text-navy-900 mb-4">Service Not Found</h2>
                     <Link to="/services" className="btn btn-primary px-6 py-3 rounded-lg flex items-center gap-2 mx-auto w-fit">
                         <ArrowLeft size={16} /> Back to Services
                     </Link>
@@ -53,7 +53,7 @@ export const ServiceDetail = () => {
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gold-500/10 text-gold-500 mb-6">
                         <service.icon size={32} />
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-bold text-navy-900 mb-4 leading-tight">
+                    <h1 className="text-4xl md:text-5xl font-medium text-navy-900 mb-4 leading-tight">
                         {service.title}
                     </h1>
                     <p className="text-lg text-gold-500 font-medium tracking-wide">
@@ -81,7 +81,7 @@ export const ServiceDetail = () => {
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="md:col-span-2 space-y-6"
                     >
-                        <h2 className="text-2xl font-bold text-navy-900 mb-4">Overview</h2>
+                        <h2 className="text-2xl font-semibold text-navy-900 mb-4">Overview</h2>
                         <p className="text-slate-600 leading-relaxed text-lg mb-10">
                             {service.fullDescription}
                         </p>
@@ -101,7 +101,7 @@ export const ServiceDetail = () => {
                                             <div className="w-8 h-px bg-gold-400" />
                                             <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Featured Research</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-navy-900 tracking-tight">Academic Publications</h3>
+                                        <h3 className="text-xl font-semibold text-navy-900 tracking-tight">Academic Publications</h3>
                                         <p className="text-slate-500 text-sm max-w-sm">
                                             Explore our documented studies and scholarly contributions to policy development on Google Scholar.
                                         </p>
@@ -111,7 +111,7 @@ export const ServiceDetail = () => {
                                         href={service.externalLink} 
                                         target="_blank" 
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-3 px-6 py-3 bg-navy-900 text-white rounded-xl font-bold text-sm hover:bg-gold-500 hover:shadow-lg shadow-navy-900/10 transition-all duration-300 group/btn whitespace-nowrap"
+                                        className="inline-flex items-center gap-3 px-6 py-3 bg-navy-900 text-white rounded-xl font-semibold text-sm hover:bg-gold-500 hover:shadow-lg shadow-navy-900/10 transition-all duration-300 group/btn whitespace-nowrap"
                                     >
                                         View Scholar Profile
                                         <ExternalLink size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
@@ -140,7 +140,7 @@ export const ServiceDetail = () => {
 
                         <div className="mt-8 pt-8 border-t border-slate-200">
                             <p className="text-sm text-slate-500 mb-4 text-center italic">Ready to discuss how we can help?</p>
-                            <Link to="/contact" className="btn btn-primary w-full justify-center py-3 rounded-lg shadow-lg shadow-gold-500/20 group uppercase text-xs tracking-widest font-bold">
+                            <Link to="/contact" className="btn btn-primary w-full justify-center py-3 rounded-lg shadow-lg shadow-gold-500/20 group uppercase text-xs tracking-widest font-semibold">
                                 Contact Us
                             </Link>
                         </div>

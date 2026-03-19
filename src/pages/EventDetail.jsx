@@ -39,8 +39,8 @@ export const EventDetail = () => {
         return (
             <div className="min-h-screen flex items-center justify-center bg-white pt-24">
                 <div className="text-center">
-                    <h2 className="text-2xl font-bold text-navy-900 mb-4">Event Not Found</h2>
-                    <Link to="/events" className="text-gold-500 font-bold flex items-center gap-2 justify-center">
+                    <h2 className="text-2xl font-semibold text-navy-900 mb-4">Event Not Found</h2>
+                    <Link to="/events" className="text-gold-500 font-semibold flex items-center gap-2 justify-center">
                         <ArrowLeft size={18} /> Back to Events
                     </Link>
                 </div>
@@ -60,7 +60,7 @@ export const EventDetail = () => {
             {/* Header Area */}
             <section className="bg-slate-50 py-12 lg:py-16">
                 <div className="container mx-auto px-6 max-w-[1200px]">
-                    <Link to="/events" className="inline-flex items-center gap-2 text-slate-500 hover:text-gold-500 transition-colors mb-8 font-bold text-xs uppercase tracking-widest group">
+                    <Link to="/events" className="inline-flex items-center gap-2 text-slate-500 hover:text-gold-500 transition-colors mb-8 font-semibold text-xs uppercase tracking-widest group">
                         <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back to All Events
                     </Link>
 
@@ -70,10 +70,10 @@ export const EventDetail = () => {
                         className="space-y-6"
                     >
                         <div className="flex flex-wrap gap-2 md:gap-3">
-                            <span className="px-3 md:px-4 py-1 bg-gold-500/10 text-gold-500 text-[0.6rem] md:text-[0.65rem] font-bold uppercase tracking-widest rounded-full">
+                            <span className="px-3 md:px-4 py-1 bg-gold-500/10 text-gold-500 text-[0.6rem] md:text-[0.65rem] font-semibold uppercase tracking-widest rounded-full">
                                 {event.category}
                             </span>
-                            <span className="px-3 md:px-4 py-1 bg-navy-900 text-white text-[0.6rem] md:text-[0.65rem] font-bold uppercase tracking-widest rounded-full">
+                            <span className="px-3 md:px-4 py-1 bg-navy-900 text-white text-[0.6rem] md:text-[0.65rem] font-semibold uppercase tracking-widest rounded-full">
                                 {event.status}
                             </span>
                         </div>
@@ -82,7 +82,7 @@ export const EventDetail = () => {
                             {event.title}
                         </h1>
 
-                        <div className="flex flex-wrap items-center gap-x-8 gap-y-4 pt-4 text-sm font-bold uppercase tracking-widest text-slate-400">
+                        <div className="flex flex-wrap items-center gap-x-8 gap-y-4 pt-4 text-sm font-semibold uppercase tracking-widest text-slate-400">
                             <div className="flex items-center gap-2">
                                 <Calendar size={18} className="text-gold-500" />
                                 {event.date}
@@ -136,7 +136,7 @@ export const EventDetail = () => {
                                         if (line.trim().startsWith('### ')) {
                                             const content = line.trim().substring(4).trim();
                                             return (
-                                                <h3 key={index} className="text-2xl font-bold text-navy-900 pt-6 mt-6 border-t border-slate-100 mb-4 uppercase tracking-wider text-sm">
+                                                <h3 key={index} className="text-2xl font-semibold text-navy-900 pt-6 mt-6 border-t border-slate-100 mb-4 uppercase tracking-wider text-sm">
                                                     {content}
                                                 </h3>
                                             );
@@ -155,7 +155,7 @@ export const EventDetail = () => {
                                                 <div key={index} className="flex gap-4 items-start pl-2">
                                                     <div className="w-1.5 h-1.5 rounded-full bg-gold-500 mt-2.5 flex-shrink-0" />
                                                     <p dangerouslySetInnerHTML={{
-                                                        __html: content.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-navy-900">$1</strong>')
+                                                        __html: content.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-navy-900">$1</strong>')
                                                     }} />
                                                 </div>
                                             );
@@ -164,7 +164,7 @@ export const EventDetail = () => {
                                         // Standard Paragraphs
                                         return (
                                             <p key={index} dangerouslySetInnerHTML={{
-                                                __html: line.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-navy-900">$1</strong>')
+                                                __html: line.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-navy-900">$1</strong>')
                                             }} />
                                         );
                                     })}
@@ -174,7 +174,7 @@ export const EventDetail = () => {
                             {/* Gallery/Article Images */}
                             {event.images.length > 1 && (
                                 <div className="space-y-8 pt-8">
-                                    <h3 className="text-xl font-bold text-navy-900 uppercase tracking-widest flex items-center gap-3">
+                                    <h3 className="text-xl font-semibold text-navy-900 uppercase tracking-widest flex items-center gap-3">
                                         <div className="w-8 h-1 bg-gold-500" /> Event Gallery
                                     </h3>
                                     <div className="grid gap-8">
@@ -195,7 +195,7 @@ export const EventDetail = () => {
 
                             <div className="flex flex-wrap gap-3 pt-10">
                                 {event.hashtags.map(tag => (
-                                    <span key={tag} className="text-sm font-bold text-gold-500 hover:underline cursor-pointer">
+                                    <span key={tag} className="text-sm font-semibold text-gold-500 hover:underline cursor-pointer">
                                         {tag}
                                     </span>
                                 ))}
@@ -205,14 +205,14 @@ export const EventDetail = () => {
                         {/* Sidebar */}
                         <aside className="space-y-12">
                             <div className="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 sticky top-32">
-                                <h4 className="text-navy-900 font-bold mb-6 text-sm uppercase tracking-widest">Organized by</h4>
+                                <h4 className="text-navy-900 font-semibold mb-6 text-sm uppercase tracking-widest">Organized by</h4>
                                 <div className="flex items-center gap-4 mb-8">
                                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center p-2.5 shadow-md border border-slate-200/60 transition-transform hover:scale-105 duration-300">
                                         <img src="/assets/logo.png" alt="Logo" className="w-full h-full object-contain" />
                                     </div>
                                     <div>
-                                        <div className="text-navy-900 font-black text-sm uppercase">MaanGroup</div>
-                                        <div className="text-[0.6rem] text-gold-500 font-bold uppercase tracking-tighter">Strategic Advisor</div>
+                                        <div className="text-navy-900 font-bold text-sm uppercase">MaanGroup</div>
+                                        <div className="text-[0.6rem] text-gold-500 font-semibold uppercase tracking-tighter">Strategic Advisor</div>
                                     </div>
                                 </div>
                                 <p className="text-xs text-slate-500 leading-relaxed mb-8">
@@ -220,7 +220,7 @@ export const EventDetail = () => {
                                 </p>
                                 <button 
                                     onClick={handleShare}
-                                    className={`w-full py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 font-bold uppercase tracking-widest text-[10px] ${
+                                    className={`w-full py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 font-semibold uppercase tracking-widest text-[10px] ${
                                         isCopied 
                                         ? 'bg-green-500 text-white shadow-lg shadow-green-500/20' 
                                         : 'bg-gold-500 text-white shadow-lg shadow-gold-500/20 hover:bg-gold-600'
