@@ -4,7 +4,7 @@ export const servicesData = [
     {
         id: 'consulting',
         icon: Globe,
-        image: '/assets/consulting.png',
+        image: '/assets/Hero1.jpeg',
         title: 'Consulting Services',
         subtitle: 'Strategic advisory for leaders & institutions',
         description: 'Modernizing public and private-sector governance, developing agile leaders, and building organizational resilience through localized insights and global expertise.',
