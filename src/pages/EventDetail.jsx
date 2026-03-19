@@ -1,18 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, ArrowLeft, Share2, Tag, ChevronRight, Clock } from 'lucide-react';
+import { Calendar, MapPin, ArrowLeft, Share2, Tag, ChevronRight, Clock, Check } from 'lucide-react';
 import { eventsData } from '../data/events';
 
 export const EventDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const event = eventsData.find(e => e.id === parseInt(id));
+    const [isCopied, setIsCopied] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    const handleShare = async () => {
+        const shareData = {
+            title: event?.title,
+            text: event?.excerpt,
+            url: window.location.href,
+        };
+
+        try {
+            if (navigator.share) {
+                await navigator.share(shareData);
+            } else {
+                await navigator.clipboard.writeText(window.location.href);
+                setIsCopied(true);
+                setTimeout(() => setIsCopied(false), 2000);
+            }
+        } catch (err) {
+            console.error('Error sharing:', err);
+        }
+    };
 
     if (!event) {
         return (
@@ -197,8 +218,23 @@ export const EventDetail = () => {
                                 <p className="text-xs text-slate-500 leading-relaxed mb-8">
                                     Empowering minds through education and professional exposure. MaanGroup is dedicated to building sustainable bridges for youth success.
                                 </p>
-                                <button className="w-full btn btn-primary py-4 rounded-xl flex items-center justify-center gap-2 group">
-                                    <Share2 size={16} /> Share Event
+                                <button 
+                                    onClick={handleShare}
+                                    className={`w-full py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 font-bold uppercase tracking-widest text-[10px] ${
+                                        isCopied 
+                                        ? 'bg-green-500 text-white shadow-lg shadow-green-500/20' 
+                                        : 'bg-gold-500 text-white shadow-lg shadow-gold-500/20 hover:bg-gold-600'
+                                    }`}
+                                >
+                                    {isCopied ? (
+                                        <>
+                                            <Check size={16} /> Copied!
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Share2 size={16} /> Share Event
+                                        </>
+                                    )}
                                 </button>
                             </div>
                         </aside>
