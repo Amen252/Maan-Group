@@ -27,7 +27,7 @@ const ServiceCard = ({ id, image, title, subtitle, description, bullets, delay }
       />
       <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/30 to-transparent" />
       <div className="absolute bottom-0 left-0 p-4 md:p-5">
-        <h3 className="text-white font-semibold text-lg md:text-xl leading-tight">{title}</h3>
+        <h3 className="text-white font-medium text-lg md:text-xl leading-tight">{title}</h3>
         <p className="text-gold-400 text-[10px] md:text-xs font-medium mt-0.5 tracking-wide">{subtitle}</p>
       </div>
     </div>
@@ -49,7 +49,7 @@ const ServiceCard = ({ id, image, title, subtitle, description, bullets, delay }
       {/* Learn More */}
       <Link
         to={`/services/${id}`}
-        className="mt-auto inline-flex items-center gap-2 text-[10px] md:text-xs font-semibold text-navy-900 border border-navy-900/20 px-3 md:px-4 py-2 md:py-2.5 rounded-md hover:bg-navy-900 hover:text-white hover:border-navy-900 transition-all duration-300 w-fit"
+        className="mt-auto inline-flex items-center gap-2 text-[10px] md:text-xs font-medium text-navy-900 border border-navy-900/20 px-3 md:px-4 py-2 md:py-2.5 rounded-md hover:bg-navy-900 hover:text-white hover:border-navy-900 transition-all duration-300 w-fit"
       >
         Learn More <ArrowRight size={12} />
       </Link>
@@ -181,7 +181,7 @@ export const Home = () => {
       {/* ═══════════ FOUNDER SECTION ═══════════ */}
       <section className="py-28 lg:py-40 bg-navy-900 relative overflow-hidden z-10">
         {/* Deep Background Typography */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12rem] md:text-[20rem] lg:text-[25rem] font-black text-white/[0.02] tracking-tighter whitespace-nowrap pointer-events-none select-none z-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12rem] md:text-[20rem] lg:text-[25rem] font-bold text-white/[0.02] tracking-tighter whitespace-nowrap pointer-events-none select-none z-0">
           VISIONARY
         </div>
 
