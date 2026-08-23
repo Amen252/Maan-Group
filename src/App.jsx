@@ -12,8 +12,10 @@ import { Events } from './pages/Events'
 import { EventDetail } from './pages/EventDetail'
 import { AdminLogin } from './admin/AdminLogin'
 import { AdminLayout } from './admin/AdminLayout'
+import { AdminOverview } from './admin/AdminOverview'
 import { AdminEvents } from './admin/AdminEvents'
 import { AdminRegistrations } from './admin/AdminRegistrations'
+import { AdminProfile } from './admin/AdminProfile'
 import ScrollToTop from './components/ScrollToTop'
 
 const PublicLayout = () => (
@@ -44,8 +46,10 @@ function App() {
           {/* Admin Portal */}
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminEvents />} />
+            <Route index element={<AdminOverview />} />
+            <Route path="events" element={<AdminEvents />} />
             <Route path="registrations" element={<AdminRegistrations />} />
+            <Route path="profile" element={<AdminProfile />} />
           </Route>
         </Routes>
       </Router>

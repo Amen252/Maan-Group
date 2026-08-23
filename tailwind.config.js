@@ -21,6 +21,7 @@ export default {
         },
       },
       fontFamily: {
+        nunito: ['"Nunito"', 'sans-serif'],
         heading: ['"Poppins"', 'sans-serif'],
         body: ['"Poppins"', 'sans-serif'],
         sans: ['"Poppins"', 'sans-serif'],

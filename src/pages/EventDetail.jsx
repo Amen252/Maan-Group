@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useSearchParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, ArrowLeft, Share2, Clock, Check, UserPlus } from 'lucide-react';
+import { Calendar, MapPin, ArrowLeft, Share2, Clock, Check, UserPlus, AlertCircle } from 'lucide-react';
 import { eventsService } from '../services/eventsService';
 import { EventRegisterModal } from '../components/EventRegisterModal';
 
 export const EventDetail = () => {
     const { id } = useParams();
+    const [searchParams] = useSearchParams();
     const [event, setEvent] = useState(null);
     const [loading, setLoading] = useState(true);
     const [isCopied, setIsCopied] = useState(false);
@@ -18,7 +19,12 @@ export const EventDetail = () => {
         const data = eventsService.getEventById(id);
         setEvent(data || null);
         setLoading(false);
-    }, [id]);
+
+        // Auto open registration if query param ?register=true is present
+        if (searchParams.get('register') === 'true' && data && data.status === 'Upcoming') {
+            setIsRegisterOpen(true);
+        }
+    }, [id, searchParams]);
 
     const handleShare = async () => {
         const shareData = {
@@ -61,8 +67,10 @@ export const EventDetail = () => {
         );
     }
 
+    const isPastEvent = event.status === 'Past Event' || event.registrationEnabled === false;
+
     return (
-        <main className="min-h-screen bg-white pt-24 pb-20">
+        <main className="min-h-screen bg-white pt-24 pb-20 font-nunito">
             <Helmet>
                 <title>{event.title} | Maan Group Events</title>
                 <meta name="description" content={event.excerpt} />
@@ -70,10 +78,10 @@ export const EventDetail = () => {
                 <meta property="og:description" content={event.excerpt} />
                 <meta property="og:image" content={event.images[0]} />
             </Helmet>
-            {/* Header Area */}
+
             <section className="bg-slate-50 py-12 lg:py-16">
                 <div className="container mx-auto px-6 max-w-[1200px]">
-                    <Link to="/events" className="inline-flex items-center gap-2 text-slate-500 hover:text-gold-500 transition-colors mb-8 font-semibold text-xs uppercase tracking-widest group">
+                    <Link to="/events" className="inline-flex items-center gap-2 text-slate-500 hover:text-navy-900 transition-colors mb-8 font-semibold text-xs uppercase tracking-widest group">
                         <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back to All Events
                     </Link>
 
@@ -83,10 +91,12 @@ export const EventDetail = () => {
                         className="space-y-6"
                     >
                         <div className="flex flex-wrap gap-2 md:gap-3">
-                            <span className="px-3 md:px-4 py-1 bg-gold-500/10 text-gold-500 text-[0.6rem] md:text-[0.65rem] font-semibold uppercase tracking-widest rounded-full">
+                            <span className="px-3 md:px-4 py-1 bg-gold-500/10 text-gold-500 text-[0.65rem] font-semibold uppercase tracking-widest rounded-full">
                                 {event.category}
                             </span>
-                            <span className="px-3 md:px-4 py-1 bg-navy-900 text-white text-[0.6rem] md:text-[0.65rem] font-semibold uppercase tracking-widest rounded-full">
+                            <span className={`px-3 md:px-4 py-1 text-[0.65rem] font-semibold uppercase tracking-widest rounded-full ${
+                                isPastEvent ? 'bg-slate-200 text-slate-700' : 'bg-emerald-600 text-white'
+                            }`}>
                                 {event.status}
                             </span>
                         </div>
@@ -113,7 +123,6 @@ export const EventDetail = () => {
                 </div>
             </section>
 
-            {/* Cover Image Area */}
             <section className="pb-12 lg:pb-16 bg-white">
                 <div className="container mx-auto px-6 max-w-[1100px]">
                     <motion.div
@@ -130,12 +139,10 @@ export const EventDetail = () => {
                 </div>
             </section>
 
-            {/* Main Content Area */}
             <section className="py-16 lg:py-24">
                 <div className="container mx-auto px-6 max-w-[1200px]">
                     <div className="grid lg:grid-cols-[1fr_300px] gap-16">
 
-                        {/* Post Content */}
                         <article className="space-y-12">
                             <div className="space-y-8">
                                 <p className="text-xl lg:text-2xl text-navy-900 font-medium leading-relaxed italic border-l-[6px] border-gold-500 pl-8 py-2">
@@ -145,7 +152,6 @@ export const EventDetail = () => {
                                     {event.description.split('\n').map((line, index) => {
                                         if (!line.trim()) return <div key={index} className="h-4" />;
 
-                                        // Handle Section Headers (### or ending with :)
                                         if (line.trim().startsWith('### ')) {
                                             const content = line.trim().substring(4).trim();
                                             return (
@@ -161,7 +167,6 @@ export const EventDetail = () => {
                                             );
                                         }
 
-                                        // Handle Bullet Points
                                         if (line.trim().startsWith('* ')) {
                                             const content = line.trim().substring(2).trim();
                                             return (
@@ -174,7 +179,6 @@ export const EventDetail = () => {
                                             );
                                         }
 
-                                        // Standard Paragraphs
                                         return (
                                             <p key={index} dangerouslySetInnerHTML={{
                                                 __html: line.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-navy-900">$1</strong>')
@@ -193,7 +197,6 @@ export const EventDetail = () => {
                             </div>
                         </article>
 
-                        {/* Sidebar */}
                         <aside className="space-y-12">
                             <div className="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 sticky top-32">
                                 <h4 className="text-navy-900 font-semibold mb-6 text-sm uppercase tracking-widest">Organized by</h4>
@@ -211,13 +214,18 @@ export const EventDetail = () => {
                                 </p>
 
                                 <div className="space-y-3">
-                                    {event.status === 'Upcoming' && (
+                                    {!isPastEvent ? (
                                         <button
                                             onClick={() => setIsRegisterOpen(true)}
                                             className="w-full py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 font-semibold uppercase tracking-widest text-[10px] bg-navy-900 text-white shadow-lg shadow-navy-900/20 hover:bg-gold-500 cursor-pointer"
                                         >
                                             <UserPlus size={16} /> Register for Event
                                         </button>
+                                    ) : (
+                                        <div className="w-full py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 text-center text-xs font-semibold text-slate-500 bg-slate-200/70 border border-slate-300/60">
+                                            <AlertCircle size={15} />
+                                            <span>Registration Closed (Past Event)</span>
+                                        </div>
                                     )}
 
                                     <button 
@@ -246,12 +254,13 @@ export const EventDetail = () => {
                 </div>
             </section>
 
-            {/* Registration Modal */}
-            <EventRegisterModal
-                isOpen={isRegisterOpen}
-                onClose={() => setIsRegisterOpen(false)}
-                event={event}
-            />
+            {!isPastEvent && (
+                <EventRegisterModal
+                    isOpen={isRegisterOpen}
+                    onClose={() => setIsRegisterOpen(false)}
+                    event={event}
+                />
+            )}
         </main>
     );
 };
