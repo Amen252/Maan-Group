@@ -2,17 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, ArrowLeft, Share2, Clock, Check } from 'lucide-react';
-import { eventsData } from '../data/events';
+import { Calendar, MapPin, ArrowLeft, Share2, Clock, Check, UserPlus } from 'lucide-react';
+import { eventsService } from '../services/eventsService';
+import { EventRegisterModal } from '../components/EventRegisterModal';
 
 export const EventDetail = () => {
     const { id } = useParams();
-    const event = eventsData.find(e => e.id === parseInt(id));
+    const [event, setEvent] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [isCopied, setIsCopied] = useState(false);
+    const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+        const data = eventsService.getEventById(id);
+        setEvent(data || null);
+        setLoading(false);
+    }, [id]);
 
     const handleShare = async () => {
         const shareData = {
@@ -33,6 +39,14 @@ export const EventDetail = () => {
             console.error('Error sharing:', err);
         }
     };
+
+    if (loading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-white pt-24">
+                <div className="text-slate-400 text-sm">Loading event details...</div>
+            </div>
+        );
+    }
 
     if (!event) {
         return (
@@ -192,33 +206,52 @@ export const EventDetail = () => {
                                         <div className="text-[0.6rem] text-gold-500 font-semibold uppercase tracking-tighter">Strategic Advisor</div>
                                     </div>
                                 </div>
-                                <p className="text-xs text-slate-500 leading-relaxed mb-8">
+                                <p className="text-xs text-slate-500 leading-relaxed mb-6">
                                     Empowering minds through education and professional exposure. MaanGroup is dedicated to building sustainable bridges for youth success.
                                 </p>
-                                <button 
-                                    onClick={handleShare}
-                                    className={`w-full py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 font-semibold uppercase tracking-widest text-[10px] ${
-                                        isCopied 
-                                        ? 'bg-green-500 text-white shadow-lg shadow-green-500/20' 
-                                        : 'bg-gold-500 text-white shadow-lg shadow-gold-500/20 hover:bg-gold-600'
-                                    }`}
-                                >
-                                    {isCopied ? (
-                                        <>
-                                            <Check size={16} /> Copied!
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Share2 size={16} /> Share Event
-                                        </>
+
+                                <div className="space-y-3">
+                                    {event.status === 'Upcoming' && (
+                                        <button
+                                            onClick={() => setIsRegisterOpen(true)}
+                                            className="w-full py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 font-semibold uppercase tracking-widest text-[10px] bg-navy-900 text-white shadow-lg shadow-navy-900/20 hover:bg-gold-500 cursor-pointer"
+                                        >
+                                            <UserPlus size={16} /> Register for Event
+                                        </button>
                                     )}
-                                </button>
+
+                                    <button 
+                                        onClick={handleShare}
+                                        className={`w-full py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 font-semibold uppercase tracking-widest text-[10px] ${
+                                            isCopied 
+                                            ? 'bg-green-500 text-white shadow-lg shadow-green-500/20' 
+                                            : 'bg-gold-500 text-white shadow-lg shadow-gold-500/20 hover:bg-gold-600'
+                                        }`}
+                                    >
+                                        {isCopied ? (
+                                            <>
+                                                <Check size={16} /> Copied!
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Share2 size={16} /> Share Event
+                                            </>
+                                        )}
+                                    </button>
+                                </div>
                             </div>
                         </aside>
 
                     </div>
                 </div>
             </section>
+
+            {/* Registration Modal */}
+            <EventRegisterModal
+                isOpen={isRegisterOpen}
+                onClose={() => setIsRegisterOpen(false)}
+                event={event}
+            />
         </main>
     );
 };

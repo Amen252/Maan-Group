@@ -1,18 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Clock, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { eventsData } from '../data/events';
+import { eventsService } from '../services/eventsService';
 
 const EVENTS_PER_PAGE = 6;
 
 export const Events = () => {
+    const [events, setEvents] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
 
-    const totalPages = Math.ceil(eventsData.length / EVENTS_PER_PAGE);
+    const loadEvents = () => {
+        setEvents(eventsService.getAllEvents());
+    };
+
+    useEffect(() => {
+        loadEvents();
+        const handleUpdate = () => loadEvents();
+        window.addEventListener('events_updated', handleUpdate);
+        return () => window.removeEventListener('events_updated', handleUpdate);
+    }, []);
+
+    const totalPages = Math.ceil(events.length / EVENTS_PER_PAGE) || 1;
     const startIndex = (currentPage - 1) * EVENTS_PER_PAGE;
-    const paginatedEvents = eventsData.slice(startIndex, startIndex + EVENTS_PER_PAGE);
+    const paginatedEvents = events.slice(startIndex, startIndex + EVENTS_PER_PAGE);
 
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
