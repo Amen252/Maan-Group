@@ -6,30 +6,52 @@ import { Link } from 'react-router-dom';
 
 const ValueCard = ({ value, idx }) => (
     <motion.div
-        initial={{ opacity: 0, y: 15 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: idx * 0.1 }}
-        whileHover={{ y: -3 }}
-        className="group relative bg-white p-6 rounded-2xl border border-slate-100 hover:border-gold-500/30 hover:shadow-lg transition-all duration-300 overflow-hidden"
+        transition={{ duration: 0.45, delay: idx * 0.1 }}
+        whileHover={{ y: -4 }}
+        className="group relative bg-white p-8 sm:p-9 rounded-2xl border border-slate-200/80 shadow-[0_4px_24px_-4px_rgba(6,46,121,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(6,46,121,0.12)] hover:border-gold-500/40 transition-all duration-300 flex flex-col justify-between overflow-hidden"
     >
-        <span className="absolute -right-2 -bottom-4 text-6xl font-semibold text-slate-50 group-hover:text-gold-500/5 transition-colors duration-500 select-none pointer-events-none">
+        {/* Subtle Top Gradient Line */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-slate-100 group-hover:bg-gradient-to-r group-hover:from-gold-500 group-hover:to-navy-900 transition-all duration-300" />
+
+        {/* Big Ambient Background Watermark */}
+        <span className="absolute -right-2 -bottom-4 text-8xl font-black text-slate-100/70 group-hover:text-gold-500/5 transition-colors duration-500 select-none pointer-events-none font-mono">
             {value.num}
         </span>
 
-        <div className="relative z-10 flex flex-col gap-4">
-            <div className="w-10 h-10 rounded-xl bg-slate-50 text-navy-900 flex items-center justify-center group-hover:bg-gold-500 group-hover:text-white transition-all duration-300">
-                <value.icon size={18} strokeWidth={2} />
+        <div>
+            {/* Top Row: Icon + Tag & Number */}
+            <div className="flex items-center justify-between gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-slate-50 text-navy-900 border border-slate-200/80 flex items-center justify-center group-hover:bg-navy-900 group-hover:text-white group-hover:border-navy-900 transition-all duration-300 shadow-sm">
+                    <value.icon size={24} strokeWidth={2} />
+                </div>
+                <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-semibold text-slate-500 group-hover:text-navy-900 transition-colors px-3 py-1 rounded-full bg-slate-50 group-hover:bg-slate-100 border border-slate-200/60">
+                        {value.tag}
+                    </span>
+                    <span className="text-xs font-mono font-bold text-slate-400 group-hover:text-gold-500 transition-colors px-2.5 py-1 rounded-lg bg-slate-50 group-hover:bg-gold-50 border border-slate-100 group-hover:border-gold-100">
+                        {value.num}
+                    </span>
+                </div>
             </div>
 
-            <div className="space-y-1">
-                <h4 className="font-semibold text-navy-900 text-sm md:text-base tracking-tight group-hover:text-gold-600 transition-colors">
+            {/* Title & Description */}
+            <div className="mt-7 space-y-3 relative z-10">
+                <h3 className="font-bold text-navy-900 text-xl tracking-tight group-hover:text-gold-600 transition-colors">
                     {value.title}
-                </h4>
-                <p className="text-slate-500 text-xs leading-relaxed font-light">
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed font-light">
                     {value.desc}
                 </p>
             </div>
+        </div>
+
+        {/* Bottom subtle indicator */}
+        <div className="relative z-10 pt-6 mt-6 border-t border-slate-100/90 flex items-center justify-between text-xs font-medium text-slate-400 group-hover:text-navy-900 transition-colors">
+            <span>Guiding Principle {value.num}</span>
+            <ArrowRight size={14} className="text-gold-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
         </div>
     </motion.div>
 );
@@ -47,7 +69,7 @@ export const About = () => {
             <section className="relative min-h-[50vh] flex items-center bg-navy-900 pt-32 pb-16 overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/assets/Hero.jpeg"
+                        src="/assets/hero.jpeg"
                         alt="About Maan Group"
                         className="w-full h-full object-cover opacity-20 grayscale-[20%]"
                     />
@@ -139,18 +161,27 @@ export const About = () => {
             </section>
 
             {/* ── VALUES SECTION ── */}
-            <section className="py-16 bg-white">
-                <div className="container mx-auto px-6 max-w-[1280px]">
-                    <div className="text-center mb-10">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500 block">Principles</span>
-                        <h2 className="text-xl md:text-2xl font-semibold text-navy-900 mt-1">Core <span className="text-gold-500 font-serif italic font-normal">Values</span></h2>
+            <section className="py-20 lg:py-24 bg-gradient-to-b from-slate-50/70 via-white to-slate-50/50 relative overflow-hidden">
+                <div className="container mx-auto px-6 max-w-6xl relative z-10">
+                    <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-600 text-[10px] font-semibold tracking-widest uppercase">
+                            <Sparkles size={13} className="text-gold-500" />
+                            Our Guiding Principles
+                        </div>
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-navy-900 tracking-tight">
+                            Core <span className="text-gold-500 font-serif italic font-normal">Values</span> That Drive Our Impact
+                        </h2>
+                        <p className="text-slate-500 text-xs sm:text-sm font-light leading-relaxed">
+                            The foundational commitments shaping every advisory engagement, executive training program, and reform project we lead.
+                        </p>
                     </div>
-                    <div className="grid md:grid-cols-2 gap-6 lg:gap-10 max-w-4xl mx-auto">
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-7 lg:gap-9 max-w-5xl mx-auto">
                         {[
-                            { title: 'Responsiveness', icon: Zap, desc: 'Rapid, clear communication addressed with precision.', num: '01' },
-                            { title: 'Quality', icon: Award, desc: 'Precision-engineered programs ensuring outcomes.', num: '02' },
-                            { title: 'Initiative', icon: Rocket, desc: 'Experts taking decisive leadership action.', num: '03' },
-                            { title: 'Cooperation', icon: Handshake, desc: 'Synergistic growth through shared expertise.', num: '04' }
+                            { title: 'Responsiveness', icon: Zap, desc: 'Rapid, clear communication addressed with tailored strategic precision.', num: '01', tag: 'Agile Delivery' },
+                            { title: 'Quality', icon: Award, desc: 'Precision-engineered programs ensuring sustainable organizational outcomes.', num: '02', tag: 'Proven Standards' },
+                            { title: 'Initiative', icon: Rocket, desc: 'Senior experts taking decisive leadership and proactive action.', num: '03', tag: 'Proactive Action' },
+                            { title: 'Cooperation', icon: Handshake, desc: 'Synergistic growth fostered through shared regional expertise.', num: '04', tag: 'Collaborative Impact' }
                         ].map((value, idx) => (
                             <ValueCard key={idx} value={value} idx={idx} />
                         ))}

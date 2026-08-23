@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -7,13 +7,11 @@ import { servicesData } from '../data/services';
 
 export const ServiceDetail = () => {
     const { id } = useParams();
-    const [service, setService] = useState(null);
+    const service = servicesData.find(s => s.id === id);
 
     useEffect(() => {
-        // Find service by ID from our data
-        const foundService = servicesData.find(s => s.id === id);
-        setService(foundService);
-    }, [id]);
+        window.scrollTo(0, 0);
+    }, []);
 
     if (!service) {
         return (

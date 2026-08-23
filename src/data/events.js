@@ -29,7 +29,9 @@ Mahadnaq weyn ayaan u diraynaa ardayda **JUTSA** iyo dhammaan ka qaybgalayaasha 
             bio: "Empowering minds through education and professional exposure. Maan Group is dedicated to building sustainable bridges for youth success."
         },
         images: [
-            "/assets/Events/PS1.jpeg"
+            "/assets/events/ps1.jpeg",
+            "/assets/events/empowering-somali-youth.jpeg",
+            "/assets/events/communication-skills.jpeg"
         ],
         hashtags: [
             "#MaanGroup",
@@ -74,7 +76,9 @@ Dhalinyaradii ka soo qey bashay seminar-kan maanta waa kuwo ka diyaarsan dhanka 
             bio: "Empowering minds through education and professional exposure. Maan Group is dedicated to building sustainable bridges for youth success."
         },
         images: [
-            "/assets/Events/Empowering somali youth.jpeg"
+            "/assets/events/empowering-somali-youth.jpeg",
+            "/assets/events/leading-together.jpeg",
+            "/assets/events/ps1.jpeg"
         ],
         hashtags: [
             "#MaanGroup",
@@ -113,7 +117,9 @@ Communication is the backbone of any successful organization. By mastering these
             bio: "Empowering minds through education and professional exposure."
         },
         images: [
-            "/assets/Events/Communication skills.jpeg"
+            "/assets/events/communication-skills.jpeg",
+            "/assets/events/time-management.jpeg",
+            "/assets/events/harnessing.jpeg"
         ],
         hashtags: ["#MaanGroup", "#EffectiveCommunication", "#ProfessionalSkills", "#Somalia"]
     },
@@ -144,7 +150,9 @@ By partnering with academic institutions like Almas University, Maan Group conti
             bio: "Empowering minds through education and professional exposure."
         },
         images: [
-            "/assets/Events/Time Management.jpeg"
+            "/assets/events/time-management.jpeg",
+            "/assets/events/communication-skills.jpeg",
+            "/assets/events/harnessing.jpeg"
         ],
         hashtags: ["#MaanGroup", "#AlmasUniversity", "#TimeManagement", "#Productivity"]
     },
@@ -175,7 +183,9 @@ We believe that leadership is not a solo journey. By leading together, we build 
             bio: "Empowering minds through education and professional exposure."
         },
         images: [
-            "/assets/Events/leading togethe.jpeg"
+            "/assets/events/leading-together.jpeg",
+            "/assets/events/empowering-somali-youth.jpeg",
+            "/assets/events/ps1.jpeg"
         ],
         hashtags: ["#MaanGroup", "#LeadingTogether", "#LeadershipDevelopment", "#Somalia"]
     },
@@ -206,7 +216,9 @@ Our goal was to provide the Dishub team with actionable innovation frameworks th
             bio: "Empowering minds through education and professional exposure."
         },
         images: [
-            "/assets/Events/Harnesing.jpeg"
+            "/assets/events/harnessing.jpeg",
+            "/assets/events/leading-together.jpeg",
+            "/assets/events/time-management.jpeg"
         ],
         hashtags: ["#MaanGroup", "#Innovation", "#Dishub", "#DigitalTransformation"]
     }

@@ -24,13 +24,13 @@ Open your browser and navigate to: `http://localhost:5173`
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="public/Screenshoots/screenshot1.jpeg" width="48%" />
+  <img src="public/screenshots/screenshot1.jpeg" width="48%" />
   &nbsp;
-  <img src="public/Screenshoots/screenshot2.jpeg" width="48%" />
+  <img src="public/screenshots/screenshot2.jpeg" width="48%" />
   <br/><br/>
-  <img src="public/Screenshoots/screenshot3.jpeg" width="48%" />
+  <img src="public/screenshots/screenshot3.jpeg" width="48%" />
   &nbsp;
-  <img src="public/Screenshoots/screenshot4.jpeg" width="48%" />
+  <img src="public/screenshots/screenshot4.jpeg" width="48%" />
 </div>
 
 ---

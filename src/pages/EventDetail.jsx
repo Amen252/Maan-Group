@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, ArrowLeft, Share2, Tag, ChevronRight, Clock, Check } from 'lucide-react';
+import { Calendar, MapPin, ArrowLeft, Share2, Clock, Check } from 'lucide-react';
 import { eventsData } from '../data/events';
 
 export const EventDetail = () => {
     const { id } = useParams();
-    const navigate = useNavigate();
     const event = eventsData.find(e => e.id === parseInt(id));
     const [isCopied, setIsCopied] = useState(false);
 
@@ -171,29 +170,7 @@ export const EventDetail = () => {
                                 </div>
                             </div>
 
-                            {/* Gallery/Article Images */}
-                            {event.images.length > 1 && (
-                                <div className="space-y-8 pt-8">
-                                    <h3 className="text-xl font-semibold text-navy-900 uppercase tracking-widest flex items-center gap-3">
-                                        <div className="w-8 h-1 bg-gold-500" /> Event Gallery
-                                    </h3>
-                                    <div className="grid gap-8">
-                                        {event.images.slice(1).map((img, i) => (
-                                            <motion.div
-                                                key={i}
-                                                initial={{ opacity: 0, y: 20 }}
-                                                whileInView={{ opacity: 1, y: 0 }}
-                                                viewport={{ once: true }}
-                                                className="rounded-3xl overflow-hidden shadow-xl"
-                                            >
-                                                <img src={img} alt={`Gallery ${i}`} className="w-full h-auto object-cover" />
-                                            </motion.div>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-
-                            <div className="flex flex-wrap gap-3 pt-10">
+                            <div className="flex flex-wrap gap-3 pt-6">
                                 {event.hashtags.map(tag => (
                                     <span key={tag} className="text-sm font-semibold text-gold-500 hover:underline cursor-pointer">
                                         {tag}

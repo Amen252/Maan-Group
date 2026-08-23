@@ -1,24 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, CheckCircle, X, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Send, CheckCircle, Mail, MapPin, ArrowRight, ArrowUpRight, Check, Phone } from 'lucide-react';
 import { FaWhatsapp, FaTiktok, FaFacebook, FaLinkedin } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
-    const [formData, setFormData] = React.useState({
+    const [formData, setFormData] = useState({
         name: '',
         email: '',
         service: 'Consulting Services',
+        scope: 'Corporate / Business',
         message: ''
     });
-    const [isSubmitting, setIsSubmitting] = React.useState(false);
-    const [submitStatus, setSubmitStatus] = React.useState(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null);
+
+    const serviceOptions = [
+        'Consulting Services',
+        'Training & Development',
+        'Capacity Building',
+        'Research & Policy',
+        'Institutional Reform',
+        'Leadership Coaching'
+    ];
+
+    const scopeOptions = [
+        'Corporate / Business',
+        'Academic / University',
+        'Government / Public Sector',
+        'NGO / Community',
+        'Individual Leader'
+    ];
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Use environment variables or hardcoded fallbacks for live site reliability
         const SERVICE_ID = import.meta.env.VITE_SERVICE_ID || "service_m1paz2p";
         const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID || "template_5ergxt9";
         const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY || "Hhk7exogWwSNjYybL";
@@ -29,230 +46,311 @@ export const Contact = () => {
         const templateParams = {
             name: formData.name.trim(),
             email: formData.email.trim(),
-            topic: formData.service,
+            topic: `${formData.service} (${formData.scope})`,
             message: formData.message.trim(),
-            title: `Request for ${formData.service}`
+            title: `New Inquiry: ${formData.service}`
         };
 
         try {
-            console.log('Sending message...');
             const result = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
 
             if (result.status === 200) {
-                console.log('Message sent successfully!');
                 setSubmitStatus('success');
-                setFormData({ name: '', email: '', service: 'Consulting Services', message: '' });
-                setTimeout(() => setSubmitStatus(null), 5000);
+                setFormData({
+                    name: '',
+                    email: '',
+                    service: 'Consulting Services',
+                    scope: 'Corporate / Business',
+                    message: ''
+                });
+                setTimeout(() => setSubmitStatus(null), 6000);
             } else {
-                console.error('Failed to send message:', result);
                 setSubmitStatus('error');
-                setTimeout(() => setSubmitStatus(null), 5000);
+                setTimeout(() => setSubmitStatus(null), 6000);
             }
         } catch (error) {
             console.error('EmailJS Error:', error);
             setSubmitStatus('error');
-            setTimeout(() => setSubmitStatus(null), 5000);
+            setTimeout(() => setSubmitStatus(null), 6000);
         } finally {
             setIsSubmitting(false);
         }
     };
 
     return (
-        <main className="min-h-screen bg-slate-50 font-body pt-32 pb-24">
+        <main className="min-h-screen bg-slate-50/70 font-body pt-28 pb-16 relative overflow-hidden flex items-center justify-center">
             <Helmet>
                 <title>Contact Us | Maan Group Strategic Partners</title>
-                <meta name="description" content="Get in touch with Maan Group for strategic consulting, professional training, and institutional development. we're here to help you grow." />
+                <meta name="description" content="Get in touch with Maan Group for strategic consulting, professional training, and institutional development in Somalia and East Africa." />
                 <meta property="og:title" content="Contact Maan Group | Partner With Us" />
             </Helmet>
-            <div className="container mx-auto px-6 max-w-6xl">
 
-                {/* Simplified Header */}
-                <div className="text-center mb-16">
-                    <h1 className="text-3xl md:text-5xl font-medium text-navy-900 mb-4">Contact Us</h1>
-                    <div className="w-16 h-1 bg-gold-500 mx-auto rounded-full" />
-                    <p className="text-slate-500 mt-6 max-w-lg mx-auto font-light">
-                        Have a question or looking to start a project? Reach out to us and we'll get back to you shortly.
-                    </p>
-                </div>
+            {/* Background Ambient Glows */}
+            <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[650px] h-[400px] bg-gradient-to-b from-gold-500/5 via-navy-900/5 to-transparent rounded-full blur-[100px] pointer-events-none -z-0" />
 
-                <div className="grid lg:grid-cols-3 gap-8 items-start">
+            <div className="container mx-auto px-4 sm:px-6 max-w-[980px] relative z-10">
 
-                    {/* Left: Contact Details */}
-                    <div className="lg:col-span-1">
-                        <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100">
-                            <h2 className="text-xl font-bold text-navy-900 mb-8 lowercase tracking-tight">get in touch</h2>
+                {/* Main Unified Card Container */}
+                <div className="bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(6,46,121,0.08)] border border-slate-200/80 overflow-hidden grid lg:grid-cols-12 items-stretch">
 
-                            <div className="space-y-8">
-                                <a
-                                    href="mailto:info@maangroup.so"
-                                    className="flex items-center gap-4 group relative z-10"
-                                    onClick={(e) => { e.stopPropagation(); }}
-                                >
-                                    <div className="w-10 h-10 bg-slate-50 text-navy-900 rounded-xl flex items-center justify-center group-hover:bg-gold-500 group-hover:text-white transition-all duration-300">
-                                        <Mail size={18} />
+                    {/* ═══════════ LEFT PANEL: DARK NAVY ═══════════ */}
+                    <div className="lg:col-span-5 bg-navy-900 p-6 sm:p-8 lg:p-9 text-white flex flex-col justify-between relative overflow-hidden">
+                        {/* Soft Glow in corner */}
+                        <div className="absolute -top-20 -left-20 w-56 h-56 bg-gold-500/15 rounded-full blur-[70px] pointer-events-none" />
+                        <div className="absolute -bottom-20 -right-20 w-56 h-56 bg-navy-800/80 rounded-full blur-[70px] pointer-events-none" />
+
+                        <div className="relative z-10 space-y-6">
+                            {/* Headline */}
+                            <div className="space-y-3">
+                                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[9px] font-semibold tracking-widest uppercase text-gold-400 backdrop-blur-md">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
+                                    Get In Touch
+                                </div>
+                                <h1 className="text-2xl sm:text-3xl font-semibold leading-[1.2] tracking-tight text-white">
+                                    Have A Project Idea <br />
+                                    <span className="relative inline-block text-white">
+                                        In Mind?
+                                        {/* Decorative curved brush SVG accent */}
+                                        <svg className="absolute -top-2 left-0 w-full h-3.5 text-gold-400 opacity-90 pointer-events-none" viewBox="0 0 100 20" fill="none" preserveAspectRatio="none">
+                                            <path d="M5 15 C 30 2, 70 2, 95 15" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                                        </svg>
+                                    </span>
+                                    <br />
+                                    <span className="text-slate-200 font-normal">Let's Get Started</span>
+                                </h1>
+                            </div>
+
+                            {/* Bullet Features */}
+                            <div className="space-y-3 pt-1">
+                                {[
+                                    'Expect A Response From Us Within 24 Hours',
+                                    'Tailored Strategy & Localized Insights For East Africa',
+                                    'Access To Dedicated Consultants & Specialists'
+                                ].map((item, idx) => (
+                                    <div key={idx} className="flex items-start gap-2.5 text-slate-200 text-xs font-light leading-relaxed">
+                                        <div className="w-4 h-4 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5 text-gold-400">
+                                            <Check size={11} strokeWidth={2.5} />
+                                        </div>
+                                        <span>{item}</span>
                                     </div>
-                                    <div>
-                                        <p className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Email Address</p>
-                                        <p className="text-sm font-medium text-navy-900 group-hover:text-gold-500 transition-colors">info@maangroup.so</p>
-                                    </div>
-                                </a>
+                                ))}
+                            </div>
 
+                            {/* Quick Action Pill Button (WhatsApp / Direct Call) */}
+                            <div className="pt-1">
                                 <a
                                     href="https://wa.me/252618257815"
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="flex items-center gap-4 group relative z-10"
-                                    onClick={(e) => { e.stopPropagation(); }}
+                                    className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-gold-400/50 px-4 py-2.5 rounded-full text-white text-[11px] font-semibold backdrop-blur-md transition-all duration-300 group shadow-md"
                                 >
-                                    <div className="w-10 h-10 bg-slate-50 text-navy-900 rounded-xl flex items-center justify-center group-hover:bg-gold-500 group-hover:text-white transition-all duration-300">
-                                        <FaWhatsapp size={18} />
+                                    <div className="w-5 h-5 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-sm">
+                                        <FaWhatsapp size={12} />
                                     </div>
-                                    <div>
-                                        <p className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">WhatsApp</p>
-                                        <p className="text-sm font-medium text-navy-900 group-hover:text-gold-500 transition-colors">+252 61 8257815</p>
-                                    </div>
+                                    <span>Chat On WhatsApp Directly</span>
+                                    <ArrowRight size={12} className="text-gold-400 group-hover:translate-x-1 transition-transform" />
                                 </a>
+                            </div>
+                        </div>
 
-                                <div className="flex items-center gap-4 group">
-                                    <div className="w-10 h-10 bg-slate-50 text-navy-900 rounded-xl flex items-center justify-center">
-                                        <MapPin size={18} />
-                                    </div>
-                                    <div>
-                                        <p className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Location</p>
-                                        <p className="text-sm font-medium text-navy-900">Mogadishu, Somalia</p>
-                                    </div>
-                                </div>
+                        {/* Bottom Info Section */}
+                        <div className="relative z-10 pt-6 mt-6 border-t border-white/10 space-y-3">
+                            <div className="text-[11px] text-slate-300 font-light">
+                                Preferred To Email?{' '}
+                                <a
+                                    href="mailto:info@maangroup.so"
+                                    className="text-gold-400 hover:text-gold-300 font-medium underline underline-offset-4 transition-colors"
+                                >
+                                    info@maangroup.so
+                                </a>
                             </div>
 
-                            {/* Socials */}
-                            <div className="mt-12 pt-8 border-t border-slate-50 flex gap-4">
-                                {[
-                                    { icon: FaFacebook, link: "https://www.facebook.com/share/1BrRsTgjCM/" },
-                                    { icon: FaTiktok, link: "https://www.tiktok.com/@maangroup" },
-                                    { icon: FaLinkedin, link: "#" }
-                                ].map((social, i) => (
-                                    <a
-                                        key={i}
-                                        href={social.link}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className="w-11 h-11 rounded-xl bg-slate-50 flex items-center justify-center text-slate-500 hover:bg-gold-500 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-gold-500/20 transition-all duration-300 relative z-10"
-                                    >
-                                        <social.icon size={18} />
-                                    </a>
-                                ))}
+                            <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+                                <div className="flex items-center gap-1.5 text-[11px] text-slate-300">
+                                    <MapPin size={13} className="text-gold-400" />
+                                    <span>Mogadishu, Somalia</span>
+                                </div>
+
+                                {/* Social Links */}
+                                <div className="flex items-center gap-2">
+                                    {[
+                                        { icon: FaFacebook, link: "https://www.facebook.com/share/1BrRsTgjCM/", label: "Facebook" },
+                                        { icon: FaTiktok, link: "https://www.tiktok.com/@maangroup", label: "TikTok" },
+                                        { icon: FaLinkedin, link: "#", label: "LinkedIn" }
+                                    ].map((social, i) => (
+                                        <a
+                                            key={i}
+                                            href={social.link}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            aria-label={social.label}
+                                            className="w-7 h-7 rounded-lg bg-white/10 hover:bg-gold-500 hover:text-white text-slate-300 flex items-center justify-center transition-all duration-300 text-xs"
+                                        >
+                                            <social.icon size={11} />
+                                        </a>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Right: The Form Card */}
-                    <div className="lg:col-span-2">
-                        <div className="bg-white p-8 md:p-12 rounded-[2rem] shadow-sm border border-slate-100 min-h-full flex flex-col">
+                    {/* ═══════════ RIGHT PANEL: CLEAN FORM ═══════════ */}
+                    <div className="lg:col-span-7 bg-white p-6 sm:p-8 lg:p-9 flex flex-col justify-between">
+                        <div>
                             <AnimatePresence>
                                 {submitStatus === 'success' && (
                                     <motion.div
                                         initial={{ opacity: 0, y: -10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -10 }}
-                                        className="mb-8 p-4 bg-green-50 text-green-700 rounded-xl flex items-center gap-3 border border-green-100 shadow-sm"
+                                        className="mb-5 p-3.5 bg-emerald-50 text-emerald-800 rounded-xl flex items-center gap-2.5 border border-emerald-200 shadow-sm"
                                     >
-                                        <CheckCircle size={20} className="flex-shrink-0" />
-                                        <p className="text-sm font-semibold">Message sent! We will contact you shortly.</p>
+                                        <CheckCircle size={18} className="text-emerald-600 flex-shrink-0" />
+                                        <div>
+                                            <p className="text-xs font-semibold">Message sent successfully!</p>
+                                            <p className="text-[11px] text-emerald-700">Thank you for reaching out. We will get back to you within 24 hours.</p>
+                                        </div>
+                                    </motion.div>
+                                )}
+
+                                {submitStatus === 'error' && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -10 }}
+                                        className="mb-5 p-3.5 bg-rose-50 text-rose-800 rounded-xl flex items-center gap-2.5 border border-rose-200 shadow-sm"
+                                    >
+                                        <p className="text-xs font-semibold">Failed to send message. Please try again or email us directly at info@maangroup.so</p>
                                     </motion.div>
                                 )}
                             </AnimatePresence>
 
-                            <form onSubmit={handleSubmit} className="space-y-6 flex-1 flex flex-col">
-                                <div className="grid md:grid-cols-2 gap-8">
-                                    <div className="space-y-2">
-                                        <label className="text-[10px] uppercase font-semibold text-slate-400 tracking-widest ml-1">Full Name</label>
+                            <form onSubmit={handleSubmit} className="space-y-5">
+                                {/* Row 1: Name & Email */}
+                                <div className="grid sm:grid-cols-2 gap-4">
+                                    <div className="space-y-1.5">
+                                        <label className="block text-[11px] font-semibold text-slate-700 tracking-wide">
+                                            Name
+                                        </label>
                                         <input
                                             type="text"
                                             required
-                                            placeholder="Your name"
-                                            className="w-full px-5 py-4 rounded-xl border border-slate-100 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition-all bg-slate-50/30 font-medium"
+                                            placeholder="Enter Your Name"
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 focus:border-navy-900 focus:ring-1 focus:ring-navy-900 outline-none transition-all text-xs text-slate-800 placeholder:text-slate-400 bg-white"
                                         />
                                     </div>
-                                    <div className="space-y-2">
-                                        <label className="text-[10px] uppercase font-semibold text-slate-400 tracking-widest ml-1">Email Address</label>
+
+                                    <div className="space-y-1.5">
+                                        <label className="block text-[11px] font-semibold text-slate-700 tracking-wide">
+                                            Email
+                                        </label>
                                         <input
                                             type="email"
                                             required
-                                            placeholder="example@mail.com"
-                                            className="w-full px-5 py-4 rounded-xl border border-slate-100 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition-all bg-slate-50/30 font-medium"
+                                            placeholder="Enter Your Email"
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 focus:border-navy-900 focus:ring-1 focus:ring-navy-900 outline-none transition-all text-xs text-slate-800 placeholder:text-slate-400 bg-white"
                                         />
                                     </div>
                                 </div>
 
+                                {/* Row 2: What Do You Need? (Interactive Pills) */}
                                 <div className="space-y-2">
-                                    <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest ml-1">Service Type</label>
-                                    <div className="relative">
-                                        <select
-                                            className="w-full px-5 py-4 rounded-xl border border-slate-100 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none cursor-pointer appearance-none bg-slate-50/30 font-medium"
-                                            value={formData.service}
-                                            onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                                        >
-                                            <option>Consulting Services</option>
-                                            <option>Training & Development</option>
-                                            <option>Capacity Building</option>
-                                            <option>Research & Development</option>
-                                        </select>
-                                        <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-                                        </div>
+                                    <label className="block text-[11px] font-semibold text-slate-700 tracking-wide">
+                                        What Do You Need?
+                                    </label>
+                                    <div className="flex flex-wrap gap-2">
+                                        {serviceOptions.map((service) => {
+                                            const isSelected = formData.service === service;
+                                            return (
+                                                <button
+                                                    key={service}
+                                                    type="button"
+                                                    onClick={() => setFormData({ ...formData, service })}
+                                                    className={`px-3 py-1.5 rounded-lg text-[11px] font-medium transition-all duration-200 border cursor-pointer ${
+                                                        isSelected
+                                                            ? 'bg-navy-900 text-white border-navy-900 shadow-sm scale-[1.01]'
+                                                            : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                                                    }`}
+                                                >
+                                                    {service}
+                                                </button>
+                                            );
+                                        })}
                                     </div>
                                 </div>
 
+                                {/* Row 3: Organization / Scope (Pills) */}
                                 <div className="space-y-2">
-                                    <label className="text-[10px] uppercase font-bold text-slate-400 tracking-widest ml-1">Your Message</label>
-                                    <textarea
-                                        required
-                                        rows="5"
-                                        placeholder="How can we help you?"
-                                        className="w-full px-5 py-4 rounded-xl border border-slate-100 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition-all resize-none bg-slate-50/30 font-medium"
-                                        value={formData.message}
-                                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                    ></textarea>
+                                    <label className="block text-[11px] font-semibold text-slate-700 tracking-wide">
+                                        Organization Type / Scope
+                                    </label>
+                                    <div className="flex flex-wrap gap-2">
+                                        {scopeOptions.map((scope) => {
+                                            const isSelected = formData.scope === scope;
+                                            return (
+                                                <button
+                                                    key={scope}
+                                                    type="button"
+                                                    onClick={() => setFormData({ ...formData, scope })}
+                                                    className={`px-3 py-1.5 rounded-lg text-[11px] font-medium transition-all duration-200 border cursor-pointer ${
+                                                        isSelected
+                                                            ? 'bg-navy-900 text-white border-navy-900 shadow-sm scale-[1.01]'
+                                                            : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                                                    }`}
+                                                >
+                                                    {scope}
+                                                </button>
+                                            );
+                                        })}
+                                    </div>
                                 </div>
 
-                                <div className="pt-8 mt-auto">
+                                {/* Row 4: Project Brief Textarea */}
+                                <div className="space-y-1.5">
+                                    <label className="block text-[11px] font-semibold text-slate-700 tracking-wide">
+                                        Project Brief
+                                    </label>
+                                    <textarea
+                                        required
+                                        rows={3}
+                                        placeholder="Write Here... Tell us about your goals, timeline, or requirements."
+                                        value={formData.message}
+                                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                        className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 focus:border-navy-900 focus:ring-1 focus:ring-navy-900 outline-none transition-all text-xs text-slate-800 placeholder:text-slate-400 bg-white resize-none"
+                                    />
+                                </div>
+
+                                {/* Row 5: Submit Button */}
+                                <div className="pt-1">
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className="w-full py-4 sm:py-5 bg-gold-500 text-white rounded-xl font-semibold uppercase text-[10px] sm:text-xs tracking-widest hover:bg-gold-600 hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 shadow-xl shadow-gold-500/20 group"
+                                        className="bg-gold-500 hover:bg-gold-600 active:scale-95 text-white px-7 py-3 rounded-lg font-semibold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 shadow-md shadow-gold-500/20 disabled:opacity-60 cursor-pointer"
                                     >
                                         {isSubmitting ? (
-                                            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                            <>
+                                                <div className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                                <span>Sending...</span>
+                                            </>
                                         ) : (
                                             <>
-                                                SEND MESSAGE
-                                                <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                                <span>Send Message</span>
+                                                <ArrowUpRight size={15} />
                                             </>
                                         )}
                                     </button>
-
-                                    <AnimatePresence>
-                                        {submitStatus === 'error' && (
-                                            <motion.div
-                                                initial={{ opacity: 0, y: 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: 10 }}
-                                                className="mt-4 p-3 bg-red-50 text-red-600 rounded-lg text-sm font-medium text-center border border-red-100"
-                                            >
-                                                Failed to send message. Please try again or contact us directly.
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
                                 </div>
                             </form>
                         </div>
                     </div>
+
                 </div>
             </div>
         </main>
     );
 };
+
